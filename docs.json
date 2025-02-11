@@ -58,13 +58,13 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.assistable.ai",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "href": "https://skool.com/assistable",
+          "icon": "house"
         },
         {
           "anchor": "Blog",
