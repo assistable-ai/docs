@@ -3,8 +3,8 @@
   "theme": "mint",
   "name": "Assistable.ai Docs",
   "colors": {
-    "primary": "#8800ff",
-    "light": "#9520fa",
+    "primary": "#be42ff",
+    "light": "#ab91fd",
     "dark": "#7200d5"
   },
   "favicon": "/assistable.png",
@@ -59,20 +59,7 @@
           {
             "group": "Get Started",
             "pages": [
-              "introduction",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "videos/start"
             ]
           }
         ]
