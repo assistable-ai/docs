@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Assistable.ai Docs",
   "colors": {
     "primary": "#6b268a",
     "light": "#8e0fc5",
