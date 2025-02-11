@@ -3,9 +3,9 @@
   "theme": "mint",
   "name": "Assistable.ai Docs",
   "colors": {
-    "primary": "#6b268a",
-    "light": "#8e0fc5",
-    "dark": "#510373"
+    "primary": "#9570c9",
+    "light": "#a98dcd",
+    "dark": "#8251c4"
   },
   "favicon": "/assistable.png",
   "navigation": {
