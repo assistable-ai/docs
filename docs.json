@@ -44,7 +44,7 @@
             ]
           },
           {
-            "group": "Chatting",
+            "group": "Chat",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
@@ -52,7 +52,7 @@
             ]
           },
           {
-            "group": "Calling",
+            "group": "Voice",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
@@ -60,7 +60,7 @@
             ]
           },
           {
-            "group": "Assistants",
+            "group": "Assistant",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
@@ -68,7 +68,39 @@
             ]
           },
           {
-            "group": "Knowledge Bases",
+            "group": "Knowledge Base",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Active Tag",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Phone Number",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Account",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Workspaces",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
