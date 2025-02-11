@@ -3,11 +3,11 @@
   "theme": "mint",
   "name": "Assistable.ai Docs",
   "colors": {
-    "primary": "#9570c9",
-    "light": "#a98dcd",
-    "dark": "#8251c4"
+    "primary": "#8800ff",
+    "light": "#9520fa",
+    "dark": "#7200d5"
   },
-  "favicon": "/assistable.svg",
+  "favicon": "/assistable.png",
   "navigation": {
     "tabs": [
       {
@@ -49,6 +49,30 @@
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
               "api-reference/endpoint/delete"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Videos",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "development"
+            ]
+          },
+          {
+            "group": "Essentials",
+            "pages": [
+              "essentials/markdown",
+              "essentials/code",
+              "essentials/images",
+              "essentials/settings",
+              "essentials/navigation",
+              "essentials/reusable-snippets"
             ]
           }
         ]
