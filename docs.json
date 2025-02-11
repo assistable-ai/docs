@@ -44,7 +44,31 @@
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Chatting",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Calling",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Assistants",
+            "pages": [
+              "api-reference/endpoint/get",
+              "api-reference/endpoint/create",
+              "api-reference/endpoint/delete"
+            ]
+          },
+          {
+            "group": "Knowledge Bases",
             "pages": [
               "api-reference/endpoint/get",
               "api-reference/endpoint/create",
