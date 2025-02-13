@@ -42,30 +42,6 @@
             "pages": [
               "api-reference/introduction"
             ]
-          },
-          {
-            "group": "Chat"
-          },
-          {
-            "group": "Voice"
-          },
-          {
-            "group": "Assistant"
-          },
-          {
-            "group": "Knowledge Base",
-          },
-          {
-            "group": "Active Tag"
-          },
-          {
-            "group": "Phone Number"
-          },
-          {
-            "group": "Account"
-          },
-          {
-            "group": "Workspaces"
           }
         ]
       },
