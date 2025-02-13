@@ -21,7 +21,7 @@
             ]
           },
           {
-            "group": "Platform Tour",
+            "group": "Tour",
             "pages": [
               "tour/workspace",
               "tour/account",
@@ -60,6 +60,11 @@
     "global": {
       "anchors": [
         {
+          "anchor": "Help Center",
+          "href": "https://help.assistable.ai",
+          "icon": "handshake-angle"
+        },
+        {
           "anchor": "Documentation",
           "href": "https://docs.assistable.ai",
           "icon": "book-open-cover"
@@ -73,6 +78,11 @@
           "anchor": "Blog",
           "href": "https://mintlify.com/blog",
           "icon": "newspaper"
+        },
+        {
+          "anchor": "Legal Center",
+          "href": "https://legal.assistable.ai",
+          "icon": "gavel"
         }
       ]
     }
