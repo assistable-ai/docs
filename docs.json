@@ -44,6 +44,17 @@
             ]
           },
           {
+            "group": "Usage",
+            "pages": [
+              "deploy/active-tags",
+              "deploy/inbound-outbound",
+              "deploy/telephony/buy-number",
+              "deploy/telephony/import-number",
+              "deploy/best-practices",
+              "deploy/limits"
+            ]
+          },
+          {
             "group": "Debug",
             "pages": [
               "debug/overview",
