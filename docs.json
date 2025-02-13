@@ -31,6 +31,26 @@
               "platform/numbers",
               "platform/widgets"
             ]
+          },
+          {
+            "group": "Build",
+            "pages": [
+              "build/examples",
+              "build/best-practices",
+              "build/prompting",
+              "build/tools",
+              "build/knowledge-base",
+              "build/webhooks"
+            ]
+          },
+          {
+            "group": "Debug",
+            "pages": [
+              "debug/overview",
+              "debug/calendar",
+              "debug/behavior",
+              "debug/errors"
+            ]
           }
         ]
       },
