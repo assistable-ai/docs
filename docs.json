@@ -23,13 +23,13 @@
           {
             "group": "Tour",
             "pages": [
-              "tour/workspace",
-              "tour/account",
-              "tour/assistant",
-              "tour/knowledge",
-              "tour/tags",
-              "tour/numbers",
-              "tour/widgets"
+              "platform/workspace",
+              "platform/account",
+              "platform/assistant",
+              "platform/knowledge",
+              "platform/tags",
+              "platform/numbers",
+              "platform/widgets"
             ]
           }
         ]
