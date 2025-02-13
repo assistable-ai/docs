@@ -4,56 +4,52 @@ description: 'Navigate your sub-accounts and the capabilites to deploy AI'
 icon: 'users'
 ---
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="https://mintlify-assets.b-cdn.net/bigbend.jpg"
-/>
+## Your Accounts
 
-## Image
+*What are* accounts *and what do you do here?*
 
-### Using Markdown
+In short, accounts - or sub-accounts - match to your GoHighLevel sub-accounts by location ID so that you can have an individual portal for each account in your agency. These accounts are where you will actually build, test, monitor and observe your AI assistants.
 
-The [markdown syntax](https://www.markdownguide.org/basic-syntax/#images) lets you add images using the following code
+Let's go for a tour of each tab and the capabilities & resources associated with growing your AI voice and chat offer.
 
-```md
-![title](/path/image.jpg)
-```
+<Note>
+  Your sub-account will automatically begin to pull inbound and outbound conversations for every channel except Email
+</Note>
 
-Note that the image file size must be less than 5MB. Otherwise, we recommend hosting on a service like [Cloudinary](https://cloudinary.com/) or [S3](https://aws.amazon.com/s3/). You can then use that URL and embed.
+### Inbox
 
-### Using Embeds
+The inbox tab allows you to see conversations picked up by Assistable.ai and stored to become shared permanent conversation memory for the assistants. Once conversations populate, you can select a conversation to see the messages between the contact and your sub-account.
 
-To get more customizability with images, you can also use [embeds](/writing-content/embed) to add images
+Messages, on the outbound side, are color coded to note the difference in an AI response and a workflow, user or manual action inside of GoHighLevel. AI messages will show up in green, tool calls will show up as objects in the conversation and everything else will be shown in blue.
 
-```html
-<img height="200" src="/path/image.jpg" />
-```
+Tool call messages can be opened up to view meta data for the activity that was performed by the AI during the tool call. For example, I can see the available calendar times being returned to my assistant by opening up the tool call message to observe and triage returns.
 
-## Embeds and HTML elements
+AI messages will be color-coded in a black & green gradient along with a voting system for training to your knowledge base. You can select the thumbs up or thumbs down to save the interaction or train for the interaction in the future to a knowledge base.
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/4KzFe50RQkQ"
-  title="YouTube video player"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-  style={{ width: '100%', borderRadius: '0.5rem' }}
-></iframe>
+In the top right of the conversation window, you can see two tabs: Conversation and Server Logs.
 
-<br />
+* Conversation: Shows the conversation and tool calls associated with the contact.
 
-<Tip>
+* Server logs: Shows the transparent server logs for everything that happens for the contact ID. You can view events, connection status during, the AI or tags associated at the time of processing, and meta data.
 
-Mintlify supports [HTML tags in Markdown](https://www.markdownguide.org/basic-syntax/#html). This is helpful if you prefer HTML tags to Markdown syntax, and lets you create documentation with infinite flexibility.
+### Call Center
 
-</Tip>
+The call center tab is a top-down view of your calling deployment and a comprehensive list of all AI calls going through the sub-accounts for web, inbound and outbound calls.
 
-### iFrames
+You are able to see a briefing of your calls with a total volume graph, result pipeline, campaign and call type data, associated appointments, total call time, average call time and cost-per-booked appointment.
 
-Loads another HTML page within the document. Most commonly used for embedding videos.
+You can generate a branded report by clicking Generate Report in the top right and inputting the dates you want the report for. This will generate a report in the browser and automatically download it to your browser.
 
-```html
-<iframe src="https://www.youtube.com/embed/4KzFe50RQkQ"> </iframe>
-```
+The Call List sub-menu allow you to see all calls made by AI for this sub-account. The table shows a brief of call type, to, from, duration in mins, direction, status, ending reason and management buttons for each call. The three buttons on the individual calls allow you to refresh the call data, download the call recording and open a tab to see more granular information for individual calls like transcript, which assistant made the call and more.
+
+### Contacts
+
+The contacts tab is a dormant tab used for memory for the widgets and orbs. This will eventually become a place for bulk calling campaigns, wholistic CRM middleware and stand-alone CRM. You can see visitors who have used your orbs, the associated contact ID inside of GHL, the amount of interactions and some management buttons like syncing with GoHighLevel and opening the contact information drawer to change & edit information for that contact.
+
+### Knowledge
+
+Build, refine and manage knowledge bases for assistants to reference. You can create knowledge bases without file size and data source limits. Each knowledge base can be opened up to upload data into the vector store system.
+
+You can upload data either through plain text, FAQs, any type of file and scraping a URL. Each of these data types will be converted to text, chunked, summarized, reformatted, re-ordered and then embedded to a knowledge base.
+
+After you have uploaded one, or more, data sources to the knowledge base, you will be able to test the knowledge base in the playground to ask questions to get deterministic answers from your knowledge base. these answers can be opened to see the meta data, or vector store return, along with the match score associated with the answers. If the score isn't high enough, the playground will state it doesn't have enough information to answer the question. If the score is above 70%, the AI will use it to respond to the quest. You can also use this area to reinforce answer by adding them back to the knowledge base.
