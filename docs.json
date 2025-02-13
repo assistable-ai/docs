@@ -17,19 +17,19 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "quickstart",
-              "development"
+              "quickstart"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Platform Tour",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "tour/workspace",
+              "tour/account",
+              "tour/assistant",
+              "tour/knowledge",
+              "tour/tags",
+              "tour/numbers",
+              "tour/widgets"
             ]
           }
         ]
