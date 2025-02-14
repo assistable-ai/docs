@@ -14,15 +14,11 @@ Our conversational AI allows you to build robust, contextual text-based interact
   <Accordion title="Active Tags" defaultOpen={false} icon="tag">
     Our chat AI is able to respond to a contact without the use of workflows, API calls or webhooks. How are we able to do this? Through Active Tags - pre-define contact tags assigned to an assistant so when they are detected from the inbound message from the contact, we can know when you want the AI to respond and with which AI to respond.
 
-
-
     The simple rule of thumb:
 
     * **No Active Tag**: The AI will not respond, but the conversation will still be recorded and added to the AI conversation memory.
 
     * **Active Tag Found**: We will look for the first added Active Tag that is attached to an assistant and that is the assistant we will generate a response with.
-
-
 
     Best Practices:
 
@@ -84,66 +80,80 @@ Our conversational AI allows you to build robust, contextual text-based interact
 
 
 
-    <u>AI Model:</u>
+    **AI Model:**
 
     With the AI model dropdown, you are able to select between different OpenAI models and different Claude models to use for that specific assistant. OpenAI tends to be the best conversationally and with tool calling, while Claude tends to be more long-winded and thorough.
 
 
 
-    <u>Wait Time:</u>
+    **Wait Time:**
 
     If you would like to adjust how fast - or slow - your AI responds in a text-based channel, you can increase or decrease your wait time accordingly. The typical chat AI response time is dependent on the length of prompt, the size of the knowledge base, the number of tools and other facts - the wait time is an additional wait time on top of that.
 
 
 
-    <u>Max Responses:</u>
+    **Max Responses:**
 
     This settings sets a max number of AI responses over the lifetime of the contact for the assistant that is present in the conversation at that time. Each AI response counts towards the amount in the conversation and the max number sets the limit. Once the limit has been reached, the AI will not respond to the contact. These limits are overwritten for the assistant's settings that is currently being used in the conversation.
 
 
 
-    <u>Temperature:</u>
+    **Temperature:**
 
     Temperature is an important settings when building AI because it controls how deterministic (0.00) or conversational (1.00) the AI is. A lower temperature (0.00 - 0.50) is better for appointment booking AI, and other use cases that require determinism in information. A higher temperature (0.50 - 1.00+) results in a more conversational AI, but decreases quality in tool calls and may result in hallucination.
 
 
 
-    <u>Sleep Mode:</u>
+    **Sleep Mode:**
 
     The sleep mode toggle can be enabled and configured to turn the AI off when a workflow or user message is sent. Once that outbound message comes through, the conversation is paused for the amount of minutes that you have configured. This mitigates AI and human interactions conflicting each other.
   </Accordion>
 
   <Accordion title="Calendars" defaultOpen={false} icon="calendar">
-    You can sync and connect your GoHighLevel calendars using the calendars tab in the assistant builder. Calendar syncing is down on the backend for you but you are able to refresh the connection using the Sync Calendar button. Once you see your desired calendar and it has been verified, you can add it to your assistant to be used in booking.
+    ![](/calendar-preview.png)
+
+    You can sync and connect your GoHighLevel calendars using the calendars tab in the assistant builder. Calendar syncing is done on the backend for you but you are able to refresh the connection using the Sync Calendar button.&#x20;
 
 
 
-    <u>Calendar Verification:</u>
+    Once you see your desired calendar and it has been verified, you can add it to your assistant to be used in booking.
+
+
+
+    **Calendar Verification:**
 
     In order to make sure we are using Active and valid calendars in your GoHighLevel, we require a quick calendar verification. Once you click 'Add to assistant', a popup will show where we will check the calendar's availability over the next 7 days and book a fake appointment to ensure everything is valid.
   </Accordion>
 
   <Accordion title="Find & Replace" defaultOpen={false} icon="magnifying-glass">
+    **Overview**
 
+    A big issue when using AI is that it sounds like - well - AI... So, you can take advantage of find and replace to swap out verbiage to your preference.
+
+
+
+    **Example**
+
+    If you are looking for more casual language but your AI keep saying things like "Excellent!", "Sounds good!", etc. you can use find and replace to take that language and replace with with "Cool.", "That sounds about right.", etc.
+
+    ![](/find-and-replace.png)
+
+    **Use Cases**
+
+    * Verbiage swapping
+
+    * Variables
+
+    * Phrase filtering
   </Accordion>
 
-  <Accordion title="Custom Fields & Values" defaultOpen={false} icon="brackets-curly">
+  <Accordion title="Custom Fields & Values" defaultOpen={false} icon="brackets-curly" />
 
-  </Accordion>
+  <Accordion title="Knowledge Base" defaultOpen={false} icon="book" />
 
-  <Accordion title="Knowledge Base" defaultOpen={false} icon="book">
+  <Accordion title="Memory" defaultOpen={false} icon="brain" />
 
-  </Accordion>
+  <Accordion title="Server Logs" defaultOpen={false} icon="server" />
 
-  <Accordion title="Memory" defaultOpen={false} icon="brain">
-
-  </Accordion>
-
-  <Accordion title="Server Logs" defaultOpen={false} icon="server">
-
-  </Accordion>
-
-  <Accordion title="Context Action" defaultOpen={false} icon="rocket">
-
-  </Accordion>
+  <Accordion title="Context Action" defaultOpen={false} icon="rocket" />
 </AccordionGroup>
