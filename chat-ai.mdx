@@ -3,6 +3,147 @@ title: "Chat AI"
 description: "Deploying chat AI"
 icon: "comment"
 ---
-<Warning>
-  Under construction
-</Warning>
+
+## 🤖 Conversational Chat AI
+
+Our conversational AI allows you to build robust, contextual text-based interactions for every channel inside of GoHighLevel - except for Email. Our chat AI is able to communicate with contacts without the need of using workflows, or a snapshot.
+
+### Chat AI Concepts
+
+<AccordionGroup>
+  <Accordion title="Active Tags" defaultOpen={false} icon="tag">
+    Our chat AI is able to respond to a contact without the use of workflows, API calls or webhooks. How are we able to do this? Through Active Tags - pre-define contact tags assigned to an assistant so when they are detected from the inbound message from the contact, we can know when you want the AI to respond and with which AI to respond.
+
+
+
+    The simple rule of thumb:
+
+    * **No Active Tag**: The AI will not respond, but the conversation will still be recorded and added to the AI conversation memory.
+
+    * **Active Tag Found**: We will look for the first added Active Tag that is attached to an assistant and that is the assistant we will generate a response with.
+
+
+
+    Best Practices:
+
+    1. Whenever you create active tags, try to make them unique so that there is not confusion with tags currently on contacts or in your CRM.
+
+    2. Active Tags can be dynamic, so even if you have active tags inside of your workflows - you can just change which assistant the tag is attached to so you don't have to repeat any actions.
+  </Accordion>
+
+  <Accordion title="Tools" defaultOpen={false} icon="toolbox">
+    <Check>
+      Custom tools are a powerful way to differentiate in your niche by creating functionality that can be taken on by AI
+    </Check>
+
+    Tools are a powerful way to allow your assistant to do things. Imagine attaching hands to your assistant and teaching them to do things on behalf of you - this is the basic idea of using tools.
+
+    ### For example:&#x20;
+
+    Imagine you have a helper friend who can talk and give you great ideas—let's call them “Robo.” Now, Robo can only talk at first, but if you give Robo special toys (or tools), it can do more than just talk.
+
+    For example:
+
+    * If you give Robo a pencil, it can draw pictures.
+
+    * If you give Robo a phone, it can call your grandma.
+
+    * If you give Robo a calendar, it can mark a day for your birthday party.
+
+    But just having the calendar isn’t enough; Robo needs to learn how to use it—like flipping the pages to find the right day. That’s why each tool has special instructions, so Robo knows what to do with it. It’s like giving Robo both the calendar **and** showing it how to find the date or write notes. These instructions for tools are what we call “functions”—they teach Robo exactly how to use each tool to help you in new ways!
+
+    ### **Tool Types**
+
+    * Platform:
+
+      * Platform tools are pre-built and pre-configured to do things inside of GoHighLevel for you with little to no input or customization. These include things like updating contact information, full calendar management, creating tasks and more.
+
+    * Extraction:
+
+      * Extraction tools allow you to extraction information from a conversation and fill it in a custom field inside of GoHighLevel.
+
+    * Add Tag:
+
+      * Adds a tag to the contact inside of GoHighLevel under a certain condition outlined by the description.
+
+    * Remove Tag:
+
+      * Removes a tag to the contact inside of GoHighLevel under a certain condition outlined by the description.
+
+    * Custom:
+
+      * Custom tools are an API wrapper that allows you to connect your assistant to any external system that has an API endpoint. The return from these API calls are stored as memory to the AI so they are contextually aware of the outcome of their actions.
+
+    <Warning>
+      Transfer Call - Not Relevant for Chat AI
+    </Warning>
+  </Accordion>
+
+  <Accordion title="Autopilot" defaultOpen={false} icon="gear">
+    Autopilot settings are the LLM (i.e. OpenAI, Anthropic, Groq, etc.) settings and Assistable.ai's application layer settings to customize your AI's response behavior.
+
+
+
+    <u>AI Model:</u>
+
+    With the AI model dropdown, you are able to select between different OpenAI models and different Claude models to use for that specific assistant. OpenAI tends to be the best conversationally and with tool calling, while Claude tends to be more long-winded and thorough.
+
+
+
+    <u>Wait Time:</u>
+
+    If you would like to adjust how fast - or slow - your AI responds in a text-based channel, you can increase or decrease your wait time accordingly. The typical chat AI response time is dependent on the length of prompt, the size of the knowledge base, the number of tools and other facts - the wait time is an additional wait time on top of that.
+
+
+
+    <u>Max Responses:</u>
+
+    This settings sets a max number of AI responses over the lifetime of the contact for the assistant that is present in the conversation at that time. Each AI response counts towards the amount in the conversation and the max number sets the limit. Once the limit has been reached, the AI will not respond to the contact. These limits are overwritten for the assistant's settings that is currently being used in the conversation.
+
+
+
+    <u>Temperature:</u>
+
+    Temperature is an important settings when building AI because it controls how deterministic (0.00) or conversational (1.00) the AI is. A lower temperature (0.00 - 0.50) is better for appointment booking AI, and other use cases that require determinism in information. A higher temperature (0.50 - 1.00+) results in a more conversational AI, but decreases quality in tool calls and may result in hallucination.
+
+
+
+    <u>Sleep Mode:</u>
+
+    The sleep mode toggle can be enabled and configured to turn the AI off when a workflow or user message is sent. Once that outbound message comes through, the conversation is paused for the amount of minutes that you have configured. This mitigates AI and human interactions conflicting each other.
+  </Accordion>
+
+  <Accordion title="Calendars" defaultOpen={false} icon="calendar">
+    You can sync and connect your GoHighLevel calendars using the calendars tab in the assistant builder. Calendar syncing is down on the backend for you but you are able to refresh the connection using the Sync Calendar button. Once you see your desired calendar and it has been verified, you can add it to your assistant to be used in booking.
+
+
+
+    <u>Calendar Verification:</u>
+
+    In order to make sure we are using Active and valid calendars in your GoHighLevel, we require a quick calendar verification. Once you click 'Add to assistant', a popup will show where we will check the calendar's availability over the next 7 days and book a fake appointment to ensure everything is valid.
+  </Accordion>
+
+  <Accordion title="Find & Replace" defaultOpen={false} icon="magnifying-glass">
+
+  </Accordion>
+
+  <Accordion title="Custom Fields & Values" defaultOpen={false} icon="brackets-curly">
+
+  </Accordion>
+
+  <Accordion title="Knowledge Base" defaultOpen={false} icon="book">
+
+  </Accordion>
+
+  <Accordion title="Memory" defaultOpen={false} icon="brain">
+
+  </Accordion>
+
+  <Accordion title="Server Logs" defaultOpen={false} icon="server">
+
+  </Accordion>
+
+  <Accordion title="Context Action" defaultOpen={false} icon="rocket">
+
+  </Accordion>
+</AccordionGroup>
