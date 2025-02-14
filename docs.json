@@ -17,30 +17,27 @@
             "group": "Get Started",
             "pages": [
               "introduction",
-              "quickstart"
+              "quickstart",
+              "chat-ai",
+              "voice-ai"
             ]
           },
           {
             "group": "Tour",
             "pages": [
               "platform/workspace",
-              "platform/account",
-              "platform/assistant",
-              "platform/knowledge",
-              "platform/tags",
-              "platform/numbers",
-              "platform/widgets"
+              "platform/account"
             ]
           },
           {
             "group": "Build",
             "pages": [
-              "build/examples",
               "build/best-practices",
-              "build/prompting",
-              "build/tools",
+              "build/assistants",
               "build/knowledge-base",
-              "build/webhooks"
+              "build/tools",
+              "build/webhooks",
+              "build/prompting"
             ]
           },
           {
