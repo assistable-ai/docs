@@ -8,6 +8,62 @@ icon: "traffic-light-go"
 
 Follow the steps in the Quickstart guide in order to get started from 0, all the way to a conversing AI model.
 
+<Steps>
+  <Step title="Create & Access Your Account & Workspace">
+    1. Navigate to the [Agency Workspace](https://createassistants.com/dashboard)
+
+    2. Determine which plan of GoHighLevel you are on to find your GoHighLevel Integration type for step 2
+  </Step>
+
+  <Step title="Connect to GoHighLevel">
+    * Unlimited (297 / mo) & SaaS Pro (497 / mo)
+
+    1. Go to the workspace [Launchpad](https://createassistants.com/dashboard?page=home)
+
+    2. Click on Connect To HighLevel & navigate the checklist
+
+    3. Make sure to select your Agency - not any sub-accounts - since we are doing an agency level connection
+
+       1. Make sure to allow access to all sub-accounts - this allows us to connect to your sub-accounts on behalf of you
+
+       2. Make sure to enable automatic future installation - if you do not, you will have to do this again in the future
+
+    4. On redirect, select your workspace to link the connection
+
+    ![](/images/agency-level-oauth.png)
+
+    ![](/images/allow-access-checkboxes.png)
+
+
+
+    * Starter (97 / mo)
+
+    1. Navigate to the [Subaccounts](https://createassistants.com/dashboard?page=accounts) tab
+
+    2. Click on Create Account in the top right corner, then select Direct Connection
+
+    3. Select the sub-account you want to connect
+
+       1. Allow the two conversation providers - these are for AI voice calls syncing with GoHighLevel and custom widgets
+
+    4. You'll be automatically connected & redirected to sub-account you selected - if this is your first time connecting to this account, the sub-account can now be found inside of your workspace
+
+
+
+    ![](/images/sub-account-modal-connection.png)
+
+    ![](/images/allow-custom-conversation-providers.png)
+
+
+  </Step>
+
+  <Step title="Sync Your Sub-Accounts">
+    ...
+  </Step>
+</Steps>
+
+
+
 ### Quickstart Guide
 
 <AccordionGroup>
@@ -20,15 +76,7 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
     2. Click through the checkboxes until you are at the GoHighLevel modal.
 
-    3. We are doing an 
-
-       **Agency Connection**
-
-        so click on your 
-
-       **Agency**
-
-       , not an individual sub-account.
+    3. We are doing an Agency Connection so click on your Agency, not an individual sub-account.
 
        1. If you do not see your agency, go to app.gohighlevel.com and ensure you are logged in as an agency admin on the root domain.
 
@@ -36,9 +84,7 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
     4. Your agency, and any current and future sub-accounts will automatically connected via your agency connection now.
 
-    5. And you're done 
 
-       **✨.**
 
     🔥 **For 97 plan of GHL:**
 
@@ -48,41 +94,23 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
     2. Click on 'Direct Connection' since we are doing a direct connection to a sub-account.
 
-    3. We are doing an 
-
-       **Sub-account Connection**
-
-        so click on your 
-
-       **Sub-account**
-
-        to connect it.
+    3. We are doing an Sub-account Connection so click on your Sub-account to connect it.
 
        1. If you do not see your sub-account, go to app.gohighlevel.com and ensure you are logged in on the root domain.
 
        2. If you still don't see you your sub-account, use an incognito browser.
 
     4. Your sub-account will automatically be created and connected for you via the sub-account connection - if the sub-account already exists, the connection will refresh.
-
-    5. And you're done 
-
-       **✨.**
   </Accordion>
 
   <Accordion title="Create Your Sub-Account" icon="plus">
     There are a few ways to create sub-accounts in your Agency's workspace depending on your business model.&#x20;
 
-    1. **Using Your Custom Menu Link**
-
-       : In your Launchpad or Sub-account tab, you will be able to access your custom menu link.
+    1. **Using Your Custom Menu Link:** In your Launchpad or Sub-account tab, you will be able to access your custom menu link.
 
        1. Copy Your Custom Menu Link from the popup.
 
-       2. Navigate to app.gohighlevel.com, then Settings, then
-
-          **Custom Menu Links**
-
-          .
+       2. Navigate to app.gohighlevel.com, then Settings, then Custom Menu Links.
 
        3. Create a new custom menu link. Configure it how you would like and paste your custom menu link in the URL input section. Turn on the menu link for sub-accounts and turn it off for the agency (since your agency does not have a location ID).
 
@@ -96,7 +124,9 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
       * Native and easy integration
     </Check>
 
-    1. Using Direct Connection: In the Sub-account tab when clicking on Create Account, you can use the direct connection option from the dropdown.
+
+
+    1. **Using Direct Connection:** In the Sub-account tab when clicking on Create Account, you can use the direct connection option from the dropdown.
 
        1. Navigate to the sub-account tab, click on Create Account and then click Direct Connection.
 
@@ -148,13 +178,9 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
     In order to converse in chat channels, we just need an Active Tag on the contact to process the response. The basics of how it works, if there is an active tag on the contact - the assistant corresponding to that active tag will respond. If there is not an active tag on the contact - no assistants will respond but the message will be stored for memory in the future.
 
-
-
     **<u>What is an Active Tag?</u>**
 
     The reason we are able to work with no workflows, API calls or webhooks is because of our application layer of Active Tags. We collect all inbound and outbound messages (except email) and store them in a permanent conversation memory. So how would we know when to reply? and with which assistant to reply? We do this with active tags.
-
-
 
     They are tags that are "looked for" when a message comes through from a contact. If we see an active tag, we find the assistant that correlates with the active tag that we found and send the response from that specific AI.
 
@@ -179,8 +205,6 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
     For inbound and outbound calling, we will need a phone number. This phone number can either be purchased through the platform (US & Canada Only) or imported (via SIP Trunking with any telephony provider that allows SIP Trunking).
 
     For web calling / orbs, we will need a widget which can be create in the widget tab.
-
-
 
     **<u>Outbound Calling:</u>**
 
