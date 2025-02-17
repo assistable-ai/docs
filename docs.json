@@ -26,7 +26,10 @@
             "group": "Product Overview",
             "pages": [
               "platform/workspace",
+              "platform/white-label",
               "platform/account",
+              "platform/assistants",
+              "platform/rebilling",
               "platform/key-benefits",
               "platform/use-cases"
             ]
