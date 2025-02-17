@@ -68,14 +68,6 @@
             ]
           },
           {
-            "group": "Builders Guide",
-            "pages": [
-              "build/assistants",
-              "build/knowledge-base",
-              "build/tools"
-            ]
-          },
-          {
             "group": "Deployment",
             "pages": [
               "deploy/active-tags",
@@ -124,6 +116,11 @@
     ],
     "global": {
       "anchors": [
+        {
+          "anchor": "Videos & How-tos",
+          "href": "https://www.youtube.com/@assistable-ai",
+          "icon": "video"
+        },
         {
           "anchor": "Help Center",
           "href": "https://help.assistable.ai",
