@@ -34,8 +34,6 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
     ![](/images/allow-access-checkboxes.png)
 
-
-
     * Starter (97 / mo)
 
     1. Navigate to the [Subaccounts](https://createassistants.com/dashboard?page=accounts) tab
@@ -48,21 +46,185 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
     4. You'll be automatically connected & redirected to sub-account you selected - if this is your first time connecting to this account, the sub-account can now be found inside of your workspace
 
-
-
     ![](/images/sub-account-modal-connection.png)
 
     ![](/images/allow-custom-conversation-providers.png)
-
-
   </Step>
 
   <Step title="Sync Your Sub-Accounts">
-    ...
+    There are a couple of ways you can sync your sub-accounts with your workspace to start using your new AI.
+
+    <Warning>
+      If you are on the $97 plan of GoHighLevel, you are able to use your custom menu link to create accounts but you will have to use the Direct Connection to connect sub-accounts
+    </Warning>
+
+    ## Custom Menu Link:
+
+    The custom menu link is a unique link that allows you to create sub-accounts in a scalable way. Using our Click-To-Create system, the link allows us to grab the location ID, link it with your agency ID and automatically create, link and connect with that sub-account. This makes sub-account creation and integration happen in seconds, instead of minutes.
+
+    <Note>
+      Your custom menu link will have a variable \{\{location.id}}, please do not edit this custom menu link or pre-fill that value - it will be done for you on the backend
+    </Note>
+
+    1. Navigate to your workspace's launchpad
+
+    2. Click on "Copy Custom Menu Link" to get your custom menu link
+
+       1. You are able to allow automatic invite to clients when they sign up, you can toggle this on or off depending on your preferences and security compliance
+
+    3. Navigate to your GoHighLevel agency view
+
+    4. Go to Settings, and then go to Custom Menu Links
+
+    5. Create a new custom menu link
+
+       1. Your link icon can be whatever you would like, this will be customer facing
+
+       2. Your link name can be whatever you would like, this will be customer facing
+
+       3. Paste your custom menu link exactly as copied
+
+       4. Turn off agency side bar in the sidebar preferences since your agency does not have a location ID
+
+       5. Select your roles and accounts you want to give access to the AI
+
+       6. Allow microphone permissions in order to use the voice lab in testing
+
+    6. Navigate to any of your sub-accounts that has access to the custom menu link, click on the custom menu link and your account will be created and linked automatically (If you have an agency connection, it will be automatically integrated with GoHighLevel as well)
+
+    ## Direct Connection:
+
+    The direct connection is a great way to connect and create sub-accounts by using the sub-account integration method from GoHighLevel. Direction connection is a great way to connect your agency's workspace with outside sub-accounts since it is integrated at the sub-account level. The downside of direct connections is that it will have to be done with each sub-account.
+
+    <Note>
+      When using the direct connection and the account is new: the account will be created, linked with your workspace and connected to GoHighLevel using the sub-account level integration. If the account is existing, the sub-account level integration will be refreshed.
+    </Note>
+
+    1. Navigate to your workspace's Subaccounts tab
+
+    2. Click on the "Create Sub-account" in the top right, then click "Direct Connection"
+
+    3. Select your sub-account in the GoHighLevel integration modal
+
+    4. You will be re-directed and the account will be created
+
+    5. You can access the sub-account using the "Open in new tab" button, clicking on the sub-account in your workspace's list or using the custom menu link in the sub-account in GoHighLevel
+  </Step>
+
+  <Step title="Create Your First Assistant">
+    Assistant creation can be done in seconds. The easiest way, which we will use in this example, is to have the system generate it for you.
+
+    <Note>
+      Assistant creation can be done in multiple ways and further configuration may be required to achieve your desired result - for this example, we will build a simple assistant using the "Generate for me" button
+    </Note>
+
+    1. Navigate to your sub-account and click on the custom menu link OR open the sub-account in a new tab from the workspace
+
+    2. Navigate to the assistants tab, click on "Create Assistant" in the top right and then click "Generate for me"
+
+    3. Input the name and description of the assistant you want to create - you can use the example in the top right of the popup
+
+       1. The name is just an internal name
+
+       2. The description is a brief description of what you want the assistant to do
+
+    4. After the loading is complete, your newly created assistant will be in your account ready to use
+  </Step>
+
+  <Step title="Converse with your AI">
+    Your assistants are multi-modal meaning they are not confined to one channel - they are able to converse in both voice and text channels inside of GoHighLevel.
+
+    To converse with your assistant, let's break it down by method of communication:
+
+    <Note>
+      A rule of thumb:
+
+      Text based channels (SMS, FB, WhatsApp, IG, etc) require an Active Tag
+
+      Voice-based channels (Inbound, Outbound and Web Calling) require a phone number or a widget
+    </Note>
+
+    ## Text / Chat 📞
+
+    In order to converse in chat channels, we just need an Active Tag on the contact to process the response. The basics of how it works, if there is an active tag on the contact - the assistant corresponding to that active tag will respond. If there is not an active tag on the contact - no assistants will respond but the message will be stored for memory in the future.
+
+    **<u>What is an Active Tag?</u>**
+
+    The reason we are able to work with no workflows, API calls or webhooks is because of our application layer of Active Tags. We collect all inbound and outbound messages (except email) and store them in a permanent conversation memory. So how would we know when to reply? and with which assistant to reply? We do this with active tags.
+
+    They are tags that are "looked for" when a message comes through from a contact. If we see an active tag, we find the assistant that correlates with the active tag that we found and send the response from that specific AI.
+
+    <Tip>
+      Navigate to the Active Tags tab, create an active tag, connect an assistant, create the actual tag to link to the assistant and save the changes.
+
+      The tag will automatically be added to GoHighLevel for you (as long as there is an active and live connection between Assistable.ai and GoHighLevel)
+    </Tip>
+
+    1. Navigate to the contact you want to converse with and add your active tag.
+
+    2. When an inbound message comes from that contact (i.e. you message your GoHighLevel number, chat widget, or social media account), we will see your active tag, match it to the assistant and generate the response.
+
+    ## Voice 📞
+
+    In order to converse in voice, we are a few ways to do so:
+
+    * Inbound / Outbound Calling
+
+    * Web calling / Orbs
+
+    For inbound and outbound calling, we will need a phone number. This phone number can either be purchased through the platform (US & Canada Only) or imported (via SIP Trunking with any telephony provider that allows SIP Trunking).
+
+    For web calling / orbs, we will need a widget which can be create in the widget tab.
+
+    **<u>Outbound Calling:</u>**
+
+    <Tip>
+      Make sure to have a phone number attached to the assistant you want to make a call from
+    </Tip>
+
+    1. To make an outbound call, navigate to your GoHighLevel workflows in the automation tab.
+
+    2. Open a workflow or create a workflow where you would like to make a call.
+
+    3. Click on the 'Plus' icon in the workflow to open up the workflow actions - from here, scroll to the bottom and you will see Make AI Call. Click on that action to add it to the workflow.
+
+    4. Add your assistant ID (your assistant ID can be found in the top left of the assistant configuration under the name), and variables if you would like them. Note: All contact information is pre-filled for you, custom variables are for true custom information.
+
+    5. Run a contact through the workflow. The contact will automatically be called from the assistant ID that was inputted and the conversation, as well as a call briefing, will be added to the contact post-call finish.
+
+    **<u>Inbound Calling:</u>**
+
+    <Tip>
+      Make sure to have a phone number attached to the assistant you want to make a call from
+    </Tip>
+
+    1. To accept an inbound call, just call your phone number after it has been attached to an assistant.
+
+    2. If you number already exists inside of GoHighLevel, we will pull the information that is available for the contact. If you number does not exist inside of GoHighLevel, we will create a Guest CallerID inside of your sub-account.
+
+    3. The contact that made the call will receive the conversation, as well as a call briefing, will be added to the contact post-call finish.
+
+    **<u>Web Calling:</u>**
+
+    <Tip>
+      Make sure to have a widget attached to the assistant you want to talk with in your browser
+    </Tip>
+
+    1. To use the orbs / widgets to make AI calls in your browser, create a widget in the widget tab and connect your assistant.
+
+    2. Copy the code snippet from the orb and place it on your website.
+
+    3. Simply click the orb inside of your browser where you placed it on your website and converse with the assistant.
+
+    4. A Guest CallerID will be created the first time an orb is used, and consequent uses will remember the information from the contact in GoHighLevel using the cookies we placed in the user's browser.
+
+    5. The contact that made the call will receive the conversation, as well as a call briefing, will be added to the contact post-call finish.
+
+
+
+
   </Step>
 </Steps>
-
-
 
 ### Quickstart Guide
 
@@ -83,8 +245,6 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
        2. If you still don't see you your agency, use an incognito browser.
 
     4. Your agency, and any current and future sub-accounts will automatically connected via your agency connection now.
-
-
 
     🔥 **For 97 plan of GHL:**
 
@@ -123,8 +283,6 @@ Follow the steps in the Quickstart guide in order to get started from 0, all the
 
       * Native and easy integration
     </Check>
-
-
 
     1. **Using Direct Connection:** In the Sub-account tab when clicking on Create Account, you can use the direct connection option from the dropdown.
 
