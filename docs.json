@@ -23,7 +23,16 @@
             ]
           },
           {
-            "group": "Tour",
+            "group": "Product Overview",
+            "groups": [
+              {
+              "group": "Key Benefits",
+              "pages": [
+                "platform/key-benefits/support-and-success",
+                "platform/key-benefits/lead-qualification"
+            ]
+          }
+            ]
             "pages": [
               "platform/workspace",
               "platform/account"
