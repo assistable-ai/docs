@@ -35,7 +35,13 @@
             ]
           },
           {
-            "group": "Builds Guide",
+            "group": "Tutorials",
+            "pages": [
+              "tutorials/assistants"
+            ]
+          },
+          {
+            "group": "Builders Guide",
             "pages": [
               "build/assistants",
               "build/knowledge-base",
@@ -43,7 +49,7 @@
             ]
           },
           {
-            "group": "How-tos & Tutorials",
+            "group": "Deployment",
             "pages": [
               "deploy/active-tags",
               "deploy/inbound-outbound",
