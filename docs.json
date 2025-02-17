@@ -35,18 +35,15 @@
             ]
           },
           {
-            "group": "Build",
+            "group": "Builds Guide",
             "pages": [
-              "build/best-practices",
               "build/assistants",
               "build/knowledge-base",
-              "build/tools",
-              "build/webhooks",
-              "build/prompting"
+              "build/tools"
             ]
           },
           {
-            "group": "Usage",
+            "group": "How-tos & Tutorials",
             "pages": [
               "deploy/active-tags",
               "deploy/inbound-outbound",
@@ -57,9 +54,11 @@
             ]
           },
           {
-            "group": "Debug",
+            "group": "Troubleshooting",
             "pages": [
               "debug/overview",
+              "debug/connection",
+              "debug/billing",
               "debug/calendar",
               "debug/behavior",
               "debug/errors"
