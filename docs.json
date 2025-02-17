@@ -43,6 +43,27 @@
                 "pages":[
                   "tutorials/assistants/creating-assistants"
                 ]
+              },
+              {
+                "group":"Numbers",
+                "icon":"phone",
+                "pages":[
+                  "tutorials/numbers/importing-numbers"
+                ]
+              },
+              {
+                "group":"Re-billing",
+                "icon":"credit-card",
+                "pages":[
+                  "tutorials/rebilling/enable-rebilling"
+                ]
+              },
+              {
+                "group":"Tools",
+                "icon":"toolbox",
+                "pages":[
+                  "tutorials/tools/creating-tools"
+                ]
               }
             ]
           },
