@@ -36,9 +36,11 @@
           },
           {
             "group": "Tutorials",
-            "groups":[
+            "pages":[
+              "tutorials",
               {
-                "group":"Assistants",
+                "group":"assistants",
+                "icon":"robot",
                 "pages":[
                   "tutorials/assistants/creating-assistants"
                 ]
