@@ -36,8 +36,13 @@
           },
           {
             "group": "Tutorials",
-            "pages": [
-              "tutorials/assistants"
+            "groups":[
+              {
+                "group":"Assistants",
+                "pages":[
+                  "tutorials/assistants/creating-assistants"
+                ]
+              }
             ]
           },
           {
