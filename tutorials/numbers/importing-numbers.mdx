@@ -1,5 +1,114 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Importing Twilio Numbers"
+description: "Learn how to bring your own phone numbers into the system via SIP trunking"
 ---
 
+_This method works with any 3rd party telephony service that allows for SIP Trunking_
+
+This is a comprehensive guide on importing numbers into the system for your AI assistants to use for both inbound and outbound calling. This is the way to integrate with your telephony provider that supports elastic SIP trunking. You will need to set up a SIP trunking and configure your number to point to it, and then import that number to the AI system.
+
+We will use Twilio as an example here. You can use other telephony providers that support elastic SIP trunking as well.
+
+In this context, the elastic SIP trunking is used to connect our VoIP with PSTN so that your AI can make and receive calls.
+
+### **Watch a full tutorial here:**
+
+https://youtu.be/9tMilFicnGg
+
+Let’s get started ⬇️
+
+1. Navigate to [twilio.com](http://twilio.com) ([console.twilio.com](http://console.twilio.com)) and you should see a similar page to the screenshot below:\
+![Step 1 Pn](/images/step-1.png)
+
+\
+\
+2. Navigate and click on “Explore products”:
+
+![Import Twilio Step 2 Pn](/images/import-twilio-step-2.png)
+
+\
+\
+3. Next, on the menu for products - we need to click on “Super Network”:
+
+![Import Twilio Step 3 Pn](/images/import-twilio-step-3.png)
+
+\
+\
+4. We need to click on “Elastic SIP Trunking” - this is how we will be able to automate inbound and outbound calls on your behalf:
+
+![Twilio Import Step 4 Pn](/images/twilio-import-step-4.png)
+
+\
+\
+\
+5. Now, we should be at the “Elastic SIP Trunking Dashboard”. Click “Get Started” right under the main header on this page:
+
+![Twilio Import Step 5 Pn](/images/twilio-import-step-5.png)
+
+\
+6. Click on “Create a SIP Trunk”, then give it a name - something unique. Then click create:
+
+![Twilio Import Step 6 Pn](/images/twilio-import-step-6.png)
+
+7. Let’s toggle some general settings - enable Call Recording here (Record from ringing), enable Call Transfer (SIP REFER), and set Caller ID for the Transfer Target to be the caller ID as transferee. Click save button in the bottom left:
+
+![Twilio Import Step 7 Pn](/images/twilio-import-step-7.png)
+
+8. Now, set up termination (this is for outbound). Click on Termination over on the navigation menu to the far left (in screenshot). The termination SIP URI important. We would use it in later steps so save this for later:
+
+![Twilio Import Step 8 Pn](/images/twilio-import-step-8.png)
+
+#### **<u>OUTBOUND CALLING:</u>**
+
+If these steps are not followed correctly, we will not be able to process outbound calling.
+
+9. For your elastic SIP trunk to accept our outbound request, you need to whitelist some IP addresses: - Click on the “\+” button next to IP Access Control Lists under Authentication (its like right below what we just did) 
+
+- Create the first list: 
+  - **Friendly name:** default ACL 1
+  - **Address:** 0.0.0.0 / 1 
+- Create the second list: 
+  - **Friendly name:** default ACL 2 
+  - **Address:** 128.0.0.0 / 1
+
+- Click the blue save button in the bottom to the left:
+
+![Twilio Import Step 9 Pn](/images/twilio-import-step-9.png)
+
+![Twilio Import Step 91 Pn](/images/twilio-import-step-91.png)
+
+![Twilio Import Step 93 Pn](/images/twilio-import-step-93.png)
+
+#### **<u>INBOUND CALLING:</u>**
+
+If these steps are not followed correctly, we will not be able to process inbound calling.
+
+10. Go to Origination right underneath where we clicked on Termination. Then, add our origination URI: **Origination URI (For you to copy):** **<u>sip:</u>**[**<u>5t4n6j0wnrl.sip.livekit.cloud</u>**](http://5t4n6j0wnrl.sip.livekit.cloud)
+
+![Twilio Import Step 10 Pn](/images/twilio-import-step-10.png)
+
+![Twilio Import Step 101 Pn](/images/twilio-import-step-101.png)
+
+#### **Importing a number to use:**
+
+Ok, now you have your cool new AI calling trunk to put numbers. So, in the top right corner, click on “Add a number” and either buy a number or add an existing number. If you buy a number you still need to click on add existing to add it to this trunk. We need the number in raw format (\+country code, then number with no space, no special characters) and your termination URI. We need these two things to import our number into the system. Get those and move to the next steps.
+
+![Twilio Import Step 11 Pn](/images/twilio-import-step-11.png)
+
+1. Go to your AI portal and navigate to the **Numbers** tab in the main navigation or within an assistant - then click on import a number:
+
+![Screenshot2025 04 16at11 21 42AM Pn](/images/Screenshot2025-04-16at11.21.42AM.png)
+
+2. Input your raw formatted number (\+country code, then number with no space, no special characters) and your termination URI - then click import:
+
+![Screenshot2025 04 16at11 22 01AM Pn](/images/Screenshot2025-04-16at11.22.01AM.png)
+
+3. Then you are good to sync it with your assistants and make outbound calls / receive inbound calls for the AI to pick up from that number. We will save your termination URI for you so you don’t have to remember it every time, just bring the number over.
+
+![Screenshot2025 04 16at11 22 53AM Pn](/images/Screenshot2025-04-16at11.22.53AM.png)
+
+**Debugging Guide:**
+
+Go to twilio logs. There is actually nothing we can do or see and if you are having trouble with inbound or outbound calling, make sure you follow these steps. If so, reach out to the telephony’s (aka twilio) support because we have 0 control here.
+
+We are storing the info you provide as a way to configure the SIP packet, and it's up to the telephony system to decide if it goes through. Some things may be your account needs verification, you put in a non-raw formatted number, come country codes require additional regulation - go to your telephony provider for debugging.
