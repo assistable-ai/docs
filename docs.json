@@ -99,6 +99,12 @@
             "pages": [
               "api-reference/introduction"
             ]
+          },
+          {
+            "group": "Endpoints",
+            "pages": [
+              "api-reference/endpoint/create"
+            ]
           }
         ]
       },
@@ -143,7 +149,15 @@
         }
       ]
     }
-  },
+  },"api": {
+  "mdx": {
+    "server": "https://api.assistable.ai/", // string array for multiple base URLs
+    "auth": {
+      "method": "key",
+      "name": "Bearer" // options: bearer, basic, key.
+    }
+  }
+},
   "logo": {
     "light": "/assistable.png",
     "dark": "/assistable.png"
