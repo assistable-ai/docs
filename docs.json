@@ -94,7 +94,8 @@
       {
         "tab": "API Reference",
         "openapi": "api-endpoints.json"
-      },
+      }
+    ],
     "global": {
       "anchors": [
         {
