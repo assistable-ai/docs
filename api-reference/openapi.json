@@ -84,8 +84,8 @@
                   },
                   "model": {
                     "type": "string",
-                    "enum": [],
-                    "description": "AI model to use"
+                    "description": "AI model to use",
+                    "enum": ["gpt-4", "claude-3", "gpt-3.5-turbo"]
                   },
                   "queue": {
                     "type": "integer",
@@ -176,8 +176,8 @@
                   },
                   "model": {
                     "type": "string",
-                    "enum": [],
-                    "description": "AI model to use"
+                    "description": "AI model to use",
+                    "enum": ["gpt-4", "claude-3", "gpt-3.5-turbo"]
                   },
                   "queue": {
                     "type": "integer",
@@ -213,23 +213,17 @@
     "/v2/delete-assistant": {
       "delete": {
         "summary": "Delete an assistant",
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "required": ["assistant_id"],
-                "properties": {
-                  "assistant_id": {
-                    "type": "string",
-                    "description": "ID of the assistant to delete"
-                  }
-                }
-              }
-            }
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the assistant to delete"
           }
-        },
+        ],
         "responses": {
           "200": {
             "description": "Assistant deleted successfully",
@@ -321,16 +315,23 @@
                                     "type": "string"
                                   },
                                   "refusal": {
-                                    "type": ["string", "null"]
+                                    "type": "string",
+                                    "nullable": true
                                   },
                                   "annotations": {
-                                    "type": "array"
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
                                   }
                                 }
                               }
                             },
                             "toolCalls": {
-                              "type": "array"
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
                             },
                             "completionTimestamp": {
                               "type": "string",
@@ -367,7 +368,10 @@
                                     "type": "number"
                                   },
                                   "values": {
-                                    "type": "array"
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
                                   },
                                   "metadata": {
                                     "type": "object",
@@ -599,6 +603,9 @@
                   "properties": {
                     "messages": {
                       "type": "array",
+                      "items": {
+                        "type": "object"
+                      },
                       "description": "Array of messages in the conversation"
                     },
                     "channel": {
