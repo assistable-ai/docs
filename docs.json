@@ -93,7 +93,7 @@
       },
       {
         "tab": "API Reference",
-        "openapi": "api-endpoints.json"
+        "openapi": "api-reference/openapi.json"
       }
     ],
     "global": {
