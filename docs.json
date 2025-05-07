@@ -93,33 +93,8 @@
       },
       {
         "tab": "API Reference",
-        "groups": [
-          {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoints",
-            "pages": [
-              "api-reference/endpoint/create"
-            ]
-          }
-        ]
+        "openapi": "api-endpoints.json"
       },
-      {
-        "tab": "Videos",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "videos/start"
-            ]
-          }
-        ]
-      }
-    ],
     "global": {
       "anchors": [
         {
@@ -149,15 +124,7 @@
         }
       ]
     }
-  },"api": {
-  "mdx": {
-    "server": "https://api.assistable.ai/", // string array for multiple base URLs
-    "auth": {
-      "method": "key",
-      "name": "Bearer" // options: bearer, basic, key.
-    }
-  }
-},
+  },
   "logo": {
     "light": "/assistable.png",
     "dark": "/assistable.png"
