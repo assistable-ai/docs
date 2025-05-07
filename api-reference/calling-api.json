@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Assistable AI Voice Calling API",
+    "description": "API for making AI voice calls",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.assistable.ai",
+      "description": "Assistable AI API server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API Key"
+      }
+    },
+    "schemas": {
+      "CallResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "call_id": {
+            "type": "string"
+          },
+          "returned_an_error": {
+            "type": "boolean"
+          },
+          "error_message": {
+            "type": "string"
+          },
+          "error_code": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v2/ghl/make-call": {
+      "post": {
+        "summary": "Make a GHL-safe AI call",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["assistant_id", "location_id", "contact_id"],
+                "properties": {
+                  "number_pool_id": {
+                    "type": "string",
+                    "description": "ID of the number pool"
+                  },
+                  "assistant_id": {
+                    "type": "string",
+                    "description": "ID of the assistant"
+                  },
+                  "location_id": {
+                    "type": "string",
+                    "description": "Location ID"
+                  },
+                  "contact_id": {
+                    "type": "string",
+                    "description": "ID of the contact"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Call successfully initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CallResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -95,9 +95,23 @@
         "tab": "API Reference",
         "groups": [
         {
-          "group": "API Endpoints",
+          "group": "Assistants",
           "openapi": {
-            "source": "api-reference/openapi.json",
+            "source": "api-reference/assistant-api.json",
+            "directory": "api-reference"
+          }
+        },
+          {
+          "group": "Calling",
+          "openapi": {
+            "source": "api-reference/calling-api.json",
+            "directory": "api-reference"
+          }
+        },
+        {
+          "group": "Chat",
+          "openapi": {
+            "source": "api-reference/chat-api.json",
             "directory": "api-reference"
           }
         }

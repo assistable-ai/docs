@@ -1,0 +1,338 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Assistable AI Chat and Messaging API",
+    "description": "API for chat completions and messaging operations",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.assistable.ai",
+      "description": "Assistable AI API server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API Key"
+      }
+    },
+    "schemas": {
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "ConversationResponse": {
+        "type": "object",
+        "properties": {
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "description": "Array of messages in the conversation"
+          },
+          "channel": {
+            "type": "string",
+            "description": "Communication channel"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v2/ghl-chat-completion": {
+      "post": {
+        "summary": "Run a GHL-safe chat completion",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["conversation_id", "contact_id", "last_message_id", "channel", "input", "location_id", "assistant_id"],
+                "properties": {
+                  "conversation_id": {
+                    "type": "string",
+                    "description": "ID of the conversation"
+                  },
+                  "contact_id": {
+                    "type": "string",
+                    "description": "ID of the contact"
+                  },
+                  "last_message_id": {
+                    "type": "string",
+                    "description": "ID of the last message"
+                  },
+                  "channel": {
+                    "type": "string",
+                    "description": "Communication channel"
+                  },
+                  "input": {
+                    "type": "string",
+                    "description": "User input text"
+                  },
+                  "location_id": {
+                    "type": "string",
+                    "description": "Location ID"
+                  },
+                  "messages": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    },
+                    "description": "Message history"
+                  },
+                  "assistant_id": {
+                    "type": "string",
+                    "description": "ID of the assistant"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Chat completion successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "run": {
+                      "type": "object",
+                      "properties": {
+                        "response": {
+                          "type": "object",
+                          "properties": {
+                            "messages": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "role": {
+                                    "type": "string"
+                                  },
+                                  "content": {
+                                    "type": "string"
+                                  },
+                                  "refusal": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "annotations": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "toolCalls": {
+                              "type": "array",
+                              "items": {
+                                "type": "object"
+                              }
+                            },
+                            "completionTimestamp": {
+                              "type": "string",
+                              "format": "date-time"
+                            }
+                          }
+                        },
+                        "message": {
+                          "type": "object",
+                          "properties": {
+                            "conversationId": {
+                              "type": "string"
+                            },
+                            "messageId": {
+                              "type": "string"
+                            },
+                            "traceId": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "knowledge_base": {
+                          "type": "object",
+                          "properties": {
+                            "matches": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string"
+                                  },
+                                  "score": {
+                                    "type": "number"
+                                  },
+                                  "values": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object"
+                                    }
+                                  },
+                                  "metadata": {
+                                    "type": "object",
+                                    "properties": {
+                                      "text": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "namespace": {
+                              "type": "string"
+                            },
+                            "usage": {
+                              "type": "object",
+                              "properties": {
+                                "readUnits": {
+                                  "type": "integer"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "input": {
+                          "type": "string"
+                        },
+                        "output": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/create-message": {
+      "post": {
+        "summary": "Add a message to a conversation",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["location_id", "content", "ai", "role", "conversation_id", "message_id", "channel"],
+                "properties": {
+                  "location_id": {
+                    "type": "string",
+                    "description": "Location ID"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "Message content"
+                  },
+                  "ai": {
+                    "type": "boolean",
+                    "description": "Whether the message is from AI"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": ["user", "assistant"],
+                    "description": "Role of the message sender"
+                  },
+                  "conversation_id": {
+                    "type": "string",
+                    "description": "ID of the conversation"
+                  },
+                  "message_id": {
+                    "type": "string",
+                    "description": "ID of the message"
+                  },
+                  "channel": {
+                    "type": "string",
+                    "description": "Communication channel"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Message created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/get-conversation": {
+      "get": {
+        "summary": "Get conversation details",
+        "parameters": [
+          {
+            "name": "location_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Location ID"
+          },
+          {
+            "name": "conversation_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the conversation to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation details retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConversationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

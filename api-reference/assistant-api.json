@@ -1,0 +1,277 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Assistable AI Assistant CRUD API",
+    "description": "API for managing AI assistants and flows",
+    "version": "2.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.assistable.ai",
+      "description": "Assistable AI API server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API Key"
+      }
+    },
+    "schemas": {
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v2/create-assistant": {
+      "post": {
+        "summary": "Create a new assistant",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["location_id"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Assistant name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Assistant description"
+                  },
+                  "location_id": {
+                    "type": "string",
+                    "description": "Location ID"
+                  },
+                  "ambient_noise": {
+                    "type": "string",
+                    "description": "Ambient noise setting"
+                  },
+                  "prompt": {
+                    "type": "string",
+                    "description": "Assistant prompt"
+                  },
+                  "temperature": {
+                    "type": "integer",
+                    "description": "Temperature setting for the model"
+                  },
+                  "model": {
+                    "type": "string",
+                    "description": "AI model to use",
+                    "enum": ["gpt-4", "claude-3", "gpt-3.5-turbo"]
+                  },
+                  "queue": {
+                    "type": "integer",
+                    "description": "Queue setting"
+                  },
+                  "knowledge_id": {
+                    "type": "string",
+                    "description": "Knowledge base ID"
+                  },
+                  "voice_id": {
+                    "type": "string",
+                    "description": "Voice ID for the assistant"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Assistant created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/get-assistant": {
+      "get": {
+        "summary": "Get assistant details",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the assistant to retrieve"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Assistant details retrieved successfully"
+          }
+        }
+      }
+    },
+    "/v2/update-assistant": {
+      "put": {
+        "summary": "Update an existing assistant",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["assistant_id", "location_id"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Assistant name"
+                  },
+                  "assistant_id": {
+                    "type": "string",
+                    "description": "ID of the assistant to update"
+                  },
+                  "location_id": {
+                    "type": "string",
+                    "description": "Location ID"
+                  },
+                  "ambient_noise": {
+                    "type": "string",
+                    "description": "Ambient noise setting"
+                  },
+                  "prompt": {
+                    "type": "string",
+                    "description": "Assistant prompt"
+                  },
+                  "temperature": {
+                    "type": "integer",
+                    "description": "Temperature setting for the model"
+                  },
+                  "model": {
+                    "type": "string",
+                    "description": "AI model to use",
+                    "enum": ["gpt-4", "claude-3", "gpt-3.5-turbo"]
+                  },
+                  "queue": {
+                    "type": "integer",
+                    "description": "Queue setting"
+                  },
+                  "knowledge_id": {
+                    "type": "string",
+                    "description": "Knowledge base ID"
+                  },
+                  "voice_id": {
+                    "type": "string",
+                    "description": "Voice ID for the assistant"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Assistant updated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/delete-assistant": {
+      "delete": {
+        "summary": "Delete an assistant",
+        "parameters": [
+          {
+            "name": "assistant_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the assistant to delete"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Assistant deleted successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/create-flow": {
+      "post": {
+        "summary": "Create a new flow",
+        "description": "Creates a new flow for the specified location",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["location_id"],
+                "properties": {
+                  "location_id": {
+                    "type": "string",
+                    "description": "Location ID"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Flow created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SuccessResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
