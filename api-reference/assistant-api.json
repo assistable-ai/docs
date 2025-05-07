@@ -49,7 +49,7 @@
   "paths": {
     "/v2/create-assistant": {
       "post": {
-        "summary": "Create a new assistant",
+        "summary": "Create Assistant",
         "requestBody": {
           "required": true,
           "content": {
@@ -120,7 +120,7 @@
     },
     "/v2/get-assistant": {
       "get": {
-        "summary": "Get assistant details",
+        "summary": "Get Assistant",
         "parameters": [
           {
             "name": "assistant_id",
@@ -141,7 +141,7 @@
     },
     "/v2/update-assistant": {
       "put": {
-        "summary": "Update an existing assistant",
+        "summary": "Update Assistant",
         "requestBody": {
           "required": true,
           "content": {
@@ -212,7 +212,7 @@
     },
     "/v2/delete-assistant": {
       "delete": {
-        "summary": "Delete an assistant",
+        "summary": "Archive Assistant",
         "parameters": [
           {
             "name": "assistant_id",
@@ -240,7 +240,7 @@
     },
     "/v2/create-flow": {
       "post": {
-        "summary": "Create a new flow",
+        "summary": "Create Flow",
         "description": "Creates a new flow for the specified location",
         "requestBody": {
           "required": true,

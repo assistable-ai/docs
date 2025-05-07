@@ -65,7 +65,7 @@
   "paths": {
     "/v2/ghl-chat-completion": {
       "post": {
-        "summary": "Run a GHL-safe chat completion",
+        "summary": "Agent Chat Completion (GHL-Safe)",
         "requestBody": {
           "required": true,
           "content": {
@@ -240,7 +240,7 @@
     },
     "/v2/create-message": {
       "post": {
-        "summary": "Add a message to a conversation",
+        "summary": "Create Message",
         "requestBody": {
           "required": true,
           "content": {
@@ -299,7 +299,7 @@
     },
     "/v2/get-conversation": {
       "get": {
-        "summary": "Get conversation details",
+        "summary": "Get Messages",
         "parameters": [
           {
             "name": "location_id",

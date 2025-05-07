@@ -50,7 +50,7 @@
   "paths": {
     "/v2/ghl/make-call": {
       "post": {
-        "summary": "Make a GHL-safe AI call",
+        "summary": "Make AI Call (GHL-Safe)",
         "requestBody": {
           "required": true,
           "content": {
