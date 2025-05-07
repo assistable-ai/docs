@@ -93,7 +93,15 @@
       },
       {
         "tab": "API Reference",
-        "openapi": "api-reference/openapi.json"
+        "groups": [
+        {
+          "group": "API Endpoints",
+          "openapi": {
+            "source": "api-reference/openapi.json",
+            "directory": "api-reference"
+          }
+        }
+      ]
       }
     ],
     "global": {
