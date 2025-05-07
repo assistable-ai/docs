@@ -109,7 +109,7 @@
           "group": "Chat",
           "openapi": {
             "source": "api-reference/chat-api.json",
-            "directory": "api-reference"
+            "directory": "ai"
           }
         }
       ]
