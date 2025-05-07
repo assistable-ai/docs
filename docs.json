@@ -96,10 +96,7 @@
         "groups": [
         {
           "group": "Assistants",
-          "openapi": {
-            "source": "api-reference/assistant-api.json",
-            "directory": "api-reference"
-          }
+          "openapi": "assistant-api.json"
         },
           {
           "group": "Calling",
@@ -107,10 +104,7 @@
         },
         {
           "group": "Chat",
-          "openapi": {
-            "source": "api-reference/chat-api.json",
-            "directory": "ai"
-          }
+          "openapi": "api-reference/chat-api.json"
         }
       ]
       }
