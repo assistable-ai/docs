@@ -103,10 +103,7 @@
         },
           {
           "group": "Calling",
-          "openapi": {
-            "source": "api-reference/calling-api.json",
-            "directory": "api-reference"
-          }
+          "openapi": "api-reference/calling-api.json"
         },
         {
           "group": "Chat",
