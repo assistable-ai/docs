@@ -3,6 +3,196 @@ title: "Calendars"
 description: "How to test and verify calendar configurations"
 icon: "calendar"
 ---
-<Warning>
-  Under construction
-</Warning>
+
+This SOP is designed to assist in troubleshooting issues related to conversational calendar booking for client-facing interactions. Following the outlined CASPER triage process ensures efficient problem identification and resolution, enabling the booking bot to perform as intended and provide reliable support for AI deployment.
+
+### **Required Resources**
+
+- Access to conversational booking tool (e.g., Go High Level)
+- Logs for tool activity (availability checks and booking actions)
+- Client’s calendar settings and availability link
+- Access to assistant configuration (e.g., prompts, calendar connections)
+
+### **Step-by-Step Guide**
+
+Use the Triage Order [C-A-S-P-E-R]
+
+**1. Calendar Access (C)**
+
+- Ensure the assistant has access to the specific calendar.
+- Verify that the calendar is integrated correctly within the assistant’s setup.
+- **To Check**: Go to the assistant’s settings, locate the calendar section, and ensure it displays the expected calendar(s). If not, reconnect the calendar and confirm.
+
+**2. Ability (A)**
+
+- Confirm the assistant has access to the essential tool calls (check availability, book appointment).
+- **To Verify**: Open the assistant’s functions and check for “Check Availability” and “Book Appointment.” Add these if missing.
+
+**3. Settings (S)**
+
+- Verify the calendar's settings to ensure booking works as expected.
+- **To Check**:
+  - Go to calendar settings.
+  - Confirm the booking availability aligns with the client’s needs.
+  - If the calendar shows "busy" or “blocked,” review and adjust Google Calendar or high-level settings to open up availability if necessary.
+
+**4. Prompt (P)**
+
+- Ensure prompts are concise, focusing solely on booking tasks.
+- **To Review**: Avoid extensive, complex prompts that could confuse the assistant. Prompts should be simple (e.g., “You are a booking bot”). If the assistant refers to irrelevant information, check for outdated or overly detailed prompts.
+
+**5. Event Tool Calls (E)**
+
+- Confirm the tool successfully calls the event for booking or checking availability.
+- **To Check**:
+  - In the logs, ensure calls show timestamps and calendar details.
+  - Look for successful response metadata (e.g., “appointment booked”) and ensure no error codes like "unauthorized."
+
+**6. Refresh Connection (R)**
+
+- If all settings and tools appear correctly configured but issues persist, refresh the assistant’s calendar connection.
+- **To Refresh**:
+  - Log out and back in, or reconnect the assistant to the calendar.
+  - Run a test booking to confirm functionality.
+
+ 
+
+**Calendar:**
+
+ 
+
+We need to make sure that our assistant has access to a GoHighLevel calendar. To do this, lets navigate to our assistant and we should see a calendars tab, click on that:
+
+Click on Add Calendars to open the calendar menu:
+
+Sync your calendars with GHL and then click add to assistant to go through the verification process. The verification process should be a first order of triage because it runs a simulation for booking and only verifies the calendar if the simulation is successful.
+
+ 
+
+After verification (denoted by the green check mark in the upper right hand corner), then click add to assistant to add the calendar to your assistant.\
+\
+If all is well up until this point then we are good to go on this step.\
+\
+\
+\
+\
+**Ability:**
+
+\
+Giving the AI access to the calendar but no tools to give it the ability to do anything with it is like giving a calendar to an employee that sits in a glass box. It knows there is a calendar but doesn’t have any ability to access it, check it and book to it. So, we will add tools to give it the ability to do things with the connected calendar.\
+\
+\
+There are a handful of pre-build tools to help you with full calendar management such as check availability, book appointments, reschedule appointments, cancel appointments and check the contact’s current appointments - giving the AI a suite of ability to manage you and your clients calendar.\
+\
+The required ones for conversation booking are check availability and book appointment - the two steps in booking appointments. If you do not have those, click on add function and in the pre-built tools add those two - they should be the first two:
+
+**Settings:**
+
+ 
+
+We have access to our calendar (that has been verified) and we have the ability to book on the calendar - now we need to check our GoHighLevel calendar settings. This is not an uncommon bottleneck in booking because GHL has a really robust calendar infrastructure meaning there are a lot of cool settings - but also a lot of cool ways to mess up your availability.\
+\
+The best way to check your objective availability on a GHL calendar is to navigate to your calendars, then calendar settings where you will see all of your calendars:\
+\
+\
+\
+\
+Then we want to click the 3 dots on our calendar, then click share which should bring up a popup where we can get our permanent calendar link. Copy the permanent calendar link and then paste it into another tab - this will show you the objective availability from that calendar.
+
+ 
+
+ 
+
+If the availability in this page doesn’t line up with what you think it should be, check a couple things:\
+\
+- **Your Google / 3rd party calendar integration**: This shares and blocks off availability based on the integration, a lot of times the 3rd party calendar will be blocked off because it is a personal calendar which blocks off your GHL calendar.
+
+ 
+
+- **General calendar settings:** Some settings may limit availability as a feature such as Look Busy, or date ranges but also may conflict and consume your only availability for that time - just do a quick audit of your settings and integrations to make sure your availability lines up with what it should be.
+
+**Prompt\*:**
+
+This is the most likely occurrence and I am going to group Knowledge Base and temperature settings with this because they all have an objective effect and contribute to output generation.
+
+\
+You can make an assistant with no prompt (the prompt is literally just “you are appointment booking bot”) and it will result in a perfectly executed conversation booking.
+
+A lot of the time - this is just a learning curve of AI - users will the prompt as a place to dump information and context in hopes to help the output of the assistant during conversations (use knowledge base for domain / business knowledge, FAQ, objection handling, etc for flawless execution of this data). 
+
+ 
+
+What this tends to do is confuse the assistant or interfere with its understanding of what you want it to do. AI is very good at following instructions - too good, and humans are naturally not objective communicators so where we tend to instruct and provide context may be confusing to the AI model especially if prompts are not well organized.\
+\
+Things like ## Additional Information sections that go deep into scenario handling, business info (again, knowledge base is the best place for this stuff) - the AI may read into as instruction even though it wasn’t meant as that. It's just the way computers simulate thinking.
+
+ 
+
+Making sure your prompt is concise, direct-to-the-point, and clearly structured may mitigate any scenario where the LLM could get confused.
+
+ 
+
+**<u>Where things go for reliable and consistent output:</u>**
+
+ 
+
+- **Prompt:** Personality (identity), response guidelines, style guardrails, important points and the instruction set. Make your prompt concise, detailed and to-the-point.
+
+ 
+
+- **Knowledge Base:** Domain knowledge, business specific knowledge, FAQs, objection handling, pricing information (simple pricing info), and key-value type trained output (FAQs as an example)
+
+\
+**Tools:** Use tools for a couple of ways to scale your prompt, use context injection or tool calls as a way to inject conditional instructions or logic, use tool calls to get data or do something with data (appointment booking as an example) and you can use tools to scale your prompt by calling to the parameters needed
+
+ 
+
+**Event:**
+
+ 
+
+Everything is looking good thus far but we are still having issues around proper booking structure. Lets take a look at our conversation logs and look for “task performed” - this happens when a tool is used and the meta data associated with it.\
+\
+**If your AI is giving improper times:** 
+
+- Make sure you see a task performed where it pulled the available timeslots - and click on the tool to look at the meta data. Confirm the times that it was able to get from GHL are correct - if there is a discrepancy, this is a GHL thing - go look at your calendar settings because oauth is not involved at this step.
+- Make sure you dont have conflicting instructions or confusing prompt near instructions around booking - AIs are smart but they are not intuitive and unclear language may be interpreted differently, play with your verbiage around booking (or just use “ 6. Get your availability and use that to book an appointment with the user” - remember, keep it simple.)
+
+**If your AI is giving correct times but not booking correctly:** 
+
+- Check the meta data on the tool call - this will give you the output that GHL has given. Once scenario may be around authorization, that is related to oauth. Bad request could be instruction injection because the AI is trained to book back to local time, even when discussing with client timezones - let the AI do what its trained to do with some slight pushes in protocol.
+- Your connection via oauth may be misconfigured or just need refresh: to get times doesnt require oauth, the only thing that requires oauth in the whole process is the book appointment tool. So if all is great up until that point, it may be time to do a hard reset.
+
+**Refresh (and test):**
+
+ 
+
+If all else fails, refresh everything - remove and add back your tools to the assistant, delete and resync your calendar, reset oauth, etc.\
+\
+And always will go back to check your prompt - for those who have worked alongside me in buildouts can vouch that literally one word can change an AI’s output entirely - for the good or the bad. Simplify your prompt, make it more concise, get rid of unnecessary information, get rid of unnecessary markdown (just use ## - that's all), and simplify and build your way up.
+
+---
+
+### **Definition of Done**
+
+This debugging checklist is complete when:
+
+- The assistant accurately checks for availability and books appointments.
+- Calendar times align correctly with the intended availability.
+- Prompts are clean and devoid of extra contextual information that might mislead the assistant.
+- The assistant logs show successful tool calls with no error responses.
+
+---
+
+### **Additional Tips**
+
+- **FAQs**:
+  - **What if the assistant suggests times that don’t align with availability?**
+    - Check calendar settings, Google Calendar integrations, and adjust prompt simplicity.
+  - **What if I receive an “unauthorized” message?**
+    - Refresh the OAuth connection and confirm permissions are granted.
+- **Attachments**: Include a quick reference sheet on CASPER triage steps, prompts template, and logs access.
+
+---
+
+**Summary** This SOP provides a comprehensive guide to troubleshoot and debug conversational calendar booking. By following the CASPER triage steps (Calendar, Ability, Settings, Prompt, Event, Refresh), support teams can ensure all components of the booking workflow are functioning properly. Key checks include verifying calendar access, tool calls, and prompt clarity. The SOP also offers solutions for common issues such as incorrect availability times or unauthorized errors, streamlining the process to enhance client satisfaction and deployment efficiency.
