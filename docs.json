@@ -48,7 +48,8 @@
                 "group":"Numbers",
                 "icon":"phone",
                 "pages":[
-                  "tutorials/numbers/importing-numbers"
+                  "tutorials/numbers/importing-twilio",
+                  "tutorials/numbers/importing-telnyx"
                 ]
               },
               {
@@ -96,7 +97,7 @@
         "groups": [
         {
           "group": "Assistants",
-          "openapi": "assistant-api.json"
+          "openapi": "api-reference/assistant-api.json"
         },
           {
           "group": "Calling",
