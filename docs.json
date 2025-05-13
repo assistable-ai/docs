@@ -49,7 +49,8 @@
                 "icon":"phone",
                 "pages":[
                   "tutorials/numbers/importing-twilio",
-                  "tutorials/numbers/importing-telnyx"
+                  "tutorials/numbers/importing-telnyx",
+                  "tutorials/numbers/importing-vonage"
                 ]
               },
               {

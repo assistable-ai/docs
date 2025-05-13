@@ -1,5 +1,29 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Importing Telnyx Numbers"
+description: "Learn how to bring your own phone numbers into the system via SIP trunking"
 ---
 
+_This method works with any 3rd party telephony service that allows for SIP Trunking_
+
+This is a comprehensive guide on importing numbers into the system for your AI assistants to use for both inbound and outbound calling. This is the way to integrate with your telephony provider that supports elastic SIP trunking. You will need to set up a SIP trunking and configure your number to point to it, and then import that number to the AI system.
+
+We will use Telnyx as an example here. You can use other telephony providers that support elastic SIP trunking as well.
+
+In this context, the elastic SIP trunking is used to connect our VoIP with PSTN so that your AI can make and receive calls.
+
+Let’s get started ⬇️
+
+1. Navigate to your Telnyx account. We are going to create an SIP Trunk by clicking create SIP connection
+   1. Create the trunk and then select FQDN as the trunk type.
+2. In the settings of your trunk, navigate to FQDNs under Authentication and Routing. Add the FQDN with URI ([**5t4n6j0wnrl.sip.livekit.cloud**](http://5t4n6j0wnrl.sip.livekit.cloud)) and DNS record type (**SRC**).
+3. Still in the settings tab, set up outbound call authentication by clicking on 'Outbound Calls Authentication' and using 'Credentials' as the authentication method. Add a username and password of your choice, this is what you will input in our authentication section when importing a number.
+4. In the inbound tab of your trunk, configure your inbound settings to allow for **\+E.164** number format. Also, select **G722**, **G729** and **OPUS** as the codec. Lastly, select your region (closest to you).
+5. Navigate to the outbound tab of your trunk and create a new outbound voice profile (configure as needed). Once you have created your profile, select the profile in the dropdown under outbound voice profile.
+6. Now your trunk is done. You need to buy or move numbers into the trunk in order to call with them.
+7. Once you have done that, get your number in raw format, authentication username & password and your trunk's URI (sip.telnyx.com).
+
+**Debugging Guide:**
+
+Go to twilio logs. There is actually nothing we can do or see and if you are having trouble with inbound or outbound calling, make sure you follow these steps. If so, reach out to the telephony’s (aka twilio) support because we have 0 control here.
+
+We are storing the info you provide as a way to configure the SIP packet, and it's up to the telephony system to decide if it goes through. Some things may be your account needs verification, you put in a non-raw formatted number, come country codes require additional regulation - go to your telephony provider for debugging.
