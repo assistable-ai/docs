@@ -35,13 +35,6 @@
             "group": "Tutorials",
             "pages":[
               {
-                "group":"Assistants",
-                "icon":"robot",
-                "pages":[
-                  "tutorials/assistants/creating-assistants"
-                ]
-              },
-              {
                 "group":"Numbers",
                 "icon":"phone",
                 "pages":[
@@ -49,43 +42,13 @@
                   "tutorials/numbers/importing-telnyx",
                   "tutorials/numbers/importing-vonage"
                 ]
-              },
-              {
-                "group":"Re-billing",
-                "icon":"credit-card",
-                "pages":[
-                  "tutorials/rebilling/enable-rebilling"
-                ]
-              },
-              {
-                "group":"Tools",
-                "icon":"toolbox",
-                "pages":[
-                  "tutorials/tools/creating-tools"
-                ]
               }
-            ]
-          },
-          {
-            "group": "Deployment",
-            "pages": [
-              "deploy/active-tags",
-              "deploy/inbound-outbound",
-              "deploy/telephony/buy-number",
-              "deploy/telephony/import-number",
-              "deploy/best-practices",
-              "deploy/limits"
             ]
           },
           {
             "group": "Troubleshooting",
             "pages": [
-              "debug/overview",
-              "debug/connection",
-              "debug/billing",
-              "debug/calendar",
-              "debug/behavior",
-              "debug/errors"
+              "debug/calendar"
             ]
           }
         ]
