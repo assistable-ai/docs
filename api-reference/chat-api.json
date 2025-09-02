@@ -311,13 +311,13 @@
             "description": "Location ID"
           },
           {
-            "name": "conversation_id",
+            "name": "contact_id",
             "in": "query",
             "required": true,
             "schema": {
               "type": "string"
             },
-            "description": "ID of the conversation to retrieve"
+            "description": "ID of the contact to retrieve the conversation from"
           }
         ],
         "responses": {
