@@ -243,10 +243,6 @@
           {
             "group": "Chat",
             "openapi": "api-reference/chat-api.json"
-          },
-          {
-            "group": "Conversations",
-            "openapi": "api-reference/conversation-api.json"
           }
         ]
       }
