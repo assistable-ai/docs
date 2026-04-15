@@ -1,0 +1,61 @@
+---
+title: "Search the Web"
+description: "Create a custom tool that enables your AI assistant to search the web in real time."
+icon: "magnifying-glass"
+---
+
+## Overview
+
+The **Search the Web** custom tool gives your AI assistant the ability to perform live web searches during a conversation. The tool calls the Bing search engine and returns results that the AI can use to answer questions with up-to-date information.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/mceclip0_1751288651.png?width=920" alt="Search the Web custom tool configuration" />
+</Frame>
+
+## Use Cases
+
+- **Real-time information** — Answer questions about current events, pricing, or availability
+- **Research** — Look up businesses, products, or services during a conversation
+- **Fact-checking** — Verify claims or find supporting information
+- **Competitive intelligence** — Research competitors on behalf of users
+
+## Setup
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    In your assistant settings, create a new tool:
+    - **Name**: `search_the_web`
+    - **Description**: "Search the web for real-time information using the Bing search engine"
+    - **Parameters**: `query` (the search terms)
+  </Step>
+  <Step title="Configure the Search Backend">
+    Set up a Buildship workflow or webhook that:
+    1. Receives the search query
+    2. Calls the Bing Search API (or similar search service)
+    3. Returns formatted search results to the AI
+  </Step>
+  <Step title="Add to Your Assistant">
+    Connect the endpoint, save, and update your prompt to instruct the AI when to use web search (e.g., for questions outside its knowledge base).
+  </Step>
+</Steps>
+
+<Note>To call the tool, use `search_the_web` — the response will contain results from the Bing search engine.</Note>
+
+<Tip>Combine with your [Knowledge Base](/troubleshooting/knowledge-base-optimization) so the AI tries internal knowledge first and only searches the web when needed.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Scrape Website" icon="globe" href="/build/custom-tools/scrape-website">
+    Scrape specific pages for detailed content
+  </Card>
+  <Card title="Screenshot Website" icon="camera" href="/build/custom-tools/screenshot-website">
+    Capture visual screenshots
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+  <Card title="Knowledge Base Optimization" icon="book-sparkles" href="/troubleshooting/knowledge-base-optimization">
+    Build a better knowledge base
+  </Card>
+</CardGroup>

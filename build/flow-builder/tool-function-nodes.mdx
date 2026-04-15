@@ -1,15 +1,65 @@
 ---
 title: "Tool & Function Nodes"
-description: "Execute custom tools and functions within your conversation flow."
+description: "Execute pre-defined tools and make API calls from within your flow."
 icon: "wrench"
 ---
 
 ## Overview
 
-Execute custom tools and functions within your conversation flow.
+Flow Builder provides two node types for interacting with external services: the **Tool/Function node** for executing pre-defined tools, and the **Request node** for raw HTTP requests. Both integrate your flow with CRMs, booking systems, databases, and external APIs.
 
-## Configuration
+## Tool / Function Node
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+The Tool/Function node executes an external tool defined at the flow level. Tools are reusable API integrations with defined parameters — pre-configured API calls you can drop into any flow.
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+### Parameter Mapping
+
+Map tool parameters to flow variables:
+
+| Tool Parameter | Mapped To |
+|---------------|-----------|
+| `customer_name` | `{{caller_name}}` |
+| `appointment_date` | `{{selected_date}}` |
+| `location_id` | `{{office_id}}` |
+
+### Speak During Execution
+
+API calls take time. On voice calls, **silence is death**. The Speak During Execution feature fills dead air:
+
+| Mode | How It Works | Best For |
+|------|-------------|----------|
+| **Static** | Speaks fixed text (e.g., "One moment please") | Short, predictable waits |
+| **Prompt** | LLM generates contextual filler | Natural, personalized filler |
+
+<Tip>Prompt-mode filler sounds much more natural on voice. Use static mode when speed is more important than personality.</Tip>
+
+### Sync vs Async
+
+- **Sync (default)** — Flow waits for the result. Use when the next node needs the tool's output.
+- **Async** — Tool runs in background. Use for non-blocking tasks like logging to CRM or sending emails.
+
+## Choosing Between Tool/Function and Request Nodes
+
+| Use Case | Recommended |
+|----------|-------------|
+| Reusable integrations | Tool/Function |
+| One-off API calls | [Request Node](/build/flow-builder/request-node) |
+| Need speak-during-execution | Tool/Function |
+| Need fine-grained HTTP control | [Request Node](/build/flow-builder/request-node) |
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Request Node" icon="server" href="/build/flow-builder/request-node">
+    Full HTTP request control
+  </Card>
+  <Card title="Variables" icon="brackets-curly" href="/build/flow-builder/variables">
+    Dynamic data and substitution
+  </Card>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    The core dialogue node
+  </Card>
+  <Card title="Engine & Streaming" icon="bolt" href="/build/flow-builder/streaming">
+    How the engine processes nodes
+  </Card>
+</CardGroup>

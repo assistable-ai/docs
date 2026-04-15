@@ -1,11 +1,52 @@
 ---
-title: "Navigation Permissions"
-description: "Control which features sub-accounts can access."
+title: "Permissions"
+description: "Control which navigation tabs and features are visible to sub-account users."
 icon: "lock"
 ---
 
 ## Overview
 
-Edit sub-account navigation permissions to control which sections and features are visible to your clients.
+Permissions let you control which tabs and features are visible to non-admin users in a sub-account. This is useful for hiding advanced features from clients who don't need them, or for creating tiered access based on plans.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## How Permissions Work
+
+- **Admins** always see everything — permission changes only affect non-admin users
+- Permissions control **tab visibility** in the sub-account navigation
+- Changes can be set per sub-account or applied as defaults via [Snapshots](/platform/snapshots)
+
+## Configuring Permissions
+
+<Steps>
+  <Step title="Open the Sub-Account">
+    Navigate to the sub-account in your workspace.
+  </Step>
+  <Step title="Go to Permissions Settings">
+    Click the **Permissions** option for that sub-account.
+  </Step>
+  <Step title="Toggle Tab Visibility">
+    - **Check** tabs to make them visible to non-admin users
+    - **Uncheck** tabs to hide them
+  </Step>
+  <Step title="Save Changes">
+    Apply changes. They take effect immediately for the sub-account's non-admin users.
+  </Step>
+</Steps>
+
+<Tip>Set default permissions in your [Agency Snapshot](/platform/snapshots) so new sub-accounts are configured automatically.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Sub-Account Management" icon="users" href="/platform/sub-account-management">
+    Full management guide
+  </Card>
+  <Card title="Restrictions" icon="ban" href="/platform/restrictions">
+    Restrict entire sub-account access
+  </Card>
+  <Card title="Snapshots" icon="camera" href="/platform/snapshots">
+    Default permissions for new accounts
+  </Card>
+  <Card title="Subaccount Limits" icon="gauge" href="/platform/subaccount-limits">
+    Set usage limits
+  </Card>
+</CardGroup>

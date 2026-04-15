@@ -1,0 +1,60 @@
+---
+title: "Call from SMS"
+description: "Create a custom tool that transitions from an SMS conversation to a phone call with full context."
+icon: "phone-arrow-up-right"
+---
+
+## Overview
+
+The **Call from SMS** custom tool enables your AI assistant to initiate a phone call to a user directly from an SMS conversation — while carrying over the full conversation context. This means when the voice assistant calls the user, it already knows what was discussed via text.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/call-user-custom-tool_1741573200.webp?width=920" alt="Call from SMS custom tool configuration" />
+</Frame>
+
+## Why Use This?
+
+Some conversations are better handled over the phone — complex scheduling, sensitive information, or when a user explicitly requests a call. This tool bridges the gap between chat and voice seamlessly.
+
+**Key benefits:**
+- **Context preservation** — The voice AI knows what was discussed in SMS
+- **Seamless transition** — No need for the user to repeat themselves
+- **User-initiated** — The AI calls when the user is ready
+
+## How It Works
+
+When the AI determines a phone call would be more effective (or the user requests one), it triggers this tool. The tool uses the Assistable API to initiate an outbound call to the contact, passing along the conversation context so the voice assistant can pick up where the SMS left off.
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    Navigate to **Custom Tools** in your assistant settings and create a new tool named `call_user_from_sms`.
+  </Step>
+  <Step title="Configure the Description">
+    Set the description to: *"Call this tool when the user wants to switch from SMS to a phone call. The voice assistant will have full context of the SMS conversation."*
+  </Step>
+  <Step title="Set Up the API Endpoint">
+    Use the [Assistable API](/api-reference) to trigger an outbound call. The endpoint should pass the `contact_id` and conversation summary to the voice assistant.
+  </Step>
+  <Step title="Update Your Prompt">
+    Add instructions telling the AI when it's appropriate to offer a phone call (e.g., complex topics, user frustration, or explicit requests).
+  </Step>
+</Steps>
+
+<Note>This tool requires a [Voice AI setup](/build/voice-ai/overview) with an active phone number configured for outbound calling.</Note>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Send SMS During Calls" icon="message" href="/how-to-guides/send-sms-during-calls">
+    The reverse — send texts during voice calls
+  </Card>
+  <Card title="Send Summary" icon="file-lines" href="/build/custom-tools/send-summary">
+    Send conversation summaries to clients
+  </Card>
+  <Card title="Voice AI Setup" icon="microphone" href="/build/voice-ai/overview">
+    Configure voice AI assistants
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Learn the fundamentals of custom tools
+  </Card>
+</CardGroup>

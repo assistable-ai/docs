@@ -1,15 +1,85 @@
 ---
 title: "Engine & Streaming"
-description: "Configure the engine and streaming settings for your flow agent."
+description: "Understand how Flow Builder's engine processes messages, chains nodes, and streams responses."
 icon: "bolt"
 ---
 
 ## Overview
 
-Configure the engine and streaming settings for your flow agent.
+The Flow Builder engine is a **single-loop state machine** that processes one user message at a time. Understanding it helps you build faster, more efficient flows — especially for voice where latency matters.
 
-## Configuration
+## The Processing Loop
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+When a user sends a message:
+1. **Receive message** — Input is added to conversation history
+2. **Process current node** — Engine executes the active node
+3. **Chain through silent nodes** — Variable, Logic, Extraction, Function, Request nodes execute automatically in sequence
+4. **Stop at Conversation or End** — Loop stops when it reaches a response-generating node
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+<Note>Only Conversation nodes produce user-facing responses. All other nodes execute silently. The engine can chain through multiple nodes in a single turn, transparently to the user.</Note>
+
+## Node Processing Order
+
+| Node Type | What Happens | Blocks? |
+|-----------|-------------|---------|
+| **Conversation** | LLM call with prompt + history | Yes — waits for LLM |
+| **Tool/Function** | Executes HTTP tool call | Yes — waits for API |
+| **Extraction** | LLM extracts structured data | Yes — waits for LLM |
+| **Variable** | Sets values synchronously | No — instant |
+| **Logic** | Evaluates conditions, picks path | No — instant |
+| **Request** | Makes HTTP request | Yes (if await: true) |
+| **End** | Fires webhook, returns end message | No |
+
+## Streaming (SSE)
+
+Flow Builder uses **Server-Sent Events** to stream responses in real-time — critical for voice where TTS starts speaking as soon as the first tokens arrive.
+
+### SSE Event Types
+
+| Event | Description |
+|-------|-------------|
+| `token` | Individual LLM token chunks |
+| `filler` | Speak-during-execution text from Tool/Function nodes |
+| `clear` | Discard partial response — a transition is happening |
+| `tool_calls` | Tool/function call detected |
+| `done` | Turn complete with final state |
+| `error` | Error during processing |
+
+The **`clear` event** is key for voice: when the LLM starts responding but then transitions, `clear` tells TTS to stop the partial response and prepare for the new node's output.
+
+## Safety Limits
+
+| Limit | Value | Purpose |
+|-------|-------|---------|
+| Max transitions per turn | 10 | Prevents infinite loops |
+| Max tool call rounds | 5 | Limits recursive execution |
+| Conversation history cap | 40 messages | Controls context window |
+| Request timeout | 10 seconds | Prevents hung API calls |
+
+<Warning>Hitting the 10-transition limit means there's likely a loop — check for Logic nodes that cycle without a Conversation node in between.</Warning>
+
+## LLM Resolution Order
+
+The engine determines which model to use by checking (in order):
+1. **Node override** — Model set on the specific node
+2. **Flow default** — Model set at the flow level
+3. **Fallback** — `gpt-4o-mini`
+
+Supported providers: OpenAI, Anthropic, and OpenRouter.
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    The core node type
+  </Card>
+  <Card title="API Key Setup" icon="key" href="/build/flow-builder/api-key">
+    Configure your LLM provider
+  </Card>
+  <Card title="Voice Connection" icon="phone" href="/build/flow-builder/voice-connection">
+    Deploy to voice with streaming
+  </Card>
+  <Card title="Testing" icon="flask-vial" href="/build/flow-builder/testing">
+    Test your flow
+  </Card>
+</CardGroup>

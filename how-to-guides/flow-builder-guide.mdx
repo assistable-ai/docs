@@ -6,4 +6,69 @@ icon: "diagram-project"
 
 ## Overview
 
-Flow Builder lets you create multi-step, branching AI conversation flows visually. See the [Flow Builder section](/build/flow-builder/getting-started) for complete documentation on all node types and features.
+Flow Builder makes your AI assistants **deterministic, low-latency, and reliable**. Instead of dumping everything into one big prompt (which causes hallucinations and slow responses), Flow Builder breaks the assistant's logic into step-by-step nodes that control both conversation flow and tool usage.
+
+## Core Principles
+
+- **Determinism** — Each step (node) has a single task; the AI cannot skip or improvise
+- **Minimal prompts** — Only essential instructions per step
+- **Tools per node** — Tools are enabled only where needed, reducing latency
+- **Base prompt + dynamic tasking** — Identity and personality remain constant while task instructions change per step
+- **Voice & Chat support** — Works seamlessly across both
+
+## Getting Started
+
+<Steps>
+  <Step title="Create a Flow Builder Assistant">
+    Go to **Assistable → Add New AI Assistant → Add Flow Builder**. Give the assistant a name and identity.
+  </Step>
+  <Step title="Define the Base Prompt">
+    Set the AI's global identity and guidelines:
+    ```
+    You are Haley, a polite scheduling assistant.
+    Always stay concise, professional, and user-friendly.
+    ```
+    This base prompt applies across all nodes.
+  </Step>
+  <Step title="Build Your Flow">
+    Add [Conversation nodes](/build/flow-builder/conversation-node) for each step of the dialogue, connected by transitions. Add [Logic nodes](/build/flow-builder/logic-node) for branching, [Extraction nodes](/build/flow-builder/extraction-variable-nodes) for data capture, and [Request nodes](/build/flow-builder/request-node) for API calls.
+  </Step>
+  <Step title="Configure Your API Key">
+    Set up your [LLM API key](/build/flow-builder/api-key) (OpenAI, Anthropic, or OpenRouter).
+  </Step>
+  <Step title="Test Your Flow">
+    Use the [built-in test panel](/build/flow-builder/testing) to simulate conversations and verify behavior.
+  </Step>
+  <Step title="Deploy">
+    Deploy as a [chat widget](/build/flow-builder/embedding-widget) or connect to [voice via Telnyx](/build/flow-builder/voice-connection).
+  </Step>
+</Steps>
+
+## Node Types Reference
+
+<CardGroup cols={2}>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    AI dialogue and transitions
+  </Card>
+  <Card title="Logic Node" icon="code-branch" href="/build/flow-builder/logic-node">
+    Conditional branching
+  </Card>
+  <Card title="Extraction Nodes" icon="database" href="/build/flow-builder/extraction-variable-nodes">
+    Extract and set data
+  </Card>
+  <Card title="Tool/Function Nodes" icon="wrench" href="/build/flow-builder/tool-function-nodes">
+    External integrations
+  </Card>
+  <Card title="Request Node" icon="server" href="/build/flow-builder/request-node">
+    Raw HTTP API calls
+  </Card>
+  <Card title="Variables" icon="brackets-curly" href="/build/flow-builder/variables">
+    Dynamic data system
+  </Card>
+</CardGroup>
+
+## Related Resources
+
+- [Node Builder AI](/build/flow-builder/node-builder-ai) — Generate nodes with AI
+- [Engine & Streaming](/build/flow-builder/streaming) — How the engine works
+- [Testing](/build/flow-builder/testing) — Debug your flows

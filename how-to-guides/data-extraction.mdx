@@ -1,13 +1,61 @@
 ---
-title: "Automatic Data Extraction"
-description: "Automatically extract important user information during AI conversations."
-icon: "filter"
+title: "Data Extraction"
+description: "Gather and extract important user information using Assistable's automatic data extraction."
+icon: "database"
 ---
 
 ## Overview
 
-Assistable's automatic data extraction feature captures key information from conversations without requiring custom tools. The AI identifies and extracts data like names, emails, phone numbers, addresses, and custom fields during natural conversation.
+Assistable's **Automatic Data Extraction** lets your AI automatically extract specific information (name, email, budget, etc.) from voice and chat conversations and sync it to GoHighLevel custom fields — with zero latency and 100% reliability.
+
+<Note>This is the **recommended approach** over using live Extraction Tools (function calling) due to superior reliability and speed.</Note>
+
+## Prerequisites
+
+1. **GoHighLevel sub-account** with target Custom Fields already created
+2. **Assistable assistant** created and ready for configuration
 
 ## Setup
 
-Configure extraction rules in your assistant's settings to define what data should be captured and where it should be stored in your CRM.
+<Steps>
+  <Step title="Prepare Custom Fields in GoHighLevel">
+    1. Go to **Settings > Custom Fields** in your GHL sub-account
+    2. Click **Add Field**
+    3. Select **Single Line Text** (string) — the most forgiving type
+    4. Note the exact field name (e.g., `client_budget`)
+  </Step>
+  <Step title="Access Extraction Settings in Assistable">
+    1. Open your Assistable dashboard
+    2. Select the assistant you're configuring
+    3. In the **Global Settings** menu, click **Map Custom Fields**
+  </Step>
+  <Step title="Create New Data Extraction">
+    Click **New Data Extraction** and configure:
+    - **Name**: Clear internal name (e.g., "Customer Name")
+    - **Type**: `string` (safest for most data — even numbers like "$5k-10k")
+    - **Description**: What to extract (e.g., "The caller's full name")
+    - **Custom Field**: Map to the GHL custom field you created
+  </Step>
+  <Step title="Save and Test">
+    Save the extraction. Test with a conversation and refresh the contact record to verify fields are populated.
+  </Step>
+</Steps>
+
+<Tip>You can create multiple extractions for different data points — name, email, budget, preferred time, etc. Each runs automatically without tool calls or added latency.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Auto-Populate Fields" icon="wand-magic-sparkles" href="/how-to-guides/auto-populate-fields">
+    Alternative approach using Automatic Data Collection
+  </Card>
+  <Card title="Extraction Nodes" icon="database" href="/build/flow-builder/extraction-variable-nodes">
+    Flow Builder extraction nodes
+  </Card>
+  <Card title="Save Address" icon="location-dot" href="/build/custom-tools/save-address">
+    Save address data via custom tool
+  </Card>
+  <Card title="Update Contact" icon="user-pen" href="/build/custom-tools/update-contact">
+    Update CRM contacts
+  </Card>
+</CardGroup>

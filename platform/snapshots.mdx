@@ -1,11 +1,82 @@
 ---
-title: "Agency Snapshots"
-description: "Create templates for new sub-accounts with default features."
+title: "Snapshots"
+description: "Set up agency snapshots to automatically configure new sub-accounts with default settings."
 icon: "camera"
 ---
 
 ## Overview
 
-Snapshots let you template new sub-accounts with pre-configured assistants, rebilling settings, admin locks, and default features.
+Agency Snapshots let you define a template that's automatically applied to every new sub-account. This includes feature access, usage limits, rebilling settings, and even pre-built AI assistants — ensuring consistent onboarding and saving hours of manual setup.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## What Snapshots Configure
+
+- **Feature access** — Toggle which features new sub-accounts can see
+- **Usage limits** — Max assistants, messages, phone numbers
+- **Rebilling** — Auto-enable rebilling with preset voice minute pricing
+- **Assistant templates** — Clone pre-built assistants into new accounts
+- **Admin lock** — Optionally lock new accounts with a password
+
+## Setting Up a Snapshot
+
+<Steps>
+  <Step title="Go to the Agency Tab">
+    Click the **Agency** tab in your main dashboard.
+  </Step>
+  <Step title="Configure Feature Access">
+    Under **New Accounts Have a Snapshot**, toggle ON features you want new sub-accounts to have. Toggle OFF features you want to hide from clients (admins still see everything).
+  </Step>
+  <Step title="Set Usage Limits">
+    Define limits for max assistants, max messages, etc. — or leave them as unlimited.
+  </Step>
+  <Step title="Enable Rebilling">
+    Turn on rebilling and set your per-minute rate (e.g., $0.10/minute when your cost is $0.07).
+  </Step>
+  <Step title="Add Assistant Snapshots">
+    1. Go to a sub-account with a well-built assistant
+    2. Copy its **Assistant Snapshot ID**
+    3. Return to agency settings and paste it into the **Assistant Snapshot** field
+    4. Click **Add** — this assistant will auto-clone into all new sub-accounts
+  </Step>
+  <Step title="Enable Admin Lock (Optional)">
+    Set an admin password to lock new sub-accounts. The account is inaccessible without the correct password — even inspecting the page source won't expose content.
+  </Step>
+</Steps>
+
+## Testing Your Snapshot
+
+Create a new sub-account to verify:
+- Rebilling prompt appears (if enabled)
+- Pre-selected features are enabled/hidden correctly
+- Pre-added assistants are visible and ready to use
+- Admin lock works as expected
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Will hiding features affect admin view?">
+    No. Admins always see everything. Hiding only affects client visibility.
+  </Accordion>
+  <Accordion title="Can I update the snapshot later?">
+    Yes. Changes apply to new accounts going forward (existing accounts are not affected).
+  </Accordion>
+  <Accordion title="Is assistant cloning automatic?">
+    Yes. Once added via snapshot ID, the assistant is cloned into every new sub-account automatically.
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Sub-Account Management" icon="users" href="/platform/sub-account-management">
+    Manage existing sub-accounts
+  </Card>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Configure client billing
+  </Card>
+  <Card title="Permissions" icon="lock" href="/platform/permissions">
+    Control feature visibility
+  </Card>
+  <Card title="Workspace Setup" icon="building" href="/platform/workspace-setup">
+    Complete workspace configuration
+  </Card>
+</CardGroup>

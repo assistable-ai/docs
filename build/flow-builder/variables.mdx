@@ -1,15 +1,88 @@
 ---
 title: "Variables & Dynamic Data"
-description: "Use variables to store and reference dynamic data throughout your flow."
+description: "Store, transform, and inject dynamic values throughout your flow using the variable system."
 icon: "brackets-curly"
 ---
 
 ## Overview
 
-Use variables to store and reference dynamic data throughout your flow.
+Variables are the data layer of Flow Builder. They let you store, transform, and inject dynamic values throughout your flow — in prompts, URLs, headers, request bodies, and assignments. The syntax: wrap any variable name in double curly braces like `{{variable_name}}`.
 
-## Configuration
+## Substitution Syntax
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+`{{variable_name}}` works everywhere text is accepted:
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+| Where | Example |
+|-------|---------|
+| Conversation prompts | `You are speaking with {{caller_name}}` |
+| Request URLs | `https://api.example.com/users/{{user_id}}` |
+| Request headers | `Authorization: Bearer {{api_token}}` |
+| Request body | `{"email": "{{email}}"}` |
+| Variable assignments | `{{first_name}} {{last_name}}` |
+| Query parameters | `filter={{status}}&limit=10` |
+
+## Variable Categories
+
+### Right Now
+Date/time variables that resolve at runtime:
+- `{{current_date}}` — Today's date
+- `{{current_time}}` — Current time
+- `{{current_day}}` — Day of the week
+
+### System
+Session-level variables populated automatically:
+- `{{session_key}}` — Unique session identifier
+- `{{flow_id}}` — ID of the running flow
+
+### Flow Variables
+User-defined variables set via [Variable nodes](/build/flow-builder/extraction-variable-nodes), [Extraction nodes](/build/flow-builder/extraction-variable-nodes), or initialized via webhook.
+
+### Node Outputs
+Automatically created by specific nodes:
+- **Extraction nodes** — Each extraction creates a variable
+- **Request nodes** — Creates `{{response}}`, `{{response_status}}`, `{{response_error}}`
+- **Tool/Function nodes** — Results via `{{_last_function_result}}`
+
+## Special Variables
+
+| Variable | Description |
+|----------|-------------|
+| `{{_last_function_result}}` | Return value of the most recently executed Tool/Function node |
+| `{{responseVariable_status}}` | HTTP status from a Request node |
+| `{{responseVariable_error}}` | Error message from a failed Request node |
+
+## Variables Webhook (Initialization)
+
+Configure a variables webhook at the flow level. When a new session starts, the engine calls this webhook **before the first node executes**. The response should return JSON key-value pairs:
+
+```json
+{
+  "caller_name": "Sarah Johnson",
+  "account_id": "ACC-4821",
+  "plan": "premium",
+  "language": "English"
+}
+```
+
+These variables are immediately available in your start node's prompt and throughout the flow.
+
+## The VariablePicker UI
+
+Click the `{x}` icon in any field to open the VariablePicker — browse all available variables organized by category with search.
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Extraction & Variable Nodes" icon="database" href="/build/flow-builder/extraction-variable-nodes">
+    Set and extract variable values
+  </Card>
+  <Card title="Logic Node" icon="code-branch" href="/build/flow-builder/logic-node">
+    Branch based on variable values
+  </Card>
+  <Card title="Request Node" icon="server" href="/build/flow-builder/request-node">
+    Use variables in API calls
+  </Card>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    Use variables in prompts
+  </Card>
+</CardGroup>

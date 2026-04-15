@@ -1,11 +1,70 @@
 ---
-title: "White Label Your Portal"
-description: "Brand the Assistable portal with your own identity."
+title: "White Labeling"
+description: "White label your Assistable portal with custom branding, domain, and documentation."
 icon: "palette"
 ---
 
 ## Overview
 
-White-label the entire Assistable portal with your company's branding. Set custom domains, logos, and colors so your clients see your brand, not ours.
+White labeling lets you rebrand the entire Assistable portal as your own product. Upload your logo, customize colors, set a custom domain, and even embed your own documentation — your clients never see the Assistable brand.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## What You Can Customize
+
+| Element | Description |
+|---------|-------------|
+| **Logo** | Your company logo displayed across the portal |
+| **Brand Colors** | Primary color applied globally to buttons, headers, and UI elements |
+| **Custom Domain** | Your own domain (e.g., `ai.youragency.com`) instead of Assistable's |
+| **Favicon** | Browser tab icon for your white-labeled portal |
+| **Page Title** | Custom browser tab title |
+| **iFrame Embed** | Embed landing pages or custom content |
+| **Documentation URL** | Link to your own docs, shown as a "Docs" button in sub-accounts |
+
+## Setup Steps
+
+<Steps>
+  <Step title="Upload Your Logo">
+    Navigate to the **Branding** tab in your workspace. Click the logo upload area and upload your image (PNG, JPEG, or GIF — any size works, square recommended).
+  </Step>
+  <Step title="Set Brand Colors">
+    Choose your primary brand color using the color picker. Click **Update Branding** to apply it globally across your workspace and all sub-accounts.
+  </Step>
+  <Step title="Configure Custom Domain">
+    1. In the **Branding** tab, scroll to the **Domain** section
+    2. Enter your custom domain (e.g., `ai.youragency.com`)
+    3. In your DNS provider, add an **A Record** pointing to `72.72.71.71`
+    4. Wait for DNS propagation and confirm the domain is connected
+    5. Set your favicon and page title
+  </Step>
+  <Step title="Add Documentation URL (Optional)">
+    Paste your documentation page URL in the branding settings. Sub-accounts will see a "Docs" button linking to your docs.
+  </Step>
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What file types work for logos?">
+    PNG, JPEG, and GIF — any image format and size.
+  </Accordion>
+  <Accordion title="Can I embed a custom landing page?">
+    Yes, use the iFrame embed option to display landing pages within the portal.
+  </Accordion>
+  <Accordion title="Is the docs button visible to everyone?">
+    Only if you provide a URL — then it appears in all sub-account views.
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Branding" icon="paintbrush" href="/platform/branding">
+    Update logos and colors
+  </Card>
+  <Card title="Workspace Setup" icon="building" href="/platform/workspace-setup">
+    Complete workspace configuration
+  </Card>
+  <Card title="Sub-Account Management" icon="users" href="/platform/sub-account-management">
+    Manage client accounts
+  </Card>
+</CardGroup>

@@ -1,15 +1,69 @@
 ---
 title: "Embedding the Chat Widget"
-description: "Embed your flow agent as a chat widget on any website."
-icon: "code"
+description: "Deploy your flow as an embeddable chat widget on any website."
+icon: "window-maximize"
 ---
 
 ## Overview
 
-Embed your flow agent as a chat widget on any website.
+Flow Builder can generate an embeddable chat widget that you drop into any website. The widget runs your flow as a chat assistant, giving visitors a conversational interface without leaving your site.
 
-## Configuration
+## Setup
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+<Steps>
+  <Step title="Open Your Flow">
+    Navigate to your flow in Flow Builder.
+  </Step>
+  <Step title="Generate Widget Code">
+    Click the **Deploy** or **Widget** button in the toolbar. Configure colors, position, and welcome message.
+  </Step>
+  <Step title="Copy the Script Tag">
+    Copy the generated embed code.
+  </Step>
+  <Step title="Paste into Your Website">
+    Add the script just before the closing `</body>` tag:
+    
+    ```html
+    <script
+      src="https://flow.assistable.ai/widget.js"
+      data-flow-id="your-flow-id"
+      data-position="bottom-right"
+      data-primary-color="#4F46E5"
+      data-welcome-message="Hi! How can I help you today?"
+      async
+    ></script>
+    ```
+  </Step>
+</Steps>
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+## Customization Options
+
+| Attribute | Description | Default |
+|-----------|-------------|---------|
+| `data-flow-id` | Your flow's unique ID (required) | — |
+| `data-position` | `bottom-right` or `bottom-left` | `bottom-right` |
+| `data-primary-color` | Hex color for header and buttons | `#4F46E5` |
+| `data-welcome-message` | Initial message when opened | — |
+| `data-button-text` | Launcher button text | `Chat` |
+
+## Technical Details
+
+- **Shadow DOM** — Widget styles are completely isolated from your site's CSS
+- **localStorage** — Conversation persists across page navigations and refreshes
+- **SPA compatible** — Handles React, Vue, Next.js navigation automatically
+- **Lightweight** — Loaded asynchronously, no impact on Core Web Vitals
+- **CSP** — Add `flow.assistable.ai` to `script-src` and `connect-src` if using strict Content Security Policy
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Testing" icon="flask-vial" href="/build/flow-builder/testing">
+    Test your flow before embedding
+  </Card>
+  <Card title="Voice Connection" icon="phone" href="/build/flow-builder/voice-connection">
+    Deploy to voice instead
+  </Card>
+  <Card title="API Key Setup" icon="key" href="/build/flow-builder/api-key">
+    Required before deployment
+  </Card>
+</CardGroup>

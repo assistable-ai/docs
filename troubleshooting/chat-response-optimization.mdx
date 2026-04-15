@@ -1,17 +1,70 @@
 ---
 title: "Chat Response Optimization"
-description: "Optimize AI response times and message queuing for chat assistants."
+description: "Optimize AI response time and queuing settings for faster, more natural chat interactions."
 icon: "gauge-high"
 ---
 
 ## Overview
 
-Optimize how quickly your AI responds to chat messages and how it handles message queuing.
+This guide covers configuring and optimizing AI response times and queuing settings to balance speed, accuracy, and a natural conversational feel.
 
-## Tips
+## Steps to Optimize
 
-- **Reduce prompt complexity** — Shorter, focused prompts generate faster responses
-- **Optimize knowledge base** — Remove redundant or overly large entries
-- **Configure queue settings** — Adjust how the AI handles multiple incoming messages
-- **Use Sleep Mode wisely** — Prevent conflicts between automated and AI messages
-- **Monitor response times** — Track average response time in your dashboard
+<Steps>
+  <Step title="Set Up the AI Assistant">
+    Create a new assistant and add an **Active Tag** to enable logging and monitoring.
+  </Step>
+  <Step title="Adjust Queuing Times">
+    In the assistant's settings, locate **Wait Time** and adjust:
+    - **Zero seconds** — Instant responses, ideal for widgets or fast interactions
+    - **15+ seconds** — More human-like delays for conversational realism
+  </Step>
+  <Step title="Optimize Prompt Design">
+    - **Minimize prompt length** to reduce processing time
+    - **Avoid verbose instructions** — focus on concise, direct commands
+    - Use **templates or structured prompts** for clarity without bulk
+  </Step>
+  <Step title="Evaluate Tools and Context">
+    Analyze logs to identify the impact of:
+    - Tool calls integrated within the assistant
+    - Conversation history size (larger contexts slow processing)
+    
+    Remove or simplify unnecessary tools and context.
+  </Step>
+  <Step title="Incorporate Synthetic Delays (Optional)">
+    For non-immediate workflows, add 5-10 second delays to allow time for workflow detection or tag processing.
+  </Step>
+  <Step title="Optimize Knowledge Bases">
+    Connect relevant [knowledge bases](/troubleshooting/knowledge-base-optimization) — but ensure they're focused and not overly broad.
+  </Step>
+  <Step title="Test Robustness">
+    Simulate varied scenarios:
+    - Simple inquiries vs. complex requests
+    - High vs. low context demands
+    - Record response time metrics
+  </Step>
+</Steps>
+
+## Key Factors Affecting Response Time
+
+| Factor | Impact | Recommendation |
+|--------|--------|----------------|
+| **Prompt length** | Longer = slower | Keep concise |
+| **Number of tools** | More tools = more processing | Only enable needed tools |
+| **Conversation history** | Larger context = slower | Keep conversations focused |
+| **Knowledge base size** | Larger = slower embedding | Use targeted FAQ entries |
+| **Model choice** | Larger models are slower | Use `gpt-4o-mini` for speed |
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Knowledge Base Optimization" icon="book-sparkles" href="/troubleshooting/knowledge-base-optimization">
+    Build a better knowledge base
+  </Card>
+  <Card title="Engine & Streaming" icon="bolt" href="/build/flow-builder/streaming">
+    How the Flow Builder engine works
+  </Card>
+  <Card title="API Key Setup" icon="key" href="/build/flow-builder/api-key">
+    Choose the right model
+  </Card>
+</CardGroup>

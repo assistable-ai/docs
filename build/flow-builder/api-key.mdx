@@ -1,15 +1,67 @@
 ---
 title: "Setting Up Your API Key"
-description: "Configure API key authentication for your flow agent."
+description: "Configure your LLM API key for Flow Builder using OpenAI, Anthropic, or OpenRouter."
 icon: "key"
 ---
 
 ## Overview
 
-Configure API key authentication for your flow agent.
+Flow Builder uses a **Bring Your Own Key (BYOK)** model. You provide your own LLM API key, and the platform routes all AI calls through your account. This gives you control over costs, rate limits, and model access.
 
-## Configuration
+<Warning>An API key is **required** before you can test or deploy any flow. Without one, Conversation and Extraction nodes have no LLM to call.</Warning>
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+## Supported Providers
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+| Provider | Key Format | Models |
+|----------|-----------|--------|
+| **OpenAI** | `sk-...` | GPT-4o, GPT-4o-mini, GPT-4, etc. |
+| **Anthropic** | `sk-ant-...` | Claude Sonnet, Claude Haiku, etc. |
+| **OpenRouter** | `sk-or-...` | 100+ models from multiple providers |
+
+## Adding Your Key
+
+<Steps>
+  <Step title="Open Flow Settings">
+    Click the **Settings** icon (gear) in the top toolbar.
+  </Step>
+  <Step title="Select Provider">
+    Choose OpenAI, Anthropic, or OpenRouter from the dropdown.
+  </Step>
+  <Step title="Paste Your Key">
+    Enter your API key and click **Save**.
+  </Step>
+  <Step title="Choose Default Model">
+    Select the default model for the flow. Individual nodes can override this in their advanced settings.
+  </Step>
+</Steps>
+
+## Model Recommendations
+
+- **Voice flows** (latency matters): `gpt-4o-mini` or `claude-haiku`
+- **Complex reasoning**: `gpt-4o` or `claude-sonnet`
+- **Multi-provider access**: Use **OpenRouter** for a single key across all providers
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| "No API key configured" | Open Settings and verify your key is saved |
+| 401 Unauthorized | Check that your key is valid and hasn't expired |
+| Model not available | Ensure your API plan includes the selected model |
+| Rate limit errors | Check your provider's usage dashboard |
+
+<Note>Your API key is never shared with other users or flows. Each flow stores its own key independently.</Note>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Testing" icon="flask-vial" href="/build/flow-builder/testing">
+    Test your flow with your key
+  </Card>
+  <Card title="Engine & Streaming" icon="bolt" href="/build/flow-builder/streaming">
+    How models are resolved
+  </Card>
+  <Card title="Voice Connection" icon="phone" href="/build/flow-builder/voice-connection">
+    Deploy to voice
+  </Card>
+</CardGroup>

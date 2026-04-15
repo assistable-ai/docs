@@ -1,11 +1,47 @@
 ---
 title: "Agency Wallet"
-description: "Set up and fund your agency-level wallet."
+description: "Set up and manage your agency wallet for AI voice and messaging usage."
 icon: "wallet"
 ---
 
 ## Overview
 
-The agency wallet is the master balance that funds all AI operations across your workspace. A negative balance stops calls for ALL sub-accounts.
+Your Agency Wallet is a prepaid balance that covers usage-based costs across all your sub-accounts — voice calls, messages, and other billable AI operations.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+<Warning>**Critical**: If your agency wallet balance goes negative, **none of your sub-accounts** will be able to use inbound or outbound AI voice calling. Keep it funded!</Warning>
+
+## Setting Up Your Wallet
+
+<Steps>
+  <Step title="Access Billing Settings">
+    Go to **Settings > Billing** in your workspace.
+  </Step>
+  <Step title="Add Funds">
+    Click **Add Balance** and enter the amount you want to fund. Funds are available immediately.
+  </Step>
+  <Step title="Enable Auto-Pay">
+    Turn on auto-pay to automatically refill your wallet when the balance drops below a threshold. This is **strongly recommended** to prevent service interruptions.
+  </Step>
+</Steps>
+
+## How It Works
+
+- Usage charges (voice minutes, messages) are deducted from your agency wallet in real time
+- If [rebilling](/platform/rebilling) is enabled, your clients' wallets are charged at your set rates — and the base cost is deducted from your agency wallet
+- You can monitor all transactions in the [Billing Portal](/platform/billing-portal)
+
+<Tip>Set your auto-pay threshold higher than your typical daily usage to avoid any gaps in service.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Subaccount Wallet" icon="piggy-bank" href="/platform/subaccount-wallet">
+    Client wallet setup
+  </Card>
+  <Card title="Billing Portal" icon="credit-card" href="/platform/billing-portal">
+    View transactions and invoices
+  </Card>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Set up automated client billing
+  </Card>
+</CardGroup>

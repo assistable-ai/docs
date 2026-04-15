@@ -1,0 +1,63 @@
+---
+title: "Submit Support Ticket"
+description: "Create a custom tool that submits support tickets on behalf of users during AI conversations."
+icon: "ticket"
+---
+
+## Overview
+
+The **Submit Support Ticket** custom tool allows your AI assistant to create and submit support tickets on behalf of users during a conversation. When a user reports an issue that can't be resolved immediately, the AI collects the details and submits a ticket to your support system.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/submit-support-ticket_1741570080.png?width=920" alt="Submit Support Ticket custom tool" />
+</Frame>
+
+## Use Cases
+
+- **Customer support** — Escalate issues the AI can't resolve
+- **Bug reports** — Collect technical details and submit automatically
+- **Feature requests** — Capture and route user feedback
+- **Service requests** — Create work orders or service tickets
+
+## Setup
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    In your assistant settings, create a new tool:
+    - **Name**: `submit_support_ticket`
+    - **Description**: "Submit a support ticket on behalf of the user with their issue details"
+    - **Parameters**: `subject`, `description`, `priority` (optional), `category` (optional)
+  </Step>
+  <Step title="Set Up the Backend Webhook">
+    Create an inbound webhook in GoHighLevel (or your ticketing system) that:
+    1. Receives the ticket data
+    2. Creates a support ticket or task
+    3. Notifies the appropriate team
+  </Step>
+  <Step title="Configure Your Prompt">
+    Instruct the AI to:
+    - Try to resolve the issue first
+    - If unable, collect all relevant details
+    - Confirm the ticket details with the user before submitting
+    - Provide a confirmation after submission
+  </Step>
+  <Step title="Test the Flow">
+    Simulate a support scenario and verify the ticket appears in your system with all details intact.
+  </Step>
+</Steps>
+
+<Tip>Add the user's contact information automatically using [variables](/build/variables-reference) like `{{contact.email}}` and `{{contact.phone}}`.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Update Contact" icon="user-pen" href="/build/custom-tools/update-contact">
+    Update contact information in CRM
+  </Card>
+  <Card title="Send Summary" icon="file-lines" href="/build/custom-tools/send-summary">
+    Send conversation summaries
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+</CardGroup>

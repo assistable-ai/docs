@@ -1,13 +1,58 @@
 ---
-title: "Connect to Google Sheets"
-description: "Enable your AI to read and write data from Google Sheets."
+title: "Connect AI to Google Sheets"
+description: "Set up a knowledge base for your AI assistant using Google Sheets and Buildship."
 icon: "table"
 ---
 
 ## Overview
 
-Connect your AI assistant to Google Sheets to read data during conversations or write collected information to a spreadsheet. This is useful for dynamic pricing, inventory lookups, or data collection.
+Connect your AI assistant to **Google Sheets** via Buildship to create a real-time knowledge base. Your AI can fetch property listings, pricing data, inventory, or any structured data directly from a spreadsheet during conversations.
+
+## Requirements
+
+- **Google Sheets** with structured data
+- **Buildship** account (no-code backend builder)
+- **Assistable** assistant for integration
 
 ## Setup
 
-Use a custom tool with a Google Sheets API endpoint or a middleware service like Zapier/Make to bridge the connection.
+<Steps>
+  <Step title="Prepare Your Spreadsheet">
+    Create a Google Sheet with structured data. Example columns: Date Listed, Price, Address, Zip Code, Square Footage, Bedrooms, Bathrooms.
+    
+    Note the **sheet tab name** (bottom left corner) — you'll need it in Buildship.
+  </Step>
+  <Step title="Configure Buildship">
+    1. Log in to [Buildship](https://buildship.io)
+    2. Create a new workflow
+    3. Add the pre-built **Sheets** node → choose **Get Sheets**
+    4. Click **Auth** to connect your Google account
+    5. Configure the sheet ID and tab name
+    6. Deploy the workflow and copy the endpoint URL
+  </Step>
+  <Step title="Create a Custom Tool in Assistable">
+    1. In your assistant, create a new custom tool
+    2. Set the endpoint to your Buildship URL
+    3. Add parameters for any query filters (optional)
+    4. Save and add to your assistant
+  </Step>
+  <Step title="Update Your Prompt">
+    Instruct the AI when to query the spreadsheet and how to present the data to users.
+  </Step>
+</Steps>
+
+<Tip>For frequently changing data (pricing, availability), Google Sheets + Buildship is faster to update than rebuilding your knowledge base.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+  <Card title="Knowledge Base Optimization" icon="book-sparkles" href="/troubleshooting/knowledge-base-optimization">
+    Optimize your AI's knowledge
+  </Card>
+  <Card title="Scrape Website" icon="globe" href="/build/custom-tools/scrape-website">
+    Fetch data from websites
+  </Card>
+</CardGroup>

@@ -1,11 +1,77 @@
 ---
 title: "Billing Portal"
-description: "Understand the billing portal for agencies and sub-accounts."
-icon: "file-invoice"
+description: "Navigate and manage subscriptions, usage billing, wallet balance, and transaction history."
+icon: "credit-card"
 ---
 
 ## Overview
 
-The billing portal provides visibility into usage, charges, and payment history for both agency owners and sub-account users.
+The Billing Portal gives you full visibility into your workspace's financial operations — subscriptions, wallet balance, usage charges, transaction history, and invoices.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## Accessing the Billing Portal
+
+Go to **Settings > Billing** in your workspace. You'll see:
+- Card on file and auto-pay toggle
+- Current subscription details
+- Wallet balance
+- Full transaction history
+
+## Subscription vs. Wallet
+
+| Type | Description |
+|------|-------------|
+| **Subscription** | Monthly recurring charge for platform access plus add-ons (phone numbers, voice features) |
+| **Wallet** | Prepaid balance for usage-based billing (calls, messages). Usage is deducted here, not charged to your card each time. |
+
+## Managing Your Billing
+
+<Steps>
+  <Step title="Update Payment Info">
+    Click **Update Card Info** to change the card used for wallet refills and subscription payments.
+  </Step>
+  <Step title="Enable Auto-Pay (Recommended)">
+    Click **Enable Auto-Pay** so your wallet refills automatically when it drops below a threshold. This prevents service interruptions during high-usage periods.
+  </Step>
+  <Step title="Add Balance Manually">
+    If auto-pay is off, click **Add Balance** to fund the wallet. Funds are immediately available.
+  </Step>
+  <Step title="Review Transaction History">
+    Transactions are categorized as:
+    - **Credit** — Funds added (manual or auto-pay)
+    - **Debit** — Usage deductions (e.g., $0.05 per message)
+  </Step>
+  <Step title="Download Invoices">
+    For credit transactions, click **Download Invoice** to get a PDF with full metadata (Stripe ID, reference info).
+  </Step>
+  <Step title="Trace Usage Events">
+    Each debit includes an event link. Click it to open the original event (call, message) and verify the charge.
+  </Step>
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What's the difference between subscription and wallet?">
+    Subscription = platform access + add-ons. Wallet = pay-as-you-go usage charges.
+  </Accordion>
+  <Accordion title="Why am I seeing many tiny charges?">
+    Those are usage debits from your wallet, not your card. Your card is only charged when adding balance.
+  </Accordion>
+  <Accordion title="How do I prevent my wallet from running dry?">
+    Enable auto-pay to automatically refill below a set threshold.
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Set up client billing
+  </Card>
+  <Card title="Agency Wallet" icon="wallet" href="/platform/agency-wallet">
+    Fund your agency wallet
+  </Card>
+  <Card title="Stripe Integration" icon="stripe-s" href="/platform/stripe-integration">
+    Connect or reset Stripe
+  </Card>
+</CardGroup>

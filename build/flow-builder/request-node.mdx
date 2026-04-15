@@ -1,15 +1,74 @@
 ---
 title: "Request Node (API Calls)"
-description: "Make HTTP requests to external APIs from within your flow."
-icon: "globe"
+description: "Make HTTP API calls from within your flow with full control over method, headers, body, and response handling."
+icon: "server"
 ---
 
 ## Overview
 
-Make HTTP requests to external APIs from within your flow.
+The Request node lets you make HTTP API calls from your flow — send data to external systems, retrieve information, or trigger webhooks. Unlike the [Tool/Function node](/build/flow-builder/tool-function-nodes), it gives you full control over every aspect of the HTTP request.
 
 ## Configuration
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+| Field | Description |
+|-------|-------------|
+| **Method** | GET, POST, PUT, PATCH, or DELETE |
+| **URL** | Endpoint URL (supports `{{variable}}` substitution) |
+| **Content Type** | Content-Type header value |
+| **Authorization** | Authorization header (e.g., `Bearer {{api_token}}`) |
+| **Headers** | Additional headers as key-value pairs |
+| **Query Parameters** | URL query parameters |
+| **Body Mode** | `key-value` or `raw` (JSON/text) |
+| **Response Variable** | Variable name to store the response |
+| **Await** | Whether to wait for the response |
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+## Variable Interpolation
+
+Every text field supports `{{variable}}` substitution — URLs, headers, authorization, body, everything.
+
+**URL example**: `https://api.example.com/customers/{{customer_id}}/appointments`
+
+**Body example**:
+```json
+{
+  "name": "{{caller_name}}",
+  "email": "{{caller_email}}",
+  "appointment_date": "{{selected_date}}"
+}
+```
+
+## Response Handling
+
+When you set a Response Variable (e.g., `booking_result`), three variables are created:
+
+| Variable | Contains |
+|----------|----------|
+| `{{booking_result}}` | Response body (parsed JSON or text) |
+| `{{booking_result_status}}` | HTTP status code (200, 404, etc.) |
+| `{{booking_result_error}}` | Error message if request failed |
+
+Use a [Logic node](/build/flow-builder/logic-node) after the Request node to branch based on status code or errors.
+
+## Sync vs Async
+
+- **Await enabled** — Flow pauses until response arrives. Use when downstream nodes need the data.
+- **Await disabled** — Flow continues immediately. Use for fire-and-forget operations.
+
+<Note>Request nodes have a **10-second timeout**. Design your flows to handle timeouts with a Logic node checking the error variable.</Note>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Tool & Function Nodes" icon="wrench" href="/build/flow-builder/tool-function-nodes">
+    Pre-configured API integrations
+  </Card>
+  <Card title="Variables" icon="brackets-curly" href="/build/flow-builder/variables">
+    Variable substitution reference
+  </Card>
+  <Card title="Logic Node" icon="code-branch" href="/build/flow-builder/logic-node">
+    Branch on API responses
+  </Card>
+  <Card title="Engine & Streaming" icon="bolt" href="/build/flow-builder/streaming">
+    How the engine processes requests
+  </Card>
+</CardGroup>

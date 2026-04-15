@@ -6,10 +6,82 @@ icon: "message"
 
 ## Overview
 
-The core building block of Flow Builder where your AI engages with users in natural conversation.
+The Conversation node is the heart of every flow. It's the **only node type that directly communicates with the user** — generating responses, handling dialogue, and deciding when to transition to the next step. Every flow must have at least one Conversation node (the start node), and most flows have several.
 
-## Configuration
+## Instruction Modes
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+### Prompt Mode (Default)
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+The node's instruction becomes the system prompt for the LLM. The AI generates conversational responses based on this prompt and the conversation history. This is the mode you'll use 95% of the time.
+
+```
+You are a scheduling assistant for Acme Dental.
+Ask the caller for their preferred date and time.
+Only offer weekday slots between 9 AM and 5 PM.
+Confirm the details before proceeding.
+```
+
+The prompt supports `{{variable}}` substitution for dynamic personalization:
+
+```
+You are speaking with {{caller_name}}.
+Their account number is {{account_id}}.
+Greet them by name and ask how you can help.
+```
+
+### Static Mode
+
+The instruction text is sent directly to the user **verbatim** — no LLM call is made. Use this for fixed messages like greetings or disclaimers.
+
+<Note>If the conversation revisits a static node (e.g., via a loop), it automatically switches to prompt mode on subsequent visits. Static mode only applies on the first visit.</Note>
+
+## Transitions
+
+Transitions are the most powerful feature of the Conversation node. Each transition is a condition that, when met, moves the conversation to a connected node.
+
+### How Transitions Work
+
+Under the hood, each transition condition is registered as a **tool/function call** with the LLM. When the AI determines a condition is met, it fires the corresponding tool call instead of generating a regular response. The engine then follows the edge to the destination node, which generates the actual response.
+
+This means **transitions and responses happen in a single LLM call** — the source node decides to transition, and the destination node speaks. This is what keeps Flow Builder fast for voice.
+
+### Adding Transitions
+
+Click the **+ Add Transition** button on a Conversation node. Each transition has:
+- **Condition** — A natural language description (e.g., "The user confirms their appointment")
+- **Edge handle** — A green dot appears on the right side of the node. Drag from it to the destination node.
+
+### Must Respond First
+
+By default, a Conversation node **skips transition evaluation on its first visit**. The AI responds first, then evaluates transitions on subsequent messages. This prevents the AI from immediately transitioning away before the user hears the node's response.
+
+## AI-Powered Features
+
+### AI Suggest
+
+Click the **sparkle icon** to have AI analyze your prompt and automatically suggest likely transition conditions. For example, if your prompt asks about appointment booking, AI Suggest might generate transitions like "User provides a date and time" and "User wants to cancel instead."
+
+### Improve Prompt
+
+Click the **magic wand icon** to have AI rewrite your prompt into an optimized, task-based framework. See [Node Builder AI](/build/flow-builder/node-builder-ai) for details.
+
+## Global Nodes
+
+Conversation nodes can be marked as **global**, making them accessible from any point in the flow. This is useful for handling universal intents like "I want to speak to a human" or "Cancel my appointment" regardless of where the user is in the conversation.
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Logic Node" icon="code-branch" href="/build/flow-builder/logic-node">
+    Route conversations based on conditions
+  </Card>
+  <Card title="Variables" icon="brackets-curly" href="/build/flow-builder/variables">
+    Dynamic data and substitution
+  </Card>
+  <Card title="Testing" icon="flask-vial" href="/build/flow-builder/testing">
+    Test your flow in the built-in panel
+  </Card>
+  <Card title="Node Builder AI" icon="wand-magic-sparkles" href="/build/flow-builder/node-builder-ai">
+    AI-assisted node generation
+  </Card>
+</CardGroup>

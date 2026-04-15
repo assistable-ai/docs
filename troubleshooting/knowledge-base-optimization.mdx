@@ -1,14 +1,74 @@
 ---
 title: "Knowledge Base Optimization"
-description: "Optimize your knowledge base for better AI accuracy and responses."
+description: "Build and optimize a knowledge base for accurate, reliable AI assistant responses."
 icon: "book-sparkles"
 ---
 
+## Overview
+
+A well-built knowledge base is critical for accurate, domain-specific AI responses. The knowledge base provides context on a per-interaction basis — the system compares the contact's message against your knowledge base to generate specific, relevant answers.
+
+<Note>The AI doesn't "know" your knowledge base — it uses it as **contextual input** to generate responses. The quality of output is directly tied to the quality of input.</Note>
+
+## Key Concepts
+
+- **Knowledge as context** — Information is injected per interaction, not memorized
+- **Best content types** — FAQ pairs, objection handling, cause-effect relationships
+- **Quality in = quality out** — Poor or unclear data leads to poor responses
+
 ## Best Practices
 
-- **Use FAQ format** for common questions — precise Q&A pairs improve accuracy significantly
-- **Keep entries focused** — One topic per entry rather than long documents
-- **Update regularly** — Outdated information causes incorrect responses
-- **Test thoroughly** — Ask the AI questions that require knowledge base data and verify accuracy
-- **Use specific language** — Avoid vague descriptions; be precise about services, pricing, and policies
-- **Organize by category** — Group related entries for easier management
+### Preferred Input Types
+
+1. **FAQ format** — Precise Q&A pairs deliver the most reliable results
+2. **Raw text** — Sourced from your website, documentation, or transcripts
+3. **Document uploads & website scrapes** — Useful but may introduce conflicting information
+
+<Tip>Source raw text from your website, YouTube transcripts, or documentation. Use ChatGPT or Claude to generate FAQs from this material — tailored for sales, support, or in different languages.</Tip>
+
+### Optimization Tips
+
+- **Use FAQ format** for common questions — best accuracy
+- **Keep entries focused** — One topic per entry
+- **Update regularly** — Outdated info causes wrong responses
+- **Test thoroughly** — Ask the AI questions requiring knowledge base data and verify
+- **Use specific language** — Be precise about services, pricing, policies
+- **Organize by category** — Group related entries
+- **Set temperature low** (0–0.2) for businesses needing precise, deterministic answers
+
+## Monitoring Your Knowledge Base
+
+In conversation logs, click the **`{ }`** bracket icon to open transparency logs. Look for:
+- **"Embedding"** — The knowledge base was queried
+- **"Embed complete"** — Open this to see exactly what content was returned for the contact's message
+
+If the returned content isn't ideal, go back to your knowledge base and add a targeted FAQ for that question.
+
+## Architecture: Where Things Go
+
+| Component | Purpose |
+|-----------|---------|
+| **Prompt** | Personality, response guidelines, style guardrails, instruction set |
+| **Knowledge Base** | Domain-specific knowledge, FAQs, objection handling, pricing |
+| **Tools** | Context injection, conditional logic, data retrieval, actions |
+
+### What About Live Data or Complex Pricing?
+
+Use [custom tool calls](/build/custom-tools/overview) to fetch live data or integrate with third-party services for complex quoting and pricing operations.
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Chat Response Optimization" icon="gauge-high" href="/troubleshooting/chat-response-optimization">
+    Optimize response times
+  </Card>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Extract user information
+  </Card>
+  <Card title="Google Sheets Integration" icon="table" href="/how-to-guides/google-sheets">
+    Use spreadsheets as a knowledge source
+  </Card>
+  <Card title="Custom Tools" icon="wrench" href="/build/custom-tools/overview">
+    Extend AI with custom tools
+  </Card>
+</CardGroup>

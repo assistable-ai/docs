@@ -1,13 +1,48 @@
 ---
 title: "Send SMS During Calls"
-description: "Enable your AI to send text messages with links and information during active phone calls."
+description: "Send links and information via text message during active phone calls."
 icon: "message-sms"
 ---
 
 ## Overview
 
-Your AI assistant can send SMS messages during a phone call — useful for sharing links, confirmations, or documents that are easier to send via text than dictate over the phone.
+Enable your AI voice assistant to **send SMS messages during active phone calls** — perfect for sharing links, documents, or information that can't be conveyed over voice alone.
 
 ## Setup
 
-Create a custom tool that triggers a GHL webhook to send an SMS. The AI will use this tool during calls when it needs to share a link or written information.
+<Steps>
+  <Step title="Create the Custom Tool">
+    In your assistant settings:
+    - **Name**: `sms_content`
+    - **Description**: "Trigger when the user requests links, resources, or information via SMS during a call. Sends the requested information instantly."
+    - Save (endpoint URL added in the next step)
+  </Step>
+  <Step title="Set Up the Automation Workflow">
+    1. Go to **Automations → Create New Workflow**
+    2. Name: "Custom Tool - Send SMS During Call"
+    3. Add trigger: **Inbound Webhook**
+    4. Copy the webhook URL and paste it into your custom tool's endpoint field
+  </Step>
+  <Step title="Configure the SMS Action">
+    In the workflow, add an **SMS** action after the webhook trigger. Configure the message body to include the link or information passed from the AI.
+  </Step>
+  <Step title="Update Your Prompt">
+    Add instructions and the link to your AI prompt. Tell the assistant when to offer sending a text (e.g., when sharing URLs, booking links, or documents).
+  </Step>
+</Steps>
+
+<Tip>This is the reverse of [Call from SMS](/build/custom-tools/call-from-sms) — there you go from text to voice, here you go from voice to text.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Call from SMS" icon="phone-arrow-up-right" href="/build/custom-tools/call-from-sms">
+    Transition from SMS to phone calls
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+  <Card title="Voice AI Setup" icon="microphone" href="/build/voice-ai/overview">
+    Configure voice assistants
+  </Card>
+</CardGroup>

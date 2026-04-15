@@ -1,11 +1,55 @@
 ---
 title: "Transcript Workflows"
-description: "Send AI conversation transcripts to GoHighLevel workflows for processing."
-icon: "file-lines"
+description: "Send conversation transcripts from Assistable to GoHighLevel via automated workflows."
+icon: "scroll"
 ---
 
 ## Overview
 
-Automatically send conversation transcripts from Assistable to GoHighLevel workflows for further processing, storage, or notification.
+This workflow automatically sends a formatted conversation transcript to relevant parties whenever an appointment is booked. It uses the Assistable API to fetch messages, custom code to format them, and GoHighLevel's workflow engine to deliver the result.
 
-See [CRM Transcripts](/monitor/crm-transcripts) and [Pre/Post-Call Webhooks](/deploy/webhooks/pre-post-call) for the complete setup guide.
+## Workflow Summary
+
+| Step | Action | Purpose |
+|------|--------|---------|
+| 1 | Trigger: Appointment Status → Booked | Start when a booking is set |
+| 2 | Custom Webhook (Assistable API) | Fetch conversation messages |
+| 3 | Custom Code | Format raw JSON into clean transcript |
+| 4 | Email or Notification | Deliver transcript to recipients |
+
+## Setup Instructions
+
+<Steps>
+  <Step title="Set the Trigger">
+    Create a new GHL workflow with trigger: **Appointment Status Changed → Booked**.
+  </Step>
+  <Step title="Add Custom Webhook (API Request)">
+    Configure a GET request:
+    - **URL**: `https://api.assistable.ai/v2/get-conversation`
+    - **Header**: `Authorization: Bearer {{Your_v2_api_key}}`
+    - **Query Params**: `contact_id` → `{{contact.id}}`, `location_id` → `{{location.id}}`
+    - Enable **Save Response**
+  </Step>
+  <Step title="Add Custom Code Formatting">
+    Map the webhook response messages to a custom code step that converts raw JSON into readable text. Use the message array from `{{custom_webhook.1.response.messages}}`.
+  </Step>
+  <Step title="Send the Transcript">
+    Add an **Email** or **Internal Notification** action that includes the formatted transcript output.
+  </Step>
+</Steps>
+
+<Tip>Combine with [Send Conversation Summary](/build/custom-tools/send-summary) for a shorter summary instead of the full transcript.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Send Summary" icon="file-lines" href="/build/custom-tools/send-summary">
+    Send summaries instead of full transcripts
+  </Card>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Extract key data from conversations
+  </Card>
+  <Card title="No-Show Followup" icon="calendar-xmark" href="/how-to-guides/no-show-followup">
+    Automate no-show follow-ups
+  </Card>
+</CardGroup>

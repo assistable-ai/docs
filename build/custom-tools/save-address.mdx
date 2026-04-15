@@ -1,0 +1,95 @@
+---
+title: "Save Address"
+description: "Create a custom tool to collect and save a user's complete address to their contact profile."
+icon: "location-dot"
+---
+
+## Overview
+
+The **Save Address** custom tool enables your AI assistant to collect a user's full address (street, city, state, zip code) during a conversation and save it directly to the contact profile in GoHighLevel. This is particularly useful for service businesses that need addresses for appointments, inspections, or deliveries.
+
+<Note>Since Version 2.1, Assistable includes a **pre-built** tool with this functionality. This guide is still useful for learning how to build custom tools from scratch.</Note>
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/mceclip0_1733353233.png?width=920" alt="Save Address custom tool overview" />
+</Frame>
+
+## Prerequisites
+
+- **AI Assistant Dashboard** — Access to custom tool creation
+- **GoHighLevel CRM** — Access to automation workflows and contact profile fields
+- **Endpoint URL** — Generated from an inbound webhook
+
+## Step-by-Step Setup
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    In your assistant dashboard:
+    1. Go to **Assistants** → select your assistant
+    2. Under **Custom Tools**, click **Create a Custom Tool**
+    3. Configure:
+       - **Unique Name**: `save_address`
+       - **Description**: "Use this tool to collect and save the user's complete address including street, city, state, and zip code."
+       - **Parameters**: `street`, `city`, `state`, `zip_code`
+       - **Example Data**: "54 State Street, Albany, New York, 12207"
+  </Step>
+  <Step title="Generate Endpoint URL via Inbound Webhook">
+    1. In GoHighLevel, go to **Automations** → create a new workflow titled "Save Address Webhook"
+    2. Set **Inbound Webhook** as the trigger
+    3. Copy the generated Webhook URL
+    4. Return to your custom tool setup and paste the URL in the endpoint field
+    5. Test the connection (look for a green checkmark)
+  </Step>
+  <Step title="Add Address Collection Prompt">
+    In your assistant's **Prompts** section, add instructions like:
+    *"Ask the user for their full address, including the zip code. Once collected, call the save_address function."*
+  </Step>
+  <Step title="Map Address Fields in CRM Workflow">
+    Back in the GoHighLevel automation:
+    1. Click **Fetch Sample Request** to pull sample data
+    2. Add a **Find Contact** action using `contact_id` from the webhook
+    3. Add **Update Contact Field** actions mapping each field:
+       - Street Address → `Inbound Webhook > Arguments > street`
+       - City → `Inbound Webhook > Arguments > city`
+       - State → `Inbound Webhook > Arguments > state`
+       - Postal Code → `Inbound Webhook > Arguments > zip_code`
+    4. Save and publish the workflow
+  </Step>
+  <Step title="Test and Validate">
+    1. Run a test conversation with your AI assistant
+    2. Provide an address when prompted
+    3. Check the contact's **General Info** section in GoHighLevel
+    4. Verify all address fields are correctly populated
+  </Step>
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What if the address doesn't save correctly?">
+    Ensure each address component (street, city, state, zip) is mapped to the correct field in the Update Contact Field action.
+  </Accordion>
+  <Accordion title="Can I adapt this for other data fields?">
+    Yes — modify the tool parameters and field mappings to capture email, phone, or any other contact information.
+  </Accordion>
+  <Accordion title="What if the assistant doesn't capture the address?">
+    Verify the custom tool is added to the assistant and that your prompt explicitly instructs the AI to call the tool after collecting the address.
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Calculate Distance" icon="route" href="/build/custom-tools/calculate-distance">
+    Calculate distance from the saved address
+  </Card>
+  <Card title="Update Contact" icon="user-pen" href="/build/custom-tools/update-contact">
+    Update any contact field in GoHighLevel
+  </Card>
+  <Card title="Auto-Populate Fields" icon="wand-magic-sparkles" href="/how-to-guides/auto-populate-fields">
+    Automatically fill custom fields
+  </Card>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Extract user information automatically
+  </Card>
+</CardGroup>

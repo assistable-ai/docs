@@ -1,0 +1,127 @@
+---
+title: "Multi-Calendar Booking"
+description: "Set up multi-calendar booking with custom tools to manage appointments across multiple calendars."
+icon: "calendars"
+---
+
+## Overview
+
+Multi-calendar booking allows your AI assistant to manage appointments across **multiple GoHighLevel calendars** — for example, different service types (mortgage vs. refinance), different locations, or different team members. This guide walks through setting up the custom tools, Buildship workflows, and AI configuration needed.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/mceclip0_1733354716.png?width=920" alt="Multi-calendar booking flow diagram" />
+</Frame>
+
+## How It Works
+
+For each calendar, you create **two custom tools**:
+1. **Get Available Times** — Fetches open time slots from a specific calendar
+2. **Book Appointment** — Books an appointment on that calendar
+
+The AI determines which service the user needs, calls the appropriate tools, and completes the booking — all within a single conversation.
+
+## Prerequisites
+
+- **GoHighLevel Account** with multiple calendars set up
+- **Buildship Account** to create and host API endpoints
+- **Assistable AI Assistant** to add custom tools and configure prompts
+
+## Step-by-Step Setup
+
+<Steps>
+  <Step title="Set Up Calendars in GoHighLevel">
+    Create separate calendars for each service type. For example:
+    - **Mortgage Calendar** for mortgage-related appointments
+    - **Refinance Calendar** for refinance-related appointments
+    
+    Note each calendar's unique ID — you'll need it for the API calls.
+  </Step>
+  <Step title="Build 'Get Available Times' Tool in Buildship">
+    Create a new Buildship workflow:
+    - **Name**: `get_times_mortgage` (or your service name)
+    - **Method**: GET request to GoHighLevel's free time slots endpoint
+    - **Query Parameters**: `calendarId`, `startTime`, `endTime`
+    - **Headers**: `Authorization: Bearer YOUR_API_KEY`
+    
+    Deploy and copy the endpoint URL.
+
+    <Frame>
+      <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/multiple-calendars_1741564085.png?width=920" alt="Get available times Buildship workflow" />
+    </Frame>
+  </Step>
+  <Step title="Build 'Book Appointment' Tool in Buildship">
+    Create another Buildship workflow:
+    - **Name**: `book_appointment_mortgage`
+    - **Method**: POST request to GoHighLevel's booking endpoint
+    - **Request Body**: `calendarId`, `contactId`, `locationId`, `startTime` (ISO 8601)
+    - **Headers**: `Authorization`, `Content-Type: application/json`
+    
+    Deploy and copy the endpoint URL.
+
+    <Frame>
+      <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/book-appointments-_1741564128.png?width=920" alt="Book appointment Buildship workflow" />
+    </Frame>
+  </Step>
+  <Step title="Add Tools to Your AI Assistant">
+    In Assistable, create custom tools matching your Buildship workflows:
+    
+    **Get Available Times:**
+    - Name: `get_times_mortgage`
+    - Description: "Fetch available times for the mortgage calendar"
+    - Endpoint: Your Buildship URL
+    - Parameters: `name`, `email`
+
+    **Book Appointment:**
+    - Name: `book_appointment_mortgage`
+    - Description: "Book an appointment using the selected time from get_times_mortgage"
+    - Endpoint: Your Buildship URL
+    - Parameters: `time`
+  </Step>
+  <Step title="Repeat for Each Calendar">
+    Create the same pair of tools for every additional calendar (e.g., `get_times_refinance`, `book_appointment_refinance`).
+  </Step>
+  <Step title="Update Your AI Prompt">
+    Define the workflow in your prompt:
+    1. Determine the service type (mortgage or refinance)
+    2. Ask qualifying questions
+    3. Use the appropriate `get_times` tool to fetch availability
+    4. Present options and book via the matching `book_appointment` tool
+  </Step>
+  <Step title="Test the Setup">
+    Simulate user interactions for each service type. Verify:
+    - Correct calendar is queried
+    - Appointments appear in GoHighLevel under the right calendar
+    - Contact details are accurate
+  </Step>
+</Steps>
+
+## Tips
+
+<AccordionGroup>
+  <Accordion title="Consistent Naming">
+    Keep tool names uniform across Buildship and Assistable (e.g., `get_times_mortgage` in both places).
+  </Accordion>
+  <Accordion title="Security">
+    Protect API keys using Buildship's environment variables — never hardcode them.
+  </Accordion>
+  <Accordion title="Scalability">
+    Pass calendar IDs as dynamic parameters so you can add new calendars without creating entirely new tools.
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Learn the fundamentals of custom tools
+  </Card>
+  <Card title="Calendar Booking Debugging" icon="bug" href="/troubleshooting/calendar-booking">
+    Troubleshoot booking issues
+  </Card>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Extract user data automatically
+  </Card>
+  <Card title="Flow Builder Guide" icon="diagram-project" href="/how-to-guides/flow-builder-guide">
+    Build smarter AI flows
+  </Card>
+</CardGroup>

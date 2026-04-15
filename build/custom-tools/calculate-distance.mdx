@@ -1,0 +1,64 @@
+---
+title: "Calculate Distance"
+description: "Create a custom tool that calculates the distance between two locations for your AI assistant."
+icon: "route"
+---
+
+## Overview
+
+The **Calculate Distance** custom tool enables your AI assistant to compute the distance between two addresses or locations during a conversation. This is useful for service-area businesses (e.g., delivery, home services, moving companies) that need to determine if a customer is within range or provide distance-based pricing.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/calculate-distance-2_1741570530.png?width=920" alt="Calculate Distance custom tool configuration" />
+</Frame>
+
+## Use Cases
+
+- **Home service businesses** — Determine if a customer's location is within your service radius
+- **Delivery services** — Calculate delivery distance for pricing estimates
+- **Moving companies** — Provide distance-based quotes automatically
+- **Real estate** — Calculate distance between properties and points of interest
+
+## How It Works
+
+The tool accepts two location parameters (origin and destination) and returns the distance between them. Your AI assistant can then use this information to make decisions, provide quotes, or determine service eligibility.
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    In your Assistable dashboard, navigate to your assistant's **Custom Tools** section and click **Create Custom Tool**.
+  </Step>
+  <Step title="Configure Tool Parameters">
+    Set up the following:
+    - **Unique Name**: `calculate_distance`
+    - **Description**: "Calculate the distance between two addresses"
+    - **Parameters**: `origin` (starting address), `destination` (ending address)
+  </Step>
+  <Step title="Set Up the Backend">
+    Use a service like Buildship or a custom webhook to call a distance API (e.g., Google Maps Distance Matrix API) and return the result.
+  </Step>
+  <Step title="Connect the Endpoint">
+    Paste the endpoint URL from your backend service into the custom tool's endpoint field and test the connection.
+  </Step>
+  <Step title="Add to Your Assistant">
+    Save the tool and add it to your assistant. Update your prompt to instruct the AI when to use the distance calculation.
+  </Step>
+</Steps>
+
+<Tip>Combine this tool with [Save Address](/build/custom-tools/save-address) to first collect the user's address, then calculate the distance to your business location.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Learn the fundamentals of custom tools
+  </Card>
+  <Card title="Save Address" icon="location-dot" href="/build/custom-tools/save-address">
+    Collect and save user addresses
+  </Card>
+  <Card title="Search the Web" icon="magnifying-glass" href="/build/custom-tools/search-web">
+    Add web search capabilities
+  </Card>
+  <Card title="Update Contact" icon="user-pen" href="/build/custom-tools/update-contact">
+    Update CRM contact information
+  </Card>
+</CardGroup>

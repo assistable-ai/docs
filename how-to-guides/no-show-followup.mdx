@@ -1,16 +1,65 @@
 ---
 title: "No-Show Follow-Up Automation"
-description: "Automatically follow up with contacts who miss appointments using AI calls."
+description: "Automatically contact and reschedule clients who miss appointments using AI voice calls."
 icon: "calendar-xmark"
 ---
 
 ## Overview
 
-Create an automated workflow that detects appointment no-shows and triggers an AI follow-up call to reschedule. This uses GoHighLevel automation triggers combined with the Make AI Call action.
+This automation detects when an appointment is marked **No Show** in GoHighLevel, triggers an AI voice call via Assistable, and attempts to reschedule the client — all without manual intervention.
+
+## What It Does
+
+1. **Detects** appointment marked as No Show in GHL
+2. **Triggers** an automated AI voice call
+3. **AI asks** for the reason and offers to reschedule
+4. **Books** a new appointment if the client confirms
+5. **Saves notes** summarizing the call to the contact record
 
 ## Setup
 
-1. Create a GHL workflow triggered by appointment status change to "no-show"
-2. Add a delay (e.g., 15 minutes)
-3. Add the **Make AI Call** action with your rescheduling assistant
-4. Configure the assistant's prompt to acknowledge the missed appointment and offer to reschedule
+<Steps>
+  <Step title="Create the Follow-Up Assistant">
+    1. Go to **Assistable Dashboard → Create Assistant**
+    2. Name: "No-Show Follow-Up Bot"
+    3. Configure the prompt with a friendly, empathetic script that asks why they missed and offers to reschedule
+    4. Add calendar booking tools
+    5. Save and deploy
+  </Step>
+  <Step title="Import an Existing Assistant (Optional)">
+    Use **Import → Paste Bot ID** to clone a pre-built no-show assistant. Verify calendar mapping and tools migrated correctly.
+  </Step>
+  <Step title="Create the GHL Workflow">
+    1. Go to **Automation > Workflows > Create New**
+    2. Trigger: **Appointment Status → No Show**
+    3. Action: Use the Assistable API to initiate an outbound AI voice call
+    4. Pass the contact ID and assistant Bot ID
+  </Step>
+  <Step title="Test and Refine">
+    Mark a test appointment as No Show and verify the AI calls, attempts to reschedule, and logs notes.
+  </Step>
+</Steps>
+
+## Benefits
+
+- **Reduces manual workload** for staff
+- **Improves rebooking rates** and client retention
+- **Maintains high calendar utilization**
+- **Standardizes communication** across all follow-ups
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Appointment Deposits" icon="money-check-dollar" href="/how-to-guides/appointment-deposits">
+    Reduce no-shows with deposits
+  </Card>
+  <Card title="Transcript Workflows" icon="scroll" href="/how-to-guides/transcript-workflows">
+    Send conversation transcripts
+  </Card>
+  <Card title="Voice AI Setup" icon="microphone" href="/build/voice-ai/overview">
+    Configure voice assistants
+  </Card>
+  <Card title="Multi-Calendar Booking" icon="calendars" href="/build/custom-tools/multi-calendar-booking">
+    Book across multiple calendars
+  </Card>
+</CardGroup>

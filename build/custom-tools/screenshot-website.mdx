@@ -1,0 +1,53 @@
+---
+title: "Screenshot Website"
+description: "Create a custom tool that captures a screenshot of any website for your AI assistant."
+icon: "camera"
+---
+
+## Overview
+
+The **Screenshot Website** custom tool allows your AI assistant to capture a visual screenshot of any webpage. This is useful for visual verification, design reviews, or providing users with a preview of a website.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/mceclip0_1751288308.png?width=920" alt="Screenshot Website custom tool configuration" />
+</Frame>
+
+## Use Cases
+
+- **Website previews** — Show users what a page looks like before visiting
+- **Design verification** — Confirm landing pages render correctly
+- **Documentation** — Capture visual evidence of web content
+- **QA testing** — Verify deployment changes visually
+
+## Setup
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    Create a new custom tool in your assistant:
+    - **Name**: `screenshot_website`
+    - **Description**: "Take a screenshot of the specified website URL"
+    - **Parameters**: `url` (the website to screenshot)
+  </Step>
+  <Step title="Set Up a Screenshot Service">
+    Use a screenshot API service (e.g., ScreenshotAPI, Puppeteer via Buildship) that accepts a URL and returns an image.
+  </Step>
+  <Step title="Connect and Test">
+    Paste the service endpoint into the tool configuration, save, and test by asking your AI to screenshot a website.
+  </Step>
+</Steps>
+
+<Tip>Pair this with the [Scrape Website](/build/custom-tools/scrape-website) tool to get both visual and text content from a page.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Scrape Website" icon="globe" href="/build/custom-tools/scrape-website">
+    Extract text content from websites
+  </Card>
+  <Card title="Search the Web" icon="magnifying-glass" href="/build/custom-tools/search-web">
+    Add web search to your AI
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+</CardGroup>

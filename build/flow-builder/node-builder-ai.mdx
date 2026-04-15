@@ -1,15 +1,73 @@
 ---
 title: "Node Builder (AI Generate)"
-description: "Use AI to automatically generate node configurations and content."
+description: "Use AI to generate node configurations, improve prompts, and build flows faster."
 icon: "wand-magic-sparkles"
 ---
 
 ## Overview
 
-Use AI to automatically generate node configurations and content.
+Flow Builder includes AI-powered node generation to help you build faster. Describe what you want in plain language and let the AI generate the configuration — or improve existing prompts with a single click.
 
-## Configuration
+## AI Generate (Sparkle Button)
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+On any [Conversation node](/build/flow-builder/conversation-node), click the **sparkle icon** to open the AI Generate panel. Describe the node's purpose:
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+```
+Ask the caller for their appointment date and time preference.
+Only allow weekday slots between 9am and 5pm.
+If they ask for a weekend, politely explain that's not available.
+```
+
+The AI generates:
+- A structured **system prompt** optimized for the node
+- Suggested **transition conditions** based on likely outcomes
+- Appropriate **node settings**
+
+Review and adjust before saving.
+
+## Improve Prompt (Magic Wand)
+
+Already have a prompt? Click the **magic wand icon** to rewrite it into a structured, task-based format.
+
+### Before
+```
+You're a dental receptionist. Help people book appointments.
+Be nice and professional. Ask for their info.
+```
+
+### After
+```
+You are a scheduling assistant for Acme Dental.
+
+Your task:
+1. Greet the caller professionally.
+2. Ask for their full name.
+3. Ask for their preferred appointment date and time.
+4. Only offer weekday slots between 9:00 AM and 5:00 PM.
+5. Confirm the appointment details before proceeding.
+
+Constraints:
+- Do not schedule same-day appointments.
+- If the caller requests a weekend, explain only weekday slots are available.
+- Keep responses concise and professional.
+```
+
+The improved version gives the LLM clearer direction for more consistent behavior.
+
+## Revert
+
+Every AI generation is **reversible**. A **Revert** button appears after any AI modification — click it to restore the previous version instantly. No risk of losing your work.
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    The core dialogue node
+  </Card>
+  <Card title="Testing" icon="flask-vial" href="/build/flow-builder/testing">
+    Test AI-generated nodes
+  </Card>
+  <Card title="Flow Builder Guide" icon="diagram-project" href="/how-to-guides/flow-builder-guide">
+    Comprehensive usage guide
+  </Card>
+</CardGroup>

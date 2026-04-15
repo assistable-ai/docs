@@ -1,15 +1,81 @@
 ---
 title: "Extraction & Variable Nodes"
-description: "Extract important data from conversations and store it in variables."
-icon: "filter"
+description: "Extract structured data from conversations and set variable values in your flows."
+icon: "database"
 ---
 
 ## Overview
 
-Extract important data from conversations and store it in variables.
+Flow Builder has two nodes for working with data: the **Extraction node** uses an LLM to pull structured information from the conversation, and the **Variable node** sets values directly without AI involvement.
 
-## Configuration
+## Extraction Node
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+The Extraction node analyzes conversation history and extracts specific data into named variables.
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+### Configuring Extractions
+
+Each extraction has three fields:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| `varName` | Variable to store the value | `caller_email` |
+| `varType` | Expected data type | `string` |
+| `description` | What to extract (natural language) | "The caller's email address" |
+
+### Supported Types
+
+| Type | Example Values |
+|------|---------------|
+| `string` | `john@example.com` |
+| `number` | `42` |
+| `boolean` | `true` |
+| `array` | `["Mon", "Wed", "Fri"]` |
+| `object` | `{"city": "Austin", "state": "TX"}` |
+
+### Sentinel Sanitization
+
+The extraction engine automatically converts ambiguous values (`<UNKNOWN>`, `N/A`, `null`, `none`, `not provided`) to empty strings. This ensures `is_empty` checks in [Logic nodes](/build/flow-builder/logic-node) work correctly.
+
+<Tip>Connect Extraction nodes via the **async handle** when you don't need the extracted data immediately — this keeps the conversation flowing while extraction runs in the background.</Tip>
+
+## Variable Node
+
+The Variable node sets values directly — no LLM call, instant execution.
+
+### Literal Values
+```
+varName: lead_status
+value: qualified
+```
+
+### Dynamic Values with Substitution
+```
+varName: full_address
+value: {{street}}, {{city}}, {{state}} {{zip}}
+```
+
+## Common Pattern
+
+Chain these nodes together:
+1. **Conversation node** — Ask the user for information
+2. **Extraction node** — Extract `first_name`, `last_name`, `email`
+3. **Variable node** — Compose `full_name` as `{{first_name}} {{last_name}}`
+4. **Logic node** — Check if required fields are present
+5. **Request node** — POST to your CRM
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Variables" icon="brackets-curly" href="/build/flow-builder/variables">
+    Variable system and substitution syntax
+  </Card>
+  <Card title="Logic Node" icon="code-branch" href="/build/flow-builder/logic-node">
+    Branch based on extracted values
+  </Card>
+  <Card title="Request Node" icon="server" href="/build/flow-builder/request-node">
+    Send extracted data to APIs
+  </Card>
+  <Card title="Data Extraction Guide" icon="wand-magic-sparkles" href="/how-to-guides/data-extraction">
+    How-to guide for data extraction
+  </Card>
+</CardGroup>

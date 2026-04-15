@@ -1,11 +1,53 @@
 ---
-title: "Sub-Account Wallet"
-description: "Set up wallets for individual sub-accounts."
-icon: "wallet"
+title: "Subaccount Wallet"
+description: "Set up wallets for your sub-accounts so clients can fund their AI usage."
+icon: "piggy-bank"
 ---
 
 ## Overview
 
-Sub-account wallets allow individual clients to fund their own AI usage. Configure wallet access and auto-top-up settings.
+Each sub-account has its own wallet that funds their AI usage (voice calls, messages). Clients add funds to their wallet, and usage is billed at the rates you set via [Rebilling](/platform/rebilling).
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## Prerequisites
+
+Before a client can set up their wallet, they must be **invited as a member** to their sub-account. Without this, they won't see the billing settings.
+
+<Note>
+**Why can't my client see their billing settings?**
+
+They need to be invited as a workspace member first. Go to your Agency Dashboard, find their sub-account, click **Invite Member**, and send an invite to their email. Once accepted, they'll see the Billing menu and can set up their wallet.
+</Note>
+
+## Client Wallet Setup
+
+Once invited as a member, your client can:
+
+1. Navigate to their sub-account's **Settings > Billing**
+2. Add a payment card
+3. Fund their wallet
+4. Enable auto-pay for automatic refills
+
+## How Usage Is Billed
+
+- Usage charges are deducted from the sub-account's wallet at the rates you configured
+- If the wallet runs dry, AI services pause until funds are added
+- Transaction history is visible to the client in their billing portal
+
+<Tip>If you want another user to access billing settings, they also need to be [added as a member](/platform/user-management) of the workspace.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Agency Wallet" icon="wallet" href="/platform/agency-wallet">
+    Your agency-level wallet
+  </Card>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Set client pricing
+  </Card>
+  <Card title="User Management" icon="user-plus" href="/platform/user-management">
+    Invite members to sub-accounts
+  </Card>
+  <Card title="Billing Portal" icon="credit-card" href="/platform/billing-portal">
+    Understand billing and invoices
+  </Card>
+</CardGroup>

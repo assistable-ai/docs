@@ -1,0 +1,65 @@
+---
+title: "Scrape Website"
+description: "Create a custom tool that scrapes website content and returns it for your AI assistant to understand."
+icon: "globe"
+---
+
+## Overview
+
+The **Scrape Website** custom tool allows your AI assistant to fetch and read the contents of any website URL during a conversation. The scraped content is returned to the AI, which can then analyze, summarize, or answer questions about it.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/mceclip0_1751288489.png?width=920" alt="Scrape Website custom tool configuration" />
+</Frame>
+
+## Use Cases
+
+- **Lead research** — AI scrapes a prospect's website to personalize the conversation
+- **Competitor analysis** — Fetch and summarize competitor pages on demand
+- **Content verification** — Check if specific information exists on a webpage
+- **Support** — Pull documentation or help articles in real time
+
+## How It Works
+
+The tool accepts a URL parameter, makes an HTTP request to fetch the page content, parses the HTML into readable text, and returns it to the AI assistant. The AI can then use this content as context for its responses.
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    In your assistant settings, create a new custom tool:
+    - **Name**: `scrape_website`
+    - **Description**: "Scrape and return the text content of a given website URL"
+    - **Parameters**: `url` (the website to scrape)
+  </Step>
+  <Step title="Set Up the Backend">
+    Use Buildship or a custom webhook to:
+    1. Receive the URL parameter
+    2. Fetch the webpage content
+    3. Parse HTML to extract readable text
+    4. Return the text content to the AI
+  </Step>
+  <Step title="Configure Authorization">
+    If your scraping endpoint requires authentication, add the authorization header in the tool configuration.
+  </Step>
+  <Step title="Add to Assistant and Test">
+    Save the tool, add it to your assistant, and test by asking the AI to look up information from a specific URL.
+  </Step>
+</Steps>
+
+<Warning>Be mindful of rate limits and website terms of service when scraping. Some sites block automated requests.</Warning>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Screenshot Website" icon="camera" href="/build/custom-tools/screenshot-website">
+    Capture visual screenshots instead
+  </Card>
+  <Card title="Search the Web" icon="magnifying-glass" href="/build/custom-tools/search-web">
+    Search the web with your AI
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Learn custom tool fundamentals
+  </Card>
+  <Card title="Knowledge Base Optimization" icon="book-sparkles" href="/troubleshooting/knowledge-base-optimization">
+    Optimize your AI's knowledge
+  </Card>
+</CardGroup>

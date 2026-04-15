@@ -1,11 +1,70 @@
 ---
-title: "Managing Sub-Accounts"
-description: "Create, manage, and configure sub-accounts for your clients."
+title: "Sub-Account Management"
+description: "Manage sub-accounts within your workspace — edit info, set limits, control permissions, and more."
 icon: "users"
 ---
 
 ## Overview
 
-Sub-accounts represent individual clients or business units under your agency workspace. Manage connections, settings, and access from the agency dashboard.
+After sub-accounts are synced to your workspace, you can manage every aspect of them from the Agency Dashboard — edit account details, set usage limits, control feature visibility, invite users, and handle billing.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## Managing a Sub-Account
+
+<Steps>
+  <Step title="Access the Sub-Account">
+    In your workspace, locate and click the desired sub-account. You can **pin favorites** to keep frequently-accessed accounts at the top.
+  </Step>
+  <Step title="Edit Account Info">
+    Click **Edit Account** to modify:
+    - Sub-account name, email, phone number
+    - Website and time zone
+    
+    Info is auto-filled from GoHighLevel via OAuth but can be changed manually. Click **Save Changes** to confirm.
+  </Step>
+  <Step title="Set Content & Usage Limits">
+    Go to **Manage Limits** to define:
+    - Maximum number of assistants
+    - Maximum messages
+    - Phone number limits
+    
+    Set specific limits or make everything unlimited. See [Subaccount Limits](/platform/subaccount-limits) for details.
+  </Step>
+  <Step title="Manage Tab Permissions">
+    Use **Permissions** to control which tabs are visible to non-admin users. Admins always see everything. See [Permissions](/platform/permissions).
+  </Step>
+  <Step title="Invite or Manage Members">
+    Click **Invite Member** to add users by email. New users are created automatically. Members need access to see the billing tab and manage settings. See [User Management](/platform/user-management).
+  </Step>
+  <Step title="Lock/Unlock the Account">
+    Use **Lock/Unlock** for admin-level security. Requires an admin password. Useful for restricting or freezing access temporarily.
+  </Step>
+  <Step title="Manage GHL Connections">
+    If sync breaks, use **Agency Connection** to refresh or **Direct Connect** to manually re-authenticate.
+  </Step>
+  <Step title="Configure Rebilling">
+    Set up per-account [rebilling](/platform/rebilling) rates for voice minutes and other usage.
+  </Step>
+</Steps>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Subaccount Limits" icon="gauge" href="/platform/subaccount-limits">
+    Configure usage limits
+  </Card>
+  <Card title="Permissions" icon="lock" href="/platform/permissions">
+    Control feature visibility
+  </Card>
+  <Card title="Restrictions" icon="ban" href="/platform/restrictions">
+    Restrict sub-account access
+  </Card>
+  <Card title="User Management" icon="user-plus" href="/platform/user-management">
+    Add and remove users
+  </Card>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Set up client billing
+  </Card>
+  <Card title="Workspace Setup" icon="building" href="/platform/workspace-setup">
+    Full workspace configuration
+  </Card>
+</CardGroup>

@@ -6,6 +6,81 @@ icon: "building"
 
 ## Overview
 
-Your workspace is the top-level container for all your AI operations. Configure it in the Agency Dashboard to manage sub-accounts, billing, branding, and more.
+Your workspace is the top-level container for all your AI operations in Assistable. From the **Agency Dashboard**, you manage sub-accounts, billing, branding, user access, and more. This guide covers the essential steps to get your workspace fully configured.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## What You Can Do From the Agency Dashboard
+
+<CardGroup cols={2}>
+  <Card title="White Labeling" icon="palette" href="/platform/white-labeling">
+    Brand your portal with custom domain and logo
+  </Card>
+  <Card title="Sub-Account Management" icon="users" href="/platform/sub-account-management">
+    Create and manage client sub-accounts
+  </Card>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Set up automated client billing
+  </Card>
+  <Card title="Snapshots" icon="camera" href="/platform/snapshots">
+    Template new sub-accounts automatically
+  </Card>
+  <Card title="User Management" icon="user-plus" href="/platform/user-management">
+    Add team members and client users
+  </Card>
+  <Card title="Billing Portal" icon="credit-card" href="/platform/billing-portal">
+    Manage subscriptions and wallet
+  </Card>
+</CardGroup>
+
+## Getting Started
+
+<Steps>
+  <Step title="Connect Your GoHighLevel Account">
+    Link your GHL workspace to Assistable via OAuth or direct connection. See [Getting Started](/getting-started) for detailed instructions.
+  </Step>
+  <Step title="Import Sub-Accounts">
+    Click **Import Installed** to fetch all sub-accounts linked to your GHL connection. Select specific accounts or import all at once.
+    
+    <Warning>If you're on a limited plan, avoid importing more than your plan allows — archive extras as needed.</Warning>
+  </Step>
+  <Step title="Install Custom Menu Link">
+    Copy your unique **Custom Menu Link** from the workspace and add it in GoHighLevel under **Settings > Custom Menu**. This embeds your AI Portal into every sub-account's sidebar.
+  </Step>
+  <Step title="Configure Branding">
+    Upload your logo, set brand colors, and configure your [white-label domain](/platform/white-labeling) so everything looks like your brand.
+  </Step>
+  <Step title="Set Up Billing">
+    Connect [Stripe](/platform/stripe-integration) for rebilling, configure your [agency wallet](/platform/agency-wallet), and set pricing for voice minutes.
+  </Step>
+  <Step title="Create Agency Snapshot">
+    Set up a [snapshot](/platform/snapshots) to automatically configure new sub-accounts with default features, assistants, and billing settings.
+  </Step>
+</Steps>
+
+## Custom Menu Link Details
+
+The custom menu link makes your AI Portal appear as a sidebar item in every GoHighLevel sub-account:
+
+1. In your workspace, click **Custom Menu Link** and copy the URL
+2. In GoHighLevel Agency View, go to **Settings > Custom Menu > Create**
+3. Paste the URL (leave variables untouched — they auto-configure per sub-account)
+4. Set it as an iframe, name it (e.g., "AI Portal"), and enable for all sub-accounts
+5. **Enable microphone access** for voice testing via the embedded Voice Lab
+
+<Tip>New sub-accounts automatically sync via OAuth and display the AI Portal based on your custom menu link configuration.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Branding" icon="paintbrush" href="/platform/branding">
+    Update logos and colors
+  </Card>
+  <Card title="Permissions" icon="lock" href="/platform/permissions">
+    Control sub-account navigation visibility
+  </Card>
+  <Card title="Restrictions" icon="ban" href="/platform/restrictions">
+    Restrict sub-account access
+  </Card>
+  <Card title="Subaccount Limits" icon="gauge" href="/platform/subaccount-limits">
+    Set usage limits per sub-account
+  </Card>
+</CardGroup>

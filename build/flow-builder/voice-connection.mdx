@@ -1,15 +1,67 @@
 ---
 title: "Connecting Voice (Telnyx)"
-description: "Connect your flow agent to voice calls via Telnyx SIP trunking."
+description: "Connect a Telnyx phone number to your flow for voice AI deployment."
 icon: "phone"
 ---
 
 ## Overview
 
-Connect your flow agent to voice calls via Telnyx SIP trunking.
+Flow Builder supports voice deployment through **Telnyx**. Connect a phone number to your flow so inbound callers interact with your AI agent over a live phone call with real-time speech processing.
 
-## Configuration
+## How It Works
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+1. **Telnyx receives** the inbound call and forwards it to your flow's voice endpoint
+2. **Flow Builder** processes each turn: speech-to-text → node execution → LLM call → response
+3. **Responses stream** back via SSE for low-latency text-to-speech playback
+4. **Conversation continues** until an End node is reached or the caller hangs up
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+## Setup
+
+<Steps>
+  <Step title="Create a Telnyx Account">
+    Sign up at [telnyx.com](https://telnyx.com) and purchase a phone number.
+  </Step>
+  <Step title="Configure the Webhook">
+    In Telnyx, set the phone number's webhook URL to your flow's voice endpoint (found in Flow Builder's deploy settings). Set the method to **POST**.
+  </Step>
+  <Step title="Save and Test">
+    Save the Telnyx configuration. Call your number to test the flow.
+  </Step>
+</Steps>
+
+## Voice-Specific Best Practices
+
+| Consideration | Recommendation |
+|--------------|----------------|
+| **Model selection** | Use fast models (`gpt-4o-mini`, `claude-haiku`) for low latency |
+| **Prompt length** | Keep prompts concise to reduce processing time |
+| **Static messages** | Use static mode for greetings/disclaimers to skip LLM |
+| **Tool calls** | Enable speak-during-execution filler to avoid dead air |
+
+## Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Calls connect but no audio | Verify webhook URL matches your flow's voice endpoint |
+| Long pauses between turns | Use a faster LLM model and shorten prompts |
+| Agent doesn't respond | Confirm [API key](/build/flow-builder/api-key) is configured |
+| Call drops immediately | Check Telnyx webhook logs for connection errors |
+
+<Warning>Test your flow thoroughly using the [built-in test panel](/build/flow-builder/testing) before connecting to a live phone number.</Warning>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Engine & Streaming" icon="bolt" href="/build/flow-builder/streaming">
+    How streaming works for voice
+  </Card>
+  <Card title="Testing" icon="flask-vial" href="/build/flow-builder/testing">
+    Test before deploying
+  </Card>
+  <Card title="Embedding Widget" icon="window-maximize" href="/build/flow-builder/embedding-widget">
+    Deploy to chat instead
+  </Card>
+  <Card title="API Key Setup" icon="key" href="/build/flow-builder/api-key">
+    Required for voice
+  </Card>
+</CardGroup>

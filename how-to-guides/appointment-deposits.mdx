@@ -1,16 +1,57 @@
 ---
-title: "Appointment Deposit Workflows"
-description: "Collect deposits when appointments are booked through AI assistants."
+title: "Appointment Deposits"
+description: "Automate appointment deposit collection to reduce no-shows using GoHighLevel workflows."
 icon: "money-check-dollar"
 ---
 
 ## Overview
 
-Set up automated workflows that collect deposits when an AI assistant books an appointment. This uses the post-call webhook combined with Stripe payment links.
+Automate deposit collection when clients book appointments. This reduces no-shows and streamlines the booking process using GoHighLevel's payment system and workflow automation.
 
 ## Setup
 
-1. Create a Stripe payment link for the deposit amount
-2. Set up a post-call webhook workflow in GHL
-3. Add a condition: if appointment was booked → send deposit link via SMS
-4. Track payment status and confirm the appointment
+<Steps>
+  <Step title="Create the Deposit Product">
+    1. Go to **Payments > Products** in GoHighLevel
+    2. Click **+ Create Product**
+    3. Name: "Appointment Deposit"
+    4. Type: Digital Good / Service
+    5. Price: Your desired amount (e.g., $50)
+    6. Save
+  </Step>
+  <Step title="Generate the Payment Link">
+    1. Go to **Payments > Payment Links**
+    2. Click **Create Payment Link**
+    3. Select your deposit product
+    4. Copy the generated URL
+  </Step>
+  <Step title="Create the Booking Trigger Workflow">
+    1. Go to **Automation > Workflows > Create New**
+    2. Trigger: **Appointment Status → Confirmed**
+    3. Action: **Send SMS**:
+    
+    *"Hi {{contact.first_name}}, your appointment is reserved! Secure your spot: [Payment Link]"*
+    
+    4. (Optional) Add a **Wait** step + reminder if unpaid after 24 hours
+  </Step>
+  <Step title="Create the Payment Confirmation Workflow">
+    1. Create a second workflow
+    2. Trigger: **Order Submitted** (filter: Appointment Deposit product)
+    3. Action: **Send SMS/Email**: "Thank you! Your deposit is received. Your appointment is fully secured."
+    4. Action: **Update Contact Tag** → "Deposit Paid"
+  </Step>
+</Steps>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="No-Show Followup" icon="calendar-xmark" href="/how-to-guides/no-show-followup">
+    Automate no-show follow-ups
+  </Card>
+  <Card title="Transcript Workflows" icon="scroll" href="/how-to-guides/transcript-workflows">
+    Send conversation transcripts
+  </Card>
+  <Card title="Multi-Calendar Booking" icon="calendars" href="/build/custom-tools/multi-calendar-booking">
+    Book across multiple calendars
+  </Card>
+</CardGroup>

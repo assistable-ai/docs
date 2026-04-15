@@ -1,16 +1,46 @@
 ---
 title: "Auto-Populate Custom Fields"
-description: "Automatically fill CRM custom fields using automatic data collection."
-icon: "fill"
+description: "Automatically populate GoHighLevel custom fields using AI-powered data collection."
+icon: "wand-magic-sparkles"
 ---
 
 ## Overview
 
-Use automatic data collection to populate custom fields in GoHighLevel without manual entry. As the AI collects information during conversations, it can automatically update the contact's custom fields in real-time.
+Configure **Automatic Data Collection** in GoHighLevel to auto-fill custom fields using AI — without live tool calls. This captures data from voice calls (post-call) and chat interactions (per run), reducing manual input and eliminating tool call latency.
 
 ## Setup
 
-1. Create the custom fields in GHL Settings
-2. Configure the data collection rules in your assistant
-3. Map collected data to the corresponding custom fields
-4. Test with a conversation to verify fields are populated
+<Steps>
+  <Step title="Navigate to a Contact Record">
+    Open any contact in GoHighLevel.
+  </Step>
+  <Step title="Locate Automatic Data Collection">
+    Scroll to the **Automatic Data Collection** section.
+  </Step>
+  <Step title="Create a New Rule">
+    Click **Create New** and configure:
+    - **Name**: Lowercase, no spaces (e.g., `business_ein`)
+    - **Data Type**: `string` (most cases), `number`, or `boolean`
+    - **Description**: What to capture (e.g., "User's Business EIN")
+    - **Mapping**: Link to the appropriate custom field
+  </Step>
+  <Step title="Save and Test">
+    Send a test message (e.g., "Our CAC is $25 and LTV is $3,200") or complete a voice call. No tool call is triggered — latency stays normal. Refresh the contact to verify mapped fields are auto-filled.
+  </Step>
+</Steps>
+
+<Note>This method works alongside [Data Extraction](/how-to-guides/data-extraction) — use whichever approach fits your use case better.</Note>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Assistable's extraction approach
+  </Card>
+  <Card title="Save Address" icon="location-dot" href="/build/custom-tools/save-address">
+    Save addresses via custom tools
+  </Card>
+  <Card title="Update Contact" icon="user-pen" href="/build/custom-tools/update-contact">
+    Update CRM contacts
+  </Card>
+</CardGroup>

@@ -1,11 +1,51 @@
 ---
-title: "Sub-Account Limits"
-description: "Set usage limits for sub-accounts."
+title: "Subaccount Limits"
+description: "Set and manage usage limits for individual sub-accounts."
 icon: "gauge"
 ---
 
 ## Overview
 
-Control how much each sub-account can use by setting limits on calls, messages, and other AI resources.
+Subaccount limits let you control how much each sub-account can use — including the number of assistants, messages, phone numbers, and other resources. This is useful for managing plan tiers, preventing overuse, or restricting demo accounts.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## Configuring Limits
+
+<Steps>
+  <Step title="Navigate to the Sub-Account">
+    In your workspace, find the sub-account you want to configure.
+  </Step>
+  <Step title="Click Manage Limits">
+    Open the limits panel for that sub-account.
+  </Step>
+  <Step title="Set Individual Limits">
+    Configure maximum values for:
+    - **Max Assistants** — How many AI assistants the account can create
+    - **Max Messages** — Total message volume
+    - **Phone Numbers** — Number of phone numbers allowed
+    - Any other billable resources
+    
+    You can set specific numeric limits or mark each as **unlimited**.
+  </Step>
+  <Step title="Save Changes">
+    Click save to apply. Limits take effect immediately.
+  </Step>
+</Steps>
+
+<Tip>Use limits in combination with [Snapshots](/platform/snapshots) to automatically set default limits for new sub-accounts based on their plan tier.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Sub-Account Management" icon="users" href="/platform/sub-account-management">
+    Full management guide
+  </Card>
+  <Card title="Snapshots" icon="camera" href="/platform/snapshots">
+    Auto-configure limits for new accounts
+  </Card>
+  <Card title="Permissions" icon="lock" href="/platform/permissions">
+    Control feature visibility
+  </Card>
+  <Card title="Restrictions" icon="ban" href="/platform/restrictions">
+    Restrict sub-account access
+  </Card>
+</CardGroup>

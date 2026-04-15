@@ -1,15 +1,74 @@
 ---
-title: "Logic Node & Conditional Branching"
-description: "Add conditional logic to your flows to create branching conversation paths."
+title: "Logic Node"
+description: "Route conversations based on variable values using conditional branching — no LLM call required."
 icon: "code-branch"
 ---
 
 ## Overview
 
-Add conditional logic to your flows to create branching conversation paths.
+The Logic node routes conversations based on **variable values**. It evaluates conditions against your flow's variables and sends the conversation down different paths — no LLM call required. Think of it as an `if/else-if/else` block for your flow.
 
-## Configuration
+## How Branches Work
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+Each Logic node has one or more **branches**. A branch contains one or more conditions, and each condition checks a variable against a value using an operator.
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+Branches are evaluated **in order, top to bottom**. The first branch whose conditions are all satisfied wins. If no branch matches, the **default path** is taken.
+
+## Branch Logic: AND vs OR
+
+| Mode | Behavior | Example |
+|------|----------|---------|
+| **AND** | All conditions must be true | Language is English AND state is Texas |
+| **OR** | Any condition can be true | Status is "VIP" OR spend > 10000 |
+
+## Operators
+
+| Operator | Description | Example |
+|----------|-------------|---------|
+| `equals` | Exact match (case-sensitive) | `{{language}}` equals English |
+| `not_equals` | Does not match | `{{status}}` not_equals blocked |
+| `contains` | Variable contains substring | `{{interests}}` contains dental |
+| `not_contains` | Does not contain substring | `{{email}}` not_contains spam |
+| `not_empty` | Has a value | `{{phone_number}}` not_empty |
+| `is_empty` | Empty, null, or unset | `{{email}}` is_empty |
+| `greater_than` | Numeric: variable > value | `{{age}}` greater_than 18 |
+| `less_than` | Numeric: variable < value | `{{budget}}` less_than 500 |
+| `starts_with` | Begins with string | `{{phone}}` starts_with +1512 |
+| `ends_with` | Ends with string | `{{email}}` ends_with @gmail.com |
+
+## Default Path
+
+<Warning>If you don't connect a default path and no branches match, the engine has nowhere to go and the flow stalls. **Always wire up the default output.**</Warning>
+
+## Real-World Examples
+
+### Lead Qualification
+- **Branch 1 (AND)**: budget > 5000 AND company_size > 10 → "Qualified Lead" conversation
+- **Branch 2**: budget > 1000 → "Warm Lead" conversation
+- **Default**: "Nurture" conversation
+
+### Language Routing
+- **Branch 1**: preferred_language equals Spanish → Spanish flow
+- **Branch 2**: preferred_language equals French → French flow
+- **Default**: English flow
+
+### Data Completeness Check
+- **Branch 1 (AND)**: name not_empty AND email not_empty AND phone not_empty → Proceed to API call
+- **Default**: Loop back to conversation node for missing info
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    The core dialogue node
+  </Card>
+  <Card title="Variables" icon="brackets-curly" href="/build/flow-builder/variables">
+    Dynamic data in your flows
+  </Card>
+  <Card title="Extraction Nodes" icon="database" href="/build/flow-builder/extraction-variable-nodes">
+    Extract data from conversations
+  </Card>
+  <Card title="Flow Builder Guide" icon="diagram-project" href="/how-to-guides/flow-builder-guide">
+    Comprehensive usage guide
+  </Card>
+</CardGroup>

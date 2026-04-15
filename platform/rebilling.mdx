@@ -1,11 +1,56 @@
 ---
-title: "Setting Up Rebilling"
-description: "Charge your clients for AI usage through automated rebilling."
+title: "Rebilling"
+description: "Set up automated rebilling to charge your clients for AI usage through your workspace."
 icon: "money-bill"
 ---
 
 ## Overview
 
-Rebilling lets you mark up AI usage costs and charge your clients automatically. Configure pricing, margins, and payment processing through Stripe.
+Rebilling allows you to charge your clients for AI voice minutes and other usage directly through Assistable. You set your own markup prices, and the system handles billing automatically via Stripe.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## How Rebilling Works
+
+1. **You pay Assistable** at base rates (e.g., $0.07/minute for voice)
+2. **You set your price** for clients (e.g., $0.10/minute)
+3. **Clients fund their wallet** via their billing portal
+4. **Usage is billed** from the client's wallet at your set rate
+5. **You keep the margin** — the difference between your cost and the client's rate
+
+## Setup
+
+<Steps>
+  <Step title="Connect Stripe">
+    Go to the **Rebilling** tab and click **Connect to Stripe**. Complete the Stripe OAuth flow. See [Stripe Integration](/platform/stripe-integration) for details.
+  </Step>
+  <Step title="Set Pricing">
+    Configure your per-minute rate for voice calls and any other billable items. Keep your cost in mind when setting margins.
+  </Step>
+  <Step title="Enable for Sub-Accounts">
+    Rebilling can be enabled per sub-account or set as a default for all new accounts via [Snapshots](/platform/snapshots).
+  </Step>
+  <Step title="Client Wallet Setup">
+    Clients must be [invited as members](/platform/user-management) to access their billing settings and set up their wallet. See [Subaccount Wallet](/platform/subaccount-wallet).
+  </Step>
+</Steps>
+
+<Warning>If your agency wallet balance goes negative, **all sub-accounts lose access** to inbound and outbound AI voice calling. Keep your [Agency Wallet](/platform/agency-wallet) funded.</Warning>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Stripe Integration" icon="stripe-s" href="/platform/stripe-integration">
+    Connect or reset Stripe
+  </Card>
+  <Card title="Agency Wallet" icon="wallet" href="/platform/agency-wallet">
+    Fund your agency wallet
+  </Card>
+  <Card title="Subaccount Wallet" icon="piggy-bank" href="/platform/subaccount-wallet">
+    Client wallet setup
+  </Card>
+  <Card title="Billing Portal" icon="credit-card" href="/platform/billing-portal">
+    Understand billing and invoices
+  </Card>
+  <Card title="Snapshots" icon="camera" href="/platform/snapshots">
+    Auto-configure rebilling for new accounts
+  </Card>
+</CardGroup>

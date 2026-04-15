@@ -1,11 +1,46 @@
 ---
-title: "Sub-Account Restrictions"
-description: "Restrict or limit sub-account capabilities."
+title: "Restrictions"
+description: "Restrict sub-account access with admin locks and account freezing."
 icon: "ban"
 ---
 
 ## Overview
 
-Apply restrictions to specific sub-accounts to control their access to features, prevent unauthorized changes, or enforce compliance.
+Restrictions let you lock down or freeze a sub-account entirely. When restricted, the sub-account cannot be accessed without an admin password. This is useful for non-paying clients, security incidents, or accounts under review.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## How to Restrict a Sub-Account
+
+<Steps>
+  <Step title="Find the Sub-Account">
+    Navigate to the sub-account in your workspace's **Manage Accounts** section.
+  </Step>
+  <Step title="Enable Admin Lock">
+    Click the **Lock** option and set an admin password. The sub-account is now inaccessible without the correct password — even inspecting the page source won't reveal content.
+  </Step>
+  <Step title="Unlock When Ready">
+    Visit the restricted account and enter the admin password to restore access.
+  </Step>
+</Steps>
+
+<Note>Admin locks can also be set automatically for new sub-accounts via [Snapshots](/platform/snapshots).</Note>
+
+## Use Cases
+
+- **Non-payment** — Lock accounts until billing is resolved
+- **Security** — Freeze compromised accounts immediately
+- **Onboarding** — Lock accounts until setup is complete
+- **Demo accounts** — Restrict access after trial period
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Sub-Account Management" icon="users" href="/platform/sub-account-management">
+    Full management guide
+  </Card>
+  <Card title="Permissions" icon="lock" href="/platform/permissions">
+    Control feature visibility
+  </Card>
+  <Card title="Snapshots" icon="camera" href="/platform/snapshots">
+    Auto-configure locks for new accounts
+  </Card>
+</CardGroup>

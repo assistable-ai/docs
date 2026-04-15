@@ -1,15 +1,70 @@
 ---
 title: "Testing Your Agent"
-description: "Test and debug your flow agent before deploying to production."
+description: "Use Flow Builder's built-in test panel to simulate conversations and debug your flows."
 icon: "flask-vial"
 ---
 
 ## Overview
 
-Test and debug your flow agent before deploying to production.
+Flow Builder includes a built-in test panel on the right side of the canvas where you simulate conversations before deploying to production. It connects directly to your flow's engine using your configured [API key](/build/flow-builder/api-key).
 
-## Configuration
+## Starting a Test
 
-Configure this component in the Flow Builder's visual editor. Drag it onto the canvas and connect it to other nodes to build your conversation flow.
+<Steps>
+  <Step title="Open Your Flow">
+    Navigate to your flow in Flow Builder.
+  </Step>
+  <Step title="Ensure API Key is Configured">
+    See [Setting Up Your API Key](/build/flow-builder/api-key).
+  </Step>
+  <Step title="Click Test">
+    The test drawer opens on the right. The start node fires automatically and you see the agent's opening message.
+  </Step>
+  <Step title="Interact">
+    Type messages and press Enter. Watch the canvas **highlight the active node** in real time — visual feedback showing exactly where your flow is.
+  </Step>
+</Steps>
 
-<Tip>Use the built-in testing interface to verify each node works correctly before connecting it to the broader flow.</Tip>
+## Key Features
+
+### Reset Session
+Click **Reset** to clear the conversation, reset all variables, and return to the start node. Reset frequently — stale variable values can mask bugs.
+
+### Conversation History
+The test drawer shows:
+- **Agent messages** — Responses from Conversation nodes
+- **User messages** — Your test inputs
+- **System events** — Node transitions, variable changes, API call results
+
+### Variable Inspector
+Inspect the current state of all flow variables at any point. Use this to verify [Extraction nodes](/build/flow-builder/extraction-variable-nodes) capture data correctly.
+
+### Voice Testing
+If configured for voice deployment, test how the agent sounds with TTS, validate interruption handling, and confirm speak-during-execution filler works during tool calls.
+
+## Tips for Effective Testing
+
+- **Test edge cases** — Unexpected inputs, empty responses, off-topic messages
+- **Watch the canvas** — The highlighted node path shows routing correctness
+- **Check variables after extraction** — Use the variable inspector to confirm accuracy
+- **Test every branch** — Walk through all [Logic node](/build/flow-builder/logic-node) paths
+- **Reset between scenarios** — Don't rely on stale variable state
+
+<Tip>If the test drawer shows no response, check that your API key is configured and your start node is set correctly.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="API Key Setup" icon="key" href="/build/flow-builder/api-key">
+    Configure your LLM API key
+  </Card>
+  <Card title="Conversation Node" icon="message" href="/build/flow-builder/conversation-node">
+    The core dialogue node
+  </Card>
+  <Card title="Engine & Streaming" icon="bolt" href="/build/flow-builder/streaming">
+    How the engine processes turns
+  </Card>
+  <Card title="Voice Connection" icon="phone" href="/build/flow-builder/voice-connection">
+    Deploy to voice via Telnyx
+  </Card>
+</CardGroup>

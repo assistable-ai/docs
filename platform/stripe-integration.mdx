@@ -1,11 +1,69 @@
 ---
 title: "Stripe Integration"
-description: "Connect Stripe for rebilling and payment processing."
-icon: "credit-card"
+description: "Connect or reset your Stripe integration for rebilling setup."
+icon: "stripe-s"
 ---
 
 ## Overview
 
-Connect or reset your Stripe integration to enable rebilling. Stripe handles all payment processing between you and your clients.
+Stripe integration is required for [Rebilling](/platform/rebilling). It allows your workspace to collect payments from clients through their wallet and process billing automatically.
 
-<Note>For detailed step-by-step instructions, refer to the video tutorials in the [Videos & How-tos](https://www.youtube.com/@assistable-ai) section.</Note>
+## Connecting Stripe
+
+<Steps>
+  <Step title="Access the Rebilling Tab">
+    Go to the **Rebilling** tab in your workspace navigation.
+  </Step>
+  <Step title="Click Connect to Stripe">
+    A Stripe OAuth modal opens in a new window.
+  </Step>
+  <Step title="Select Your Stripe Account">
+    Choose the appropriate Stripe account and click **Connect**.
+  </Step>
+  <Step title="Confirm the Integration">
+    Stripe redirects you back to your workspace. You'll see the active Stripe connection displayed under the Rebilling tab.
+  </Step>
+</Steps>
+
+## Resetting the Connection
+
+If you need to switch Stripe accounts or troubleshoot:
+
+<Steps>
+  <Step title="Break the Existing Connection">
+    Go to the **Rebilling** tab (or **Integrations** tab) and click **Break Connection**.
+    
+    <Note>Breaking the connection does **not** affect previously saved billing data.</Note>
+  </Step>
+  <Step title="Reconnect">
+    Click **Connect to Stripe** again and follow the OAuth flow with your new account.
+  </Step>
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Will breaking the connection delete billing data?">
+    No — it only resets the Stripe connection. All billing history remains intact.
+  </Accordion>
+  <Accordion title="Can I connect from either the Rebilling or Integrations tab?">
+    Yes, both tabs provide the same connection process.
+  </Accordion>
+  <Accordion title="What if the OAuth modal doesn't load?">
+    Check your browser's pop-up blocker or try in a different browser.
+  </Accordion>
+</AccordionGroup>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Rebilling" icon="money-bill" href="/platform/rebilling">
+    Set up automated client billing
+  </Card>
+  <Card title="Billing Portal" icon="credit-card" href="/platform/billing-portal">
+    Manage subscriptions and wallet
+  </Card>
+  <Card title="Agency Wallet" icon="wallet" href="/platform/agency-wallet">
+    Fund your agency wallet
+  </Card>
+</CardGroup>

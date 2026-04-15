@@ -1,0 +1,78 @@
+---
+title: "Update Contact in GoHighLevel"
+description: "Create a custom tool to update contact information in GoHighLevel from AI conversations."
+icon: "user-pen"
+---
+
+## Overview
+
+The **Update Contact** custom tool enables your AI assistant to update contact information directly in GoHighLevel during a conversation. The AI collects information naturally and pushes it to the CRM — no manual data entry required.
+
+<Note>Since Version 2.1, Assistable includes a **pre-built** tool for this. This guide is helpful for learning how to build custom tools from scratch.</Note>
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/mceclip1_1733353083.png?width=920" alt="Update Contact custom tool overview" />
+</Frame>
+
+## How It Works
+
+The tool uses a GoHighLevel inbound webhook workflow:
+
+1. **AI collects data** during conversation (name, email, etc.)
+2. **Tool fires** with the collected data as parameters
+3. **Webhook triggers** a GHL automation workflow
+4. **Workflow finds contact** by contact ID and updates the specified fields
+
+## Setup
+
+<Steps>
+  <Step title="Create the Custom Tool">
+    - **Name**: `update_contact_info`
+    - **Description**: "Update the user's contact information in the CRM"
+    - **Parameters**: Define fields you want to update (e.g., `email`, `name`, `phone`, `company`)
+  </Step>
+  <Step title="Create the GHL Webhook Workflow">
+    1. Go to **Automations** → Create new workflow
+    2. Set trigger to **Inbound Webhook**
+    3. Copy the webhook URL to your custom tool's endpoint field
+
+    <Frame>
+      <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/inbound-webhook_1741569923.png?width=920" alt="Inbound webhook trigger" />
+    </Frame>
+  </Step>
+  <Step title="Find Contact by ID">
+    Add a **Find Contact** action:
+    - Search by **Contact ID** using the `contact_id` from the webhook payload
+
+    <Frame>
+      <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/find-by-contact-id_1741569948.png?width=920" alt="Find contact by ID" />
+    </Frame>
+  </Step>
+  <Step title="Map Fields from Webhook Arguments">
+    Add **Update Contact** actions mapping each field from the webhook's arguments:
+
+    <Frame>
+      <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/update-by-args_1741569973.png?width=920" alt="Update contact fields from webhook args" />
+    </Frame>
+  </Step>
+  <Step title="Save, Publish, and Test">
+    Publish the workflow, then test by having the AI collect and update contact information during a conversation.
+  </Step>
+</Steps>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Save Address" icon="location-dot" href="/build/custom-tools/save-address">
+    Save user addresses to contact profiles
+  </Card>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Automatically extract user information
+  </Card>
+  <Card title="Auto-Populate Fields" icon="wand-magic-sparkles" href="/how-to-guides/auto-populate-fields">
+    Auto-fill custom fields
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+</CardGroup>

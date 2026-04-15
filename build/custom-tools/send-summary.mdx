@@ -1,0 +1,55 @@
+---
+title: "Send Conversation Summary"
+description: "Create a custom tool that sends conversation summaries to your clients via email or SMS."
+icon: "file-lines"
+---
+
+## Overview
+
+The **Send Conversation Summary** tool enables your AI assistant to capture a summary of the conversation and deliver it to your clients (or your team) via email, SMS, or any notification channel. This keeps stakeholders informed about what was discussed without manually reviewing transcripts.
+
+<Frame>
+  <img src="https://cdn.eniston.com/bases/f5996c7f-9a62-4962-9a46-54457d265150/attachments/conversation-summary_1741570857.png?width=920" alt="Conversation Summary custom tool" />
+</Frame>
+
+## How It Works
+
+<Steps>
+  <Step title="Create a Custom Field in GoHighLevel">
+    Go to **Settings > Custom Fields** in your GHL sub-account and create a new field called `conversation_summary` (type: Multi-line Text).
+  </Step>
+  <Step title="Create a Data Extraction in Assistable">
+    In your AI assistant, set up a custom **Extraction** tool that automatically populates the `conversation_summary` custom field with an AI-generated summary of the conversation.
+  </Step>
+  <Step title="Build a GoHighLevel Workflow">
+    Create a workflow triggered by a specific event (e.g., **Appointment Booked**):
+    1. Add an **SMS** or **Email** action
+    2. Include the custom field variable: `{{contact.conversation_summary}}`
+    3. The client receives a summary of what was discussed
+  </Step>
+</Steps>
+
+## Example Workflow
+
+After a booking call, your client receives:
+
+> *"Summary: John called about a roof inspection at 54 State St. He prefers morning appointments and has a budget of $500. Appointment booked for Tuesday 10am."*
+
+<Tip>This pairs well with the [Transcript Workflows](/how-to-guides/transcript-workflows) guide for sending full conversation transcripts.</Tip>
+
+## Related Pages
+
+<CardGroup cols={2}>
+  <Card title="Transcript Workflows" icon="scroll" href="/how-to-guides/transcript-workflows">
+    Send full conversation transcripts
+  </Card>
+  <Card title="Data Extraction" icon="database" href="/how-to-guides/data-extraction">
+    Extract data automatically
+  </Card>
+  <Card title="Auto-Populate Fields" icon="wand-magic-sparkles" href="/how-to-guides/auto-populate-fields">
+    Auto-fill custom fields
+  </Card>
+  <Card title="Custom Tools Overview" icon="wrench" href="/build/custom-tools/overview">
+    Custom tool fundamentals
+  </Card>
+</CardGroup>
