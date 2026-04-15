@@ -1,0 +1,49 @@
+---
+title: "Custom Tools Overview"
+description: "Extend your AI assistant with powerful API-driven custom tools."
+icon: "wrench"
+---
+
+## What is a Custom Tool?
+
+Custom tools are powerful extensions that enable voice and chat AI to perform tasks across the internet. They enable custom functionality, data retrieval, data extraction, and workflow automation while understanding and responding contextually.
+
+### How Does a Custom Tool Work?
+
+A custom tool operates as an **LLM function call wrapped in an API call**. It specifies AI functionality through a description and parameters, while the endpoint URL facilitates a POST call with contextual awareness of the endpoint's return data.
+
+## Use Cases
+
+The applications are as broad as your creativity:
+- **Update contact information** — AI collects details and sends them to a webhook to update CRM records
+- **Book appointments** across multiple calendars
+- **Search the web** for real-time information
+- **Calculate distances** between locations
+- **Send emails or SMS** during conversations
+- **Scrape websites** for relevant data
+- **Advanced workflows** — Multi-stage tool calls (e.g., generate Stripe checkout links, send via SMS)
+
+## Understanding the Inputs
+
+### Name (raw JSON format)
+The unique name of the tool, triggered when the AI determines conditions match. Use plain raw text reflecting the function:
+- `update_contact` — For updating contact information
+- `get_delivery_date` — For retrieving delivery dates
+
+### Description (conversational text)
+Guides the AI on the tool's purpose, how to use it, and when to trigger it. Example:
+> "Retrieve the delivery date for a customer's order. Use this tool when a customer asks 'Where is my package?'"
+
+### Endpoint URL
+Where the AI sends a POST request with data and expects a response. This is the specific API or webhook endpoint.
+
+### Authorization & Key
+Enable authentication using Bearer Token format for endpoints that require API keys.
+
+### Parameters (Key/Value Pairs)
+Define the data being requested. Keys should follow JSON conventions (lowercase, underscores, no special characters). Values describe the expected data and format.
+
+Example:
+```json
+{"name": "johnny"}
+```

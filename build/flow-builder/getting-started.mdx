@@ -1,0 +1,56 @@
+---
+title: "Getting Started with Flow Builder"
+description: "Build complex conversational AI flows with a visual drag-and-drop builder."
+icon: "diagram-project"
+---
+
+## What is Flow Builder?
+
+Flow Builder is a visual drag-and-drop interface for creating complex conversational AI agents. Instead of relying on a single prompt, you can design multi-step conversation flows with branching logic, API calls, variable extraction, and more.
+
+## Key Concepts
+
+- **Nodes** — Individual steps in your conversation flow
+- **Connections** — Links between nodes that define the conversation path
+- **Variables** — Dynamic data that persists across the flow
+- **Conditions** — Logic that determines which path to take
+
+## Getting Started
+
+<Steps>
+  <Step title="Create a New Flow">
+    Navigate to **Flow Builder** and click **Create New Flow**. Give it a descriptive name.
+  </Step>
+  <Step title="Add Your First Node">
+    Start with a **Conversation Node** — this is the core building block where your AI engages with the user.
+  </Step>
+  <Step title="Build Your Flow">
+    Connect nodes together to create your desired conversation path. Use Logic Nodes for branching, Tool Nodes for API calls, and Extraction Nodes to capture data.
+  </Step>
+  <Step title="Test">
+    Use the built-in testing interface to simulate conversations and verify your flow works correctly.
+  </Step>
+</Steps>
+
+## Node Types
+
+<CardGroup cols={2}>
+  <Card title="Conversation Node" icon="message" color="#60A5FA" href="/build/flow-builder/conversation-node">
+    The core node where AI engages with users.
+  </Card>
+  <Card title="Logic Node" icon="code-branch" color="#60A5FA" href="/build/flow-builder/logic-node">
+    Conditional branching based on variables or conditions.
+  </Card>
+  <Card title="Tool/Function Node" icon="wrench" color="#60A5FA" href="/build/flow-builder/tool-function-nodes">
+    Execute custom tools and API calls.
+  </Card>
+  <Card title="Extraction Node" icon="filter" color="#60A5FA" href="/build/flow-builder/extraction-variable-nodes">
+    Extract and store data from conversations.
+  </Card>
+  <Card title="Request Node" icon="globe" color="#60A5FA" href="/build/flow-builder/request-node">
+    Make HTTP API calls to external services.
+  </Card>
+  <Card title="Node Builder (AI)" icon="wand-magic-sparkles" color="#60A5FA" href="/build/flow-builder/node-builder-ai">
+    Use AI to generate node configurations.
+  </Card>
+</CardGroup>

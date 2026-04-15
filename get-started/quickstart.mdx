@@ -1,0 +1,70 @@
+---
+title: "Quickstart"
+description: "Build and deploy your first AI assistant in under 10 minutes."
+icon: "bolt"
+---
+
+> 🚀 Go from zero to a working AI voice assistant in minutes.
+
+This guide walks you through creating your first AI assistant, assigning a phone number, and making a test call.
+
+<Steps>
+  <Step title="Create Your Assistant">
+    Navigate to the **Assistants** section in your dashboard and click **Create New Assistant**. You can:
+    - **Generate Template** — Use AI to generate a prompt based on your description (recommended for beginners)
+    - **Blank Canvas** — Start from scratch with full control
+    - **Import with ID** — Copy an existing assistant from another account
+
+    Give your assistant a name, define its identity (e.g., "Emma, a receptionist for Acme Corp"), and set up its tasks.
+  </Step>
+
+  <Step title="Configure Prompting">
+    In the assistant builder, set up:
+    - **Identity** — Who the AI is and what it does
+    - **Tasks** — Sequential steps the AI should follow (greet, qualify, book appointments, etc.)
+    - **Response Guidelines** — Tone, style, and guardrails
+    - **Knowledge Base** — Upload company-specific information (services, hours, pricing, FAQs)
+
+    <Tip>Use the task-based framework to give your AI clear objectives. This produces much better results than a single paragraph prompt.</Tip>
+  </Step>
+
+  <Step title="Add a Phone Number">
+    Go to the **Numbers** section and either:
+    - **Buy a number** directly through the platform
+    - **Import a number** from Twilio, Telnyx, or Vonage via SIP trunking
+
+    Assign the number to your assistant in the assistant's call settings.
+  </Step>
+
+  <Step title="Set Up Calendar (Optional)">
+    If your assistant needs to book appointments:
+    1. Go to Calendar settings and sync your calendar
+    2. Enable the built-in calendar tools: Check Availability, Book Appointment, Reschedule, Cancel
+    3. Test the calendar connection to verify available time slots
+  </Step>
+
+  <Step title="Test Your Assistant">
+    **Inbound test:** Call your assigned number and have a conversation with your AI.
+
+    **Outbound test:** Create a GHL workflow with the **Make an AI Call** action, enter your assistant ID, and trigger it against a test contact.
+
+    Verify that the assistant responds correctly and any bookings appear in your calendar.
+  </Step>
+</Steps>
+
+## What's Next?
+
+<CardGroup cols={2}>
+  <Card title="Voice Cloning" icon="clone" color="#60A5FA" href="/build/voice-ai/voice-cloning">
+    Give your assistant a custom voice.
+  </Card>
+  <Card title="Custom Tools" icon="wrench" color="#60A5FA" href="/build/custom-tools/overview">
+    Extend your AI with API integrations.
+  </Card>
+  <Card title="Deploy Widgets" icon="globe" color="#FB923C" href="/deploy/widgets/orb-widget">
+    Add a voice orb to your website.
+  </Card>
+  <Card title="Monitor Calls" icon="chart-line" color="#34D399" href="/monitor/call-tagging">
+    Track outcomes and optimize.
+  </Card>
+</CardGroup>

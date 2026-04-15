@@ -1,0 +1,48 @@
+---
+title: "Call Forwarding"
+description: "Forward unanswered calls to your AI assistant using GoHighLevel workflows."
+icon: "phone-missed"
+---
+
+## Overview
+
+This guide describes a workaround for forwarding unanswered calls in GoHighLevel to an AI assistant — a feature not directly available in GHL. This setup uses Twilio numbers and If-Else logic to route missed calls.
+
+## Setup Steps
+
+<Steps>
+  <Step title="Set Up Twilio Numbers">
+    - Assign a **primary Twilio number** (or LeadConnector number) for the human agent
+    - Purchase a **second number** in your AI Assistant Dashboard for the AI fallback
+  </Step>
+
+  <Step title="Configure Phone Settings in GHL">
+    - Set the primary number as the user's inbound number
+    - Configure a **call timeout** (e.g., 20 seconds) before the call is considered unanswered
+  </Step>
+
+  <Step title="Create Forwarding Workflow">
+    In GHL Automations, create a workflow called "Unanswered Call Forwarding":
+    - **If call is answered** → End workflow
+    - **If call status is "no answer"** → Route to AI assistant number
+  </Step>
+
+  <Step title="Add AI as Fallback User">
+    Set up the AI assistant as a user in GHL with its assigned phone number, so it can receive forwarded calls.
+  </Step>
+
+  <Step title="Test">
+    Call the primary number, let it ring past the timeout, and verify the call forwards to the AI assistant.
+  </Step>
+</Steps>
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="What if forwarding doesn't work?">
+    Check that the timeout is correctly configured and the If-Else logic triggers only on "no answer" status.
+  </Accordion>
+  <Accordion title="Can this be set up for multiple users?">
+    Yes, configure additional numbers and duplicate the workflow for each user.
+  </Accordion>
+</AccordionGroup>

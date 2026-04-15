@@ -1,0 +1,85 @@
+---
+title: "DNC Compliance"
+description: "How Assistable's multi-layered Do Not Call compliance system works for outbound calls."
+icon: "shield-check"
+---
+
+## Overview
+
+Assistable.ai includes a built-in, multi-layered DNC compliance system that automatically screens outbound AI calls before they are placed.
+
+## Compliance Flow
+
+Every outbound call passes through these checks:
+
+### 1. Lead Attribution Check
+The system checks if GHL knows where the lead came from:
+- **Known source** → DNC screening bypassed (documented relationship exists)
+- **Unknown source** → Full compliance flow
+
+### 2. Internal DNC List
+Checks Assistable's own records:
+- Has this number opted out before?
+- Has this number been flagged in a previous check?
+- If YES → Call blocked
+
+### 3. National & State DNC Registry
+Queries national and state-level DNC registries:
+- If found on any list → Call blocked
+- If not found → Call proceeds
+
+## Decision Tree
+
+```
+Call Requested (GHL Workflow)
+│
+├─ Lead attribution known?
+│  ├─ YES → Call proceeds (bypass DNC)
+│  └─ NO  → Enter compliance flow
+│           │
+│           ├─ On internal DNC list?
+│           │  ├─ YES → Call BLOCKED
+│           │  └─ NO  → Continue
+│           │
+│           └─ On national/state DNC registry?
+│              ├─ YES → Call BLOCKED
+│              └─ NO  → Call proceeds
+```
+
+## Bypass Options
+
+### Option 1: Opt Out Entirely
+Disable all DNC screening for your account. Common in REI and cold outreach industries.
+
+<Warning>Opting out means your organization assumes full legal responsibility for all DNC violations, including FTC/FCC fines and TCPA lawsuits (up to $51,744 per call).</Warning>
+
+### Option 2: Import Number Bypass
+Bypass DNC only for specific imported numbers:
+1. Import your phone numbers
+2. Go to Account Settings
+3. Enable DNC opt-out for imported numbers
+
+## Monitoring Blocked Calls
+
+In your GHL workflow:
+1. After the **Make AI Call** action, add an **If/Else** branch
+2. Condition: `Make AI Call action return_an_error = true`
+3. If true → Send notification with `error_message` variable
+
+## Comparison with GHL Native Calling
+
+| Feature | GHL Native | Assistable |
+|---------|-----------|------------|
+| Non-opted-in leads | Blocked entirely | Allowed with compliance checks |
+| Lead attribution bypass | Not available | Known sources bypass DNC |
+| DNC screening | Blanket block | Multi-layered (internal + national + state) |
+| Bypass options | None | Full opt-out or per-import bypass |
+| Error visibility | Limited | Full error messages in workflows |
+
+## Best Practices
+
+- Keep lead attribution clean — properly tag lead sources
+- Always set up error monitoring after Make AI Call actions
+- Use import bypass sparingly and only for vetted lists
+- Consult legal counsel before opting out of DNC screening
+- Review blocked call reports regularly

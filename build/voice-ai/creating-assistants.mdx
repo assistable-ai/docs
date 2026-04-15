@@ -1,0 +1,88 @@
+---
+title: "Creating an AI Voice Assistant"
+description: "Set up a voice-based AI assistant capable of booking appointments, handling calls, and managing customer interactions."
+icon: "microphone"
+---
+
+## Overview
+
+Voice AI assistants handle inbound and outbound phone calls autonomously. They can book appointments, answer questions, qualify leads, transfer calls, and more.
+
+## Step-by-Step Setup
+
+<Steps>
+  <Step title="Create the Assistant">
+    Go to **Assistants** and click **Create New Assistant**. Choose your creation method:
+    - **Generate Template** — Describe your use case and let AI create the prompt
+    - **Blank Canvas** — Full manual control
+    - **Import with ID** — Clone from another account
+
+    Name your assistant and define its identity using a task-based framework.
+  </Step>
+
+  <Step title="Define the Identity">
+    Set up your assistant's persona:
+    - **Name and role** (e.g., "Katie, an appointment scheduler for ABC Dental")
+    - **Response Guidelines** — Keep defaults for smooth conversational flow
+    - **Style Guardrails** — Define tone and boundaries
+    - **Tasks** — Use a task-based framework to give the AI sequential objectives
+  </Step>
+
+  <Step title="Set Up Telephony">
+    Assign a phone number to your assistant:
+    - **Buy a number** directly through the platform
+    - **Import a number** from Twilio, Telnyx, or Vonage via SIP trunking
+    - Ensure the number is compatible with SIP trunking if using an external provider
+
+    Once assigned, your assistant can handle both inbound and outbound calls.
+  </Step>
+
+  <Step title="Integrate Calendars">
+    If your assistant needs to manage appointments:
+    1. Go to calendar settings and select the appropriate calendars
+    2. Sync with GoHighLevel (or another calendar platform)
+    3. Run a calendar availability check to verify permissions
+    4. Enable all appointment actions: Check Availability, Book, Reschedule, Cancel, View Appointments
+  </Step>
+
+  <Step title="Configure Tools">
+    Add tools for specific actions:
+    - **Check Availability** — View open calendar slots
+    - **Book Appointment** — Schedule appointments
+    - **Reschedule Appointment** — Change existing bookings
+    - **Cancel Appointment** — Remove appointments
+    - **View Appointments** — List upcoming appointments
+
+    Test each tool individually to confirm functionality.
+  </Step>
+
+  <Step title="Test Everything">
+    **Inbound test:** Call your assistant's number and test all functions.
+
+    **Outbound test:** Create a GHL workflow with the **Make an AI Call** action and trigger it against a test contact.
+
+    Verify appointments appear in your calendar and call logs are correct.
+  </Step>
+</Steps>
+
+## Outbound Call Automation
+
+To automate outbound calls:
+1. Go to **Automations** in GoHighLevel
+2. Create a workflow with the **Make an AI Call** action
+3. Enter your assistant's ID and call details
+4. Test with a contact to verify the assistant performs as expected
+
+## FAQs
+
+<AccordionGroup>
+  <Accordion title="Can I use any phone number provider?">
+    Yes, any provider supporting SIP trunking (e.g., Twilio, Telnyx, Vonage) is compatible.
+  </Accordion>
+  <Accordion title="What if the AI doesn't recognize existing appointments?">
+    Ensure the calendar is fully synced and permissions are set correctly. Re-run the availability test to confirm.
+  </Accordion>
+  <Accordion title="Can I customize the assistant's responses?">
+    Yes, use the Response Guidelines and Style Guardrails sections, or edit the task-based framework in the prompt.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,46 @@
+---
+title: "Prompt Engineering Tips"
+description: "Best practices for writing effective AI assistant prompts that deliver consistent results."
+icon: "lightbulb"
+---
+
+## Task-Based Framework
+
+The most effective way to prompt your AI assistant is using a **task-based framework**. Instead of writing a single paragraph, break the assistant's job into sequential steps:
+
+### Structure
+
+1. **Identity** — Who the AI is, its name, role, and company
+2. **Response Guidelines** — Tone, length, and style rules
+3. **Style Guardrails** — What the AI should and shouldn't do
+4. **Tasks** — Sequential objectives the AI should accomplish
+
+### Example: Receptionist AI
+
+```
+Identity:
+You are Emma, a receptionist for Apex Concrete. Your role includes answering customer inquiries, qualifying leads, and scheduling appointments. You maintain a professional, approachable, and efficient tone.
+
+Response Guidelines:
+- Use concise and clear responses
+- Maintain a conversational, proactive, and helpful tone
+- Lead the conversation back to the topic if the user veers off-course
+- Use human-like phrasing with diverse language
+
+Tasks:
+1. Greet the user warmly
+2. Ask qualifying questions about their needs
+3. Provide information about relevant services
+4. Offer to book an appointment
+5. Collect necessary contact information
+6. Confirm the appointment details
+```
+
+## Tips to Improve Performance
+
+- **Be specific** — Vague instructions produce vague responses
+- **Use examples** — Show the AI exactly how you want it to respond
+- **Set boundaries** — Tell the AI what it should NOT discuss
+- **Test iteratively** — Make small changes and test after each one
+- **Use variables** — Reference `{{contact.first_name}}` and other dynamic data
+- **Add fallbacks** — Tell the AI what to do when it doesn't know the answer

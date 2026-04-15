@@ -1,0 +1,125 @@
+---
+title: "Available Variables Reference"
+description: "Complete reference of all dynamic variables available in Assistable.ai prompts and workflows."
+icon: "brackets-curly"
+---
+
+Variables use the `{{variable_name}}` syntax and are replaced with real values at runtime.
+
+## Session Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `location_id` | Current sub-account/location ID | `abc123def456` |
+| `account` | Account name | `Acme Corp` |
+| `assistant_id` | AI assistant ID | `asst_001` |
+| `contact_id` | Contact ID | `con_12345` |
+| `calendar_id` | Linked calendar ID | `cal_abc123` |
+| `direction` | Conversation direction | `inbound` |
+| `channel` | Communication channel | `sms` |
+| `current_date` | Date at session start | `2026-02-27` |
+| `current_time` | Time at session start | `14:30:00` |
+| `timezone` | Session timezone | `America/New_York` |
+| `phone_id` | Phone number ID | `ph_555001` |
+| `to` | Destination number | `+15551234567` |
+| `from` | Originating number | `+15559876543` |
+| `memory` | Persistent memory content | *(text)* |
+| `greeting` | Greeting message | `Hello! How can I help?` |
+
+## Right Now Variables
+
+Dynamic values computed at execution time. Prefixed with `right_now.`
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `right_now.current_date` | Formatted date | `February 27, 2026` |
+| `right_now.current_time` | Formatted time | `2:30 PM` |
+| `right_now.day_name` | Day of the week | `Friday` |
+| `right_now.month` | Month name | `February` |
+| `right_now.year` | Current year | `2026` |
+| `right_now.am_pm` | AM or PM | `PM` |
+| `right_now.timezone` | Timezone name | `America/New_York` |
+| `right_now.tomorrow_date` | Tomorrow's date | `02/28/2026` |
+| `right_now.mon_date` through `right_now.sun_date` | This week's dates | `02/23/2026` |
+
+## Contact Variables
+
+CRM contact fields. Prefixed with `contact.`
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `contact.first_name` | First name | `John` |
+| `contact.last_name` | Last name | `Smith` |
+| `contact.full_name` | Full name | `John Smith` |
+| `contact.phone` | Formatted phone | `(555) 123-4567` |
+| `contact.phone_raw` | Raw E.164 phone | `+15551234567` |
+| `contact.email` | Email address | `john@example.com` |
+| `contact.timezone` | Contact timezone | `America/Chicago` |
+| `contact.address1` | Street address | `123 Main St` |
+| `contact.city` | City | `Dallas` |
+| `contact.state` | State | `TX` |
+| `contact.postal_code` | ZIP code | `75201` |
+| `contact.source` | Lead source | `Website Form` |
+| `contact.tags` | Assigned tags | `vip, returning-client` |
+| `contact.notes` | Contact notes | `Preferred callback after 5 PM` |
+
+## Location Variables
+
+Business and sub-account info. Prefixed with `location.`
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `location.name` | Business name | `Acme Corp - Downtown` |
+| `location.address` | Street address | `456 Commerce Blvd` |
+| `location.city` | City | `Austin` |
+| `location.state` | State | `TX` |
+| `location.website` | Website URL | `https://acmecorp.com` |
+| `location.timezone` | Timezone | `America/Chicago` |
+| `location.phone` | Phone number | `(555) 987-6543` |
+| `location.email` | Email | `info@acmecorp.com` |
+| `location.first_name` | Owner first name | `Jane` |
+| `location.last_name` | Owner last name | `Doe` |
+
+### Business Profile (`location.business.*`)
+
+| Variable | Description |
+|----------|-------------|
+| `location.business.name` | Business name |
+| `location.business.address` | Business address |
+| `location.business.website` | Business website |
+| `location.business.email` | Business email |
+
+### Social Links (`location.social.*`)
+
+| Variable | Description |
+|----------|-------------|
+| `location.social.facebook` | Facebook URL |
+| `location.social.instagram` | Instagram URL |
+| `location.social.linkedin` | LinkedIn URL |
+| `location.social.youtube` | YouTube URL |
+| `location.social.twitter` | Twitter/X URL |
+
+## User Variables
+
+Assigned user/agent info. Prefixed with `user.`
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `user.name` | Display name | `Sarah Johnson` |
+| `user.first_name` | First name | `Sarah` |
+| `user.email` | Email | `sarah@acmecorp.com` |
+| `user.phone` | Phone | `(555) 222-3344` |
+| `user.role` | Role name | `Admin` |
+
+## Custom Values
+
+User-defined fields. Prefixed with `custom_values.`
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `custom_values.company_name` | Your company name | `Acme Corporation` |
+| `custom_values.timezone` | Business timezone | `America/New_York` |
+| `custom_values.booking_link` | Scheduling link | `https://calendly.com/acmecorp` |
+| `custom_values.office_hours` | Business hours | `Mon-Fri 9AM-5PM EST` |
+
+<Tip>Create custom values in your CRM settings and reference them with `{{custom_values.your_field_name}}`. This keeps prompts dynamic and easy to update across all assistants.</Tip>

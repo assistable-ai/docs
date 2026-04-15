@@ -1,0 +1,48 @@
+---
+title: "Call Transfers"
+description: "Set up your AI assistant to transfer calls to human agents or other numbers."
+icon: "phone-arrow-right"
+---
+
+## Overview
+
+Your AI assistant can transfer active calls to human team members or other phone numbers. This requires creating a custom tool that specifies where to transfer and under what conditions.
+
+## Setting Up Call Transfers
+
+<Steps>
+  <Step title="Create the Transfer Tool">
+    Go to **Tools & Abilities** and select **Create New Tool**, then choose the **Transfer Call** option.
+  </Step>
+  <Step title="Define Parameters">
+    Configure the transfer tool with:
+    - **Phone number** to transfer to
+    - **Conditions** under which transfer should occur
+    - **Transfer type** (warm or cold)
+  </Step>
+  <Step title="Add to Assistant">
+    Remember to add the transfer tool to your assistant in the assistant builder's Tools section.
+  </Step>
+</Steps>
+
+## Warm vs. Cold Transfers
+
+**Warm Transfer:** The AI provides context to the receiving agent before completing the handoff — who's calling, why, and a summary of the conversation. This creates a smoother experience for the caller.
+
+**Cold Transfer:** The call is simply forwarded without context. Use this when speed is more important than context.
+
+<Tip>If the human agent is unavailable during a warm transfer, the AI can route the call elsewhere or offer to take a message.</Tip>
+
+## Dynamic Transfers
+
+You can configure the AI to **dynamically determine** where to transfer based on the conversation. Include a transfer matrix in your prompt with different numbers for different scenarios:
+
+```
+Transfer Matrix:
+- Billing questions → +1 (555) 111-2222
+- Technical support → +1 (555) 333-4444
+- Sales inquiries → +1 (555) 555-6666
+- Emergency → +1 (555) 777-8888
+```
+
+The AI will match the caller's needs to the appropriate transfer destination automatically.

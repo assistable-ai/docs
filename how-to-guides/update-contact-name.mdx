@@ -1,0 +1,26 @@
+---
+title: "Update Contact Name After Call"
+description: "Automatically update a contact's name from 'Guest Caller' after the AI collects it."
+icon: "user-pen"
+---
+
+## Overview
+
+When incoming callers are saved as "Guest Caller," this automation prompts the AI to ask for and update the contact's real name.
+
+## Setup
+
+<Steps>
+  <Step title="Create the Workflow">
+    Create a GHL automation with an **Inbound Webhook** trigger.
+  </Step>
+  <Step title="Create the Custom Tool">
+    Build a tool called "Contact Info Update" with `first_name` and `last_name` parameters. Set the endpoint to your webhook URL.
+  </Step>
+  <Step title="Update the Prompt">
+    Add instructions for the AI to ask the caller for their name and trigger the update tool.
+  </Step>
+  <Step title="Configure the Workflow">
+    In the workflow: Find Contact by ID → Update Contact fields (first_name, last_name) from webhook data.
+  </Step>
+</Steps>

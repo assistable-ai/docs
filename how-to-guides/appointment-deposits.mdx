@@ -1,0 +1,16 @@
+---
+title: "Appointment Deposit Workflows"
+description: "Collect deposits when appointments are booked through AI assistants."
+icon: "money-check-dollar"
+---
+
+## Overview
+
+Set up automated workflows that collect deposits when an AI assistant books an appointment. This uses the post-call webhook combined with Stripe payment links.
+
+## Setup
+
+1. Create a Stripe payment link for the deposit amount
+2. Set up a post-call webhook workflow in GHL
+3. Add a condition: if appointment was booked → send deposit link via SMS
+4. Track payment status and confirm the appointment

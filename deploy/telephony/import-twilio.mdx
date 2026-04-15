@@ -1,0 +1,59 @@
+---
+title: "Import Twilio Numbers"
+description: "Connect your Twilio phone numbers to Assistable via Elastic SIP Trunking."
+icon: "phone"
+---
+
+## Overview
+
+Import your existing Twilio numbers into Assistable using Elastic SIP Trunking. This connects Twilio's VoIP system to the platform so your AI can make and receive calls.
+
+## Step-by-Step Setup
+
+<Steps>
+  <Step title="Access Twilio Console">
+    Log in to [console.twilio.com](https://console.twilio.com) and navigate to **Explore Products** → **Super Network** → **Elastic SIP Trunking**.
+  </Step>
+
+  <Step title="Create a SIP Trunk">
+    Click **Get Started** → **Create a SIP Trunk**. Give it a name and create it.
+  </Step>
+
+  <Step title="Configure General Settings">
+    - Enable **Call Recording** (Record from ringing)
+    - Enable **Call Transfer** (SIP REFER)
+    - Set Caller ID for Transfer Target to **caller ID as transferee**
+    - Click **Save**
+  </Step>
+
+  <Step title="Set Up Termination (Outbound)">
+    Go to **Termination** in the left navigation. Save the **Termination SIP URI** — you'll need it later.
+
+    Under **Authentication** → **IP Access Control Lists**, add two entries:
+    - **default ACL 1**: Address `0.0.0.0/1`
+    - **default ACL 2**: Address `128.0.0.0/1`
+  </Step>
+
+  <Step title="Set Up Origination (Inbound)">
+    Go to **Origination** and add this URI:
+    ```
+    sip:ecabe71af1354f858dc49374b8293591.sip.telnyx.com
+    ```
+  </Step>
+
+  <Step title="Add Numbers to the Trunk">
+    Click **Add a number** in the top right. Buy a new number or add an existing one to this trunk.
+  </Step>
+
+  <Step title="Import to Assistable">
+    In your Assistable dashboard:
+    1. Go to **Numbers** → **Import a Number**
+    2. Enter the number in raw format: `+1XXXXXXXXXX` (no spaces or special characters)
+    3. Enter your **Termination URI**
+    4. Click **Import**
+
+    The system saves your Termination URI for future imports.
+  </Step>
+</Steps>
+
+<Warning>Both the IP Access Control Lists (for outbound) and the Origination URI (for inbound) must be configured correctly, or calls will fail.</Warning>

@@ -2,105 +2,15 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Assistable.ai Docs",
+  "appearance": {
+    "default": "light"
+  },
   "colors": {
     "primary": "#be42ff",
     "light": "#ab91fd",
     "dark": "#7200d5"
   },
   "favicon": "/assistable.png",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "chat-ai",
-              "voice-ai"
-            ]
-          },
-          {
-            "group": "Product Overview",
-            "pages": [
-              "platform/workspace",
-              "platform/white-label",
-              "platform/account",
-              "platform/rebilling"
-            ]
-          },
-          {
-            "group": "Tutorials",
-            "pages":[
-              {
-                "group":"Numbers",
-                "icon":"phone",
-                "pages":[
-                  "tutorials/numbers/importing-twilio",
-                  "tutorials/numbers/importing-telnyx",
-                  "tutorials/numbers/importing-vonage"
-                ]
-              }
-            ]
-          },
-          {
-            "group": "Troubleshooting",
-            "pages": [
-              "debug/calendar"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-        {
-          "group": "Assistants",
-          "openapi": "api-reference/assistant-api.json"
-        },
-          {
-          "group": "Calling",
-          "openapi": "api-reference/calling-api.json"
-        },
-        {
-          "group": "Chat",
-          "openapi": "api-reference/chat-api.json"
-        }
-      ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Videos & How-tos",
-          "href": "https://www.youtube.com/@assistable-ai",
-          "icon": "video"
-        },
-        {
-          "anchor": "Help Center",
-          "href": "https://help.assistable.ai",
-          "icon": "handshake-angle"
-        },
-        {
-          "anchor": "Roadmap",
-          "href": "https://assistable.ai/roadmap",
-          "icon": "arrow-progress"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://skool.com/assistable",
-          "icon": "house"
-        },
-        {
-          "anchor": "Legal Center",
-          "href": "https://legal.assistable.ai",
-          "icon": "gavel"
-        }
-      ]
-    }
-  },
   "logo": {
     "light": "/assistable.png",
     "dark": "/assistable.png"
@@ -124,6 +34,241 @@
       "type": "button",
       "label": "Dashboard",
       "href": "https://createassistants.com/dashboard"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "get-started/introduction",
+              "get-started/quickstart",
+              "get-started/platform-overview"
+            ]
+          },
+          {
+            "group": "Build",
+            "pages": [
+              {
+                "group": "Voice AI",
+                "icon": "microphone",
+                "pages": [
+                  "build/voice-ai/creating-assistants",
+                  "build/voice-ai/voice-cloning",
+                  "build/voice-ai/call-settings",
+                  "build/voice-ai/voicemail-handling",
+                  "build/voice-ai/call-transfers",
+                  "build/voice-ai/call-forwarding"
+                ]
+              },
+              {
+                "group": "Chat AI",
+                "icon": "comments",
+                "pages": [
+                  "build/chat-ai/overview",
+                  "build/chat-ai/chat-widget",
+                  "build/chat-ai/ai-replying-tag",
+                  "build/chat-ai/kill-switch"
+                ]
+              },
+              {
+                "group": "Prompting & Knowledge",
+                "icon": "brain",
+                "pages": [
+                  "build/prompting/prompt-tips",
+                  "build/prompting/knowledgebase",
+                  "build/prompting/rag-databases",
+                  "build/prompting/self-selling-orb"
+                ]
+              },
+              {
+                "group": "Custom Tools",
+                "icon": "wrench",
+                "pages": [
+                  "build/custom-tools/overview",
+                  "build/custom-tools/managing-tools",
+                  "build/custom-tools/save-address",
+                  "build/custom-tools/update-contact",
+                  "build/custom-tools/search-web",
+                  "build/custom-tools/scrape-website",
+                  "build/custom-tools/screenshot-website",
+                  "build/custom-tools/submit-ticket",
+                  "build/custom-tools/send-summary",
+                  "build/custom-tools/calculate-distance",
+                  "build/custom-tools/call-from-sms",
+                  "build/custom-tools/multi-calendar-booking"
+                ]
+              },
+              {
+                "group": "Flow Builder",
+                "icon": "diagram-project",
+                "pages": [
+                  "build/flow-builder/getting-started",
+                  "build/flow-builder/conversation-node",
+                  "build/flow-builder/logic-node",
+                  "build/flow-builder/tool-function-nodes",
+                  "build/flow-builder/extraction-variable-nodes",
+                  "build/flow-builder/request-node",
+                  "build/flow-builder/variables",
+                  "build/flow-builder/node-builder-ai",
+                  "build/flow-builder/testing",
+                  "build/flow-builder/streaming",
+                  "build/flow-builder/embedding-widget",
+                  "build/flow-builder/voice-connection",
+                  "build/flow-builder/api-key"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Deploy",
+            "pages": [
+              {
+                "group": "Telephony",
+                "icon": "phone",
+                "pages": [
+                  "deploy/telephony/buy-numbers",
+                  "deploy/telephony/import-twilio",
+                  "deploy/telephony/import-telnyx",
+                  "deploy/telephony/import-vonage",
+                  "deploy/telephony/inbound-calls",
+                  "deploy/telephony/outbound-calls",
+                  "deploy/telephony/active-tags"
+                ]
+              },
+              {
+                "group": "Web Widgets",
+                "icon": "globe",
+                "pages": [
+                  "deploy/widgets/orb-widget",
+                  "deploy/widgets/chat-widget"
+                ]
+              },
+              {
+                "group": "Webhooks",
+                "icon": "webhook",
+                "pages": [
+                  "deploy/webhooks/pre-post-call"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Monitor",
+            "pages": [
+              "monitor/call-tagging",
+              "monitor/error-tags",
+              "monitor/crm-transcripts",
+              "monitor/dnc-compliance",
+              "monitor/number-intelligence"
+            ]
+          },
+          {
+            "group": "Platform",
+            "pages": [
+              "platform/workspace-setup",
+              "platform/white-labeling",
+              "platform/branding",
+              "platform/sub-account-management",
+              "platform/rebilling",
+              "platform/stripe-integration",
+              "platform/billing-portal",
+              "platform/agency-wallet",
+              "platform/subaccount-wallet",
+              "platform/snapshots",
+              "platform/user-management",
+              "platform/subaccount-limits",
+              "platform/permissions",
+              "platform/restrictions"
+            ]
+          },
+          {
+            "group": "How-To Guides",
+            "pages": [
+              "how-to-guides/multi-calendar-booking",
+              "how-to-guides/send-emails-from-chat",
+              "how-to-guides/send-sms-during-calls",
+              "how-to-guides/google-sheets",
+              "how-to-guides/data-extraction",
+              "how-to-guides/auto-populate-fields",
+              "how-to-guides/update-contact-name",
+              "how-to-guides/flow-builder-guide",
+              "how-to-guides/no-show-followup",
+              "how-to-guides/transcript-workflows",
+              "how-to-guides/appointment-deposits"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "pages": [
+              "troubleshooting/common-issues",
+              "troubleshooting/calendar-debugging",
+              "troubleshooting/knowledge-base-optimization",
+              "troubleshooting/oauth-configuration",
+              "troubleshooting/chat-response-optimization",
+              "troubleshooting/dial-failed"
+            ]
+          },
+          {
+            "group": "Integrations",
+            "pages": [
+              "integrations/ghl-connection-video",
+              "integrations/ghl-menu-link",
+              "integrations/ghl-direct-connection",
+              "integrations/ghl-oauth"
+            ]
+          },
+          {
+            "group": "Variables Reference",
+            "pages": [
+              "variables/available-variables"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "Assistants",
+            "openapi": "api-reference/assistant-api.json"
+          },
+          {
+            "group": "Calling",
+            "openapi": "api-reference/calling-api.json"
+          },
+          {
+            "group": "Chat",
+            "openapi": "api-reference/chat-api.json"
+          },
+          {
+            "group": "Conversations",
+            "openapi": "api-reference/conversation-api.json"
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Videos & How-tos",
+          "href": "https://www.youtube.com/@assistable-ai",
+          "icon": "video"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://skool.com/assistable",
+          "icon": "house"
+        },
+        {
+          "anchor": "Roadmap",
+          "href": "https://assistable.ai/roadmap",
+          "icon": "arrow-progress"
+        }
+      ]
     }
   },
   "footer": {

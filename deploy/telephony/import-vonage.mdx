@@ -1,0 +1,38 @@
+---
+title: "Import Vonage Numbers"
+description: "Connect your Vonage phone numbers to Assistable via SIP trunking."
+icon: "phone"
+---
+
+## Overview
+
+Import Vonage numbers using SIP trunking. This process works with any provider that supports SIP trunking.
+
+## Setup Steps
+
+<Steps>
+  <Step title="Create SIP Trunk">
+    Log in to Vonage → **SIP** tab → Create a new SIP trunk.
+  </Step>
+  <Step title="Configure Termination (Outbound)">
+    Copy your **URI, username, and password** from the termination section.
+  </Step>
+  <Step title="Configure Origination (Inbound)">
+    Set the origination address to: `5t4n6j0wnrl.sip.livekit.cloud`
+  </Step>
+  <Step title="Add Numbers">
+    Move existing numbers into the trunk or purchase new ones.
+  </Step>
+  <Step title="Import to Assistable">
+    Enter the raw phone number (with country code), trunk URI, and authentication credentials in the Assistable import form.
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+Common issues to check:
+- Is your account verified?
+- Is the number in raw E.164 format?
+- Are there country-specific regulations requiring additional setup?
+
+Contact your provider's support for deeper troubleshooting.

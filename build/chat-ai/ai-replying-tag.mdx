@@ -1,0 +1,30 @@
+---
+title: "AI Replying Tag"
+description: "Use the ai_replying tag to build fallback workflows and monitor AI response generation."
+icon: "tag"
+---
+
+## How the AI Replying Tag Works
+
+Whenever an AI is generating a response, the tag `ai_replying` is automatically added to the contact. This tag is:
+- **Added** before AI generation begins
+- **Removed** after the message is successfully sent to the CRM (i.e., a messageId is available)
+
+You can see this in real-time in the AI portal during response generation.
+
+## Use Cases
+
+### Fallback Workflows
+
+Use the `ai_replying` tag to trigger a workflow with a **wait timeout**. This is helpful for:
+- **Vendor or platform timeouts** — If the AI takes too long, trigger an alternative action
+- **Server maintenance** — Provide a fallback response if the AI service is temporarily unavailable
+- **Decision-making** — Build logic around whether the AI successfully replied
+
+### Example Workflow
+
+1. Trigger: `ai_replying` tag added
+2. Wait: 30 seconds
+3. Check: Is `ai_replying` still present?
+4. If yes → Send fallback message or notify team
+5. If no → AI replied successfully, no action needed

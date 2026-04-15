@@ -1,0 +1,54 @@
+---
+title: "AI Call Error Tags"
+description: "Automatic error tags applied when the Make AI Call action encounters issues."
+icon: "triangle-exclamation"
+---
+
+## Overview
+
+When the Make AI Call action encounters an error, Assistable automatically applies an error tag to the contact. These tags identify exactly what went wrong — rate limits, DNC hits, billing issues, or other failures.
+
+In addition to tags, two custom fields are populated: `Make AI Call returned_an_error` (boolean) and `error_message` (human-readable description).
+
+## Error Tags Reference
+
+| Tag | Description |
+|-----|-------------|
+| `ai_call_error_rate_limit` | Account hit concurrency or per-minute call limit. Retry after a delay. |
+| `ai_call_error_internal_dnc` | Number on internal Do Not Call list. Call blocked. |
+| `ai_call_error_national_dnc` | Number on national DNC registry. Call blocked for TCPA compliance. |
+| `ai_call_error_workspace_negative_balance` | Workspace wallet balance insufficient. All sub-accounts affected. |
+| `ai_call_error_account_negative_balance` | Sub-account wallet insufficient. Top up to resume. |
+| `ai_call_error_workspace_inactive` | Workspace subscription cancelled or limit set to 0. |
+| `ai_call_error_no_from_number` | No phone number assigned to the assistant. |
+| `ai_call_error_invalid_destination` | Attempting to call a non-US/Canadian destination with a platform number. |
+| `ai_call_error_invalid_assistant` | Assistant ID doesn't belong to this sub-account. |
+| `ai_call_error_dnd` | Contact has Do Not Disturb enabled for calling in GHL. |
+| `ai_call_error_unknown` | Unexpected error. Check logs or contact support. |
+| `ai_call_error_invalid_number_pool` | Number pool configured but contains no numbers. |
+| `ai_call_error_banned` | Sub-account banned due to honeypot hits or non-compliant activity. |
+
+## Using Error Tags in Workflows
+
+### Basic Pattern
+1. Create a workflow with **Tag Added** trigger
+2. Select the specific error tag (e.g., `ai_call_error_rate_limit`)
+3. Add your response actions (retry, notify, re-route)
+
+### Common Automations
+
+- **Rate limit retry**: Wait 5 min → Remove tag → Re-run Make AI Call
+- **Balance alerts**: Send notification to admin to top up funds
+- **DNC handling**: Move contact to email-only or SMS-only campaign
+- **Catch-all monitoring**: Send alert to team for manual review
+- **Ban notification**: Pause all calling campaigns immediately
+
+<Tip>Always remove the error tag after handling it if you plan to retry — otherwise the tag-added trigger won't fire again for the same tag.</Tip>
+
+## DNC Bypass Tag
+
+<Warning>Coming Soon — scheduled for release March 2, 2026.</Warning>
+
+A special tag `i_agree_responsibility_for_dnc_bypass` will bypass DNC screening for specific contacts. When present, Make AI Call skips both internal and national DNC checks.
+
+**⚠️ Legal Liability:** Applying this tag means the sub-account owner assumes COMPLETE LIABILITY for all TCPA lawsuits, fines, or fees. Consult a TCPA attorney before using at scale.

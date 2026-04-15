@@ -1,0 +1,37 @@
+---
+title: "RAG Custom Databases"
+description: "Create custom RAG databases for Voice AI, Chat AI, and Web Orbs."
+icon: "database"
+---
+
+## What is RAG?
+
+RAG (Retrieval-Augmented Generation) allows your AI to search through custom databases of information at runtime. Instead of cramming everything into the prompt, the AI retrieves relevant content when it needs it.
+
+## Creating a RAG Database
+
+RAG databases work across all assistant types: Voice AI, Chat AI, and Web Orbs.
+
+<Steps>
+  <Step title="Navigate to Knowledge">
+    Go to the **Knowledge** section in your dashboard.
+  </Step>
+  <Step title="Create Database">
+    Create a new knowledge base and select the RAG database option.
+  </Step>
+  <Step title="Add Content">
+    Upload your data — documents, text entries, FAQs, or website content. The system indexes this for semantic search.
+  </Step>
+  <Step title="Connect to Assistant">
+    Link the RAG database to your assistant. The AI will automatically search it when relevant questions arise.
+  </Step>
+</Steps>
+
+## When to Use RAG vs. Standard Knowledge Base
+
+| Feature | Standard KB | RAG Database |
+|---------|------------|--------------|
+| Best for | Small, focused datasets | Large, diverse content |
+| Retrieval | Full context in prompt | Semantic search at runtime |
+| Token usage | Higher (always loaded) | Lower (retrieved on demand) |
+| Accuracy | Very high for exact matches | High for broad topics |

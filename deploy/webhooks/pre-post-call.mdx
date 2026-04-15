@@ -1,0 +1,79 @@
+---
+title: "Pre-Call & Post-Call Webhooks"
+description: "Set up webhooks to trigger automations before and after AI calls."
+icon: "webhook"
+---
+
+## Overview
+
+Webhooks notify your systems when calls start and end. They enable pre-call tracking and post-call automation in GoHighLevel.
+
+- **Pre-Call Webhook** — Fires when an AI call initiates (inbound or outbound)
+- **Post-Call Webhook** — Fires after a call ends with full call data
+
+## Webhook Payloads
+
+### Pre-Call Payload
+```json
+{
+  "to": "+15551234567",
+  "from": "+15559876543",
+  "contactId": "contact_abc123"
+}
+```
+
+### Post-Call Payload
+```json
+{
+  "call_id": "call_xyz",
+  "call_type": "voice",
+  "direction": "outbound",
+  "to": "+15551234567",
+  "from": "+15559876543",
+  "contact_id": "contact_abc123",
+  "disconnection_reason": "completed",
+  "user_sentiment": "positive",
+  "call_summary": "Customer booked an appointment for Friday at 2 PM.",
+  "call_completion": "complete",
+  "assistant_task_completion": "success",
+  "recording_url": "https://...",
+  "call_time_ms": 145000,
+  "call_time_seconds": 145,
+  "full_transcript": "...",
+  "start_timestamp": "2026-02-27T14:30:00Z",
+  "end_timestamp": "2026-02-27T14:32:25Z"
+}
+```
+
+## Setup Steps
+
+<Steps>
+  <Step title="Create Pre-Call Webhook Workflow">
+    In GHL: **Automations** → **Create Workflow** → **Start from Scratch**
+    - Add **Inbound Webhook** trigger
+    - Copy the webhook URL
+    - Paste it into your assistant's **Call Settings** → **Pre-Call Webhook**
+    - Click the checkmark to confirm connection
+    - Fetch Sample Request to load example data
+    - Add a **Find Contact by Contact ID** action using the webhook's `contact_id`
+  </Step>
+
+  <Step title="Create Post-Call Webhook Workflow">
+    Create another workflow for post-call data:
+    - Add **Inbound Webhook** trigger
+    - Copy and paste URL into assistant's **Post-Call Webhook** field
+    - Fetch Sample Request
+    - Add **Find Contact by Contact ID** action
+    - Add actions to update custom fields (transcript, summary, etc.)
+  </Step>
+
+  <Step title="Create Custom Fields">
+    In GHL Settings → Custom Fields, create:
+    - **Conversation Summary** (Multi-line Text)
+    - **AI Conversation Transcript** (Multi-line Text)
+
+    Map these fields in your post-call workflow.
+  </Step>
+</Steps>
+
+<Tip>You can optionally add a **Note** action to the post-call workflow to log call summaries, sentiment, and call IDs directly to the contact's notes.</Tip>

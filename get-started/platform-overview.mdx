@@ -1,0 +1,67 @@
+---
+title: "Platform Overview"
+description: "Understand how Assistable.ai is structured — workspaces, sub-accounts, assistants, and more."
+icon: "sitemap"
+---
+
+## Architecture
+
+Assistable.ai is designed around a **workspace → sub-account → assistant** hierarchy that mirrors the GoHighLevel (GHL) structure most agencies already use.
+
+### Workspace (Agency Level)
+The workspace is your top-level account. As the workspace owner, you can:
+- Manage all sub-accounts from a single dashboard
+- Set up rebilling to charge clients for AI usage
+- White-label and brand the portal
+- Control sub-account permissions and limits
+- Configure agency-wide snapshots for new sub-accounts
+
+### Sub-Accounts (Client Level)
+Each sub-account represents a client or business unit. Sub-accounts have their own:
+- AI assistants (voice and chat)
+- Phone numbers
+- Knowledge bases
+- Custom tools
+- Wallet balance
+- Active tags for chat automation
+
+### Assistants
+Assistants are the AI agents that handle conversations. Each assistant has:
+- A prompt defining its identity, tasks, and behavior
+- Connected tools (calendar booking, custom tools, knowledge base)
+- Call settings (phone number, voicemail handling, call duration limits)
+- Active tags for chat activation
+
+## Key Concepts
+
+| Concept | Description |
+|---------|-------------|
+| **Active Tags** | Tags applied to contacts that activate AI chat responses. No Active Tag = AI is silent. |
+| **Custom Tools** | API-powered extensions that let the AI perform actions (update CRM, search web, book appointments) |
+| **Knowledge Base** | Company-specific information the AI uses to answer questions accurately |
+| **Flow Builder** | Visual drag-and-drop builder for creating complex conversational flows |
+| **Webhooks** | Pre-call and post-call webhooks that trigger GHL workflows with call data |
+| **SIP Trunking** | How external phone numbers (Twilio, Telnyx, Vonage) connect to the AI platform |
+| **Rebilling** | Agency feature to charge sub-accounts for AI usage via Stripe |
+
+## Assistable vs. Assistable Direct
+
+| Feature | Assistable (Multi-Tenant) | Assistable Direct |
+|---------|--------------------------|-------------------|
+| Target User | Agencies & Franchises | Individual Businesses |
+| GHL Integration | Full workspace + sub-account management | Direct sub-account connection |
+| White Labeling | ✅ Full portal branding | N/A |
+| Rebilling | ✅ Charge clients via Stripe | N/A |
+| Sub-Account Management | ✅ Manage unlimited clients | Single account |
+| Snapshots | ✅ Template new sub-accounts | N/A |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Build Your First Assistant" icon="play" color="#60A5FA" href="/get-started/quickstart">
+    Follow the quickstart guide.
+  </Card>
+  <Card title="Set Up Your Workspace" icon="building" color="#be42ff" href="/platform/workspace-setup">
+    Configure your agency workspace.
+  </Card>
+</CardGroup>

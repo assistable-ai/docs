@@ -1,0 +1,30 @@
+---
+title: "Dial Failed Errors"
+description: "Resolve 'Dial Failed' errors on AI outbound calls."
+icon: "phone-xmark"
+---
+
+## Overview
+
+The "Dial Failed" error occurs when an outbound call cannot be connected. This is most commonly a SIP trunking configuration issue.
+
+## Common Causes
+
+### Twilio
+- **IP Access Control Lists not configured** — You must add both ACL entries (0.0.0.0/1 and 128.0.0.0/1)
+- **Origination URI missing** — Inbound calls require the origination URI to be set
+- **Termination URI incorrect** — Double-check the URI in your Assistable import settings
+- **Account not verified** — Twilio requires account verification before making calls
+
+### Telnyx
+- **FQDN not configured** — Must be set to `5t4n6j0wnrl.sip.livekit.cloud`
+- **Wrong inbound format** — Must be +E.164 format
+- **Missing outbound voice profile** — Create and select one
+
+### General
+- **Number format** — Must be raw E.164 format (+1XXXXXXXXXX)
+- **International restrictions** — Platform numbers only support US/Canadian (+1) destinations
+- **Wallet balance** — Check both agency and sub-account wallets
+- **Number not assigned** — Verify the assistant has a phone number linked
+
+<Note>Assistable stores the SIP info you provide. Whether calls connect depends on your telephony provider's configuration. For persistent issues, contact your provider's support.</Note>

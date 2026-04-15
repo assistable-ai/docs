@@ -1,0 +1,49 @@
+---
+title: "Import Telnyx Numbers"
+description: "Connect your Telnyx phone numbers to Assistable via SIP trunking."
+icon: "phone"
+---
+
+## Overview
+
+Import Telnyx numbers using SIP trunking. This guide walks through FQDN-based trunk setup.
+
+## Step-by-Step Setup
+
+<Steps>
+  <Step title="Create SIP Connection">
+    Log in to Telnyx → **SIP Connections** → **Create SIP Connection**. Choose **FQDN** as trunk type.
+  </Step>
+
+  <Step title="Configure FQDN">
+    In the FQDNs section under Authentication and Routing:
+    - Add FQDN: `5t4n6j0wnrl.sip.livekit.cloud`
+    - Set DNS record type to **SRV**
+  </Step>
+
+  <Step title="Set Up Outbound Authentication">
+    Under **Outbound Calls Authentication**:
+    - Choose **Credentials** as method
+    - Set a username and password (save these for later)
+  </Step>
+
+  <Step title="Configure Inbound Settings">
+    - Allow inbound calls in **+E.164 format** (critical — wrong format causes inbound failures)
+    - Choose codecs: **G722, G729, and OPUS**
+    - Select the region closest to you
+  </Step>
+
+  <Step title="Configure Outbound Settings">
+    Create a new **Outbound Voice Profile** and select it in the dropdown.
+  </Step>
+
+  <Step title="Import to Assistable">
+    Gather your raw phone number, SIP username, password, and URI (`sip.telnyx.com`), then import in the Assistable dashboard.
+  </Step>
+</Steps>
+
+<Warning>Double-check that the inbound format is set to +E.164 and the outbound URI is correct — incorrect values are the most common cause of call failures.</Warning>
+
+## Troubleshooting
+
+If calls aren't working, verify all steps above are done correctly. Assistable stores the SIP info you provide to build the SIP packet — whether calls connect depends on your Telnyx configuration. Contact Telnyx support for provider-side issues.

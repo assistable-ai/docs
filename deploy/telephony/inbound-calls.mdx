@@ -1,0 +1,31 @@
+---
+title: "Inbound Calls"
+description: "Configure your AI assistant to handle incoming phone calls."
+icon: "phone-arrow-down-left"
+---
+
+## Overview
+
+When a phone number is assigned to an AI assistant, all inbound calls to that number are automatically handled by the AI. The assistant follows its prompt and configured tools to manage the conversation.
+
+## Setup
+
+1. **Assign a number** to your assistant (buy or import)
+2. **Configure the prompt** with appropriate greeting and tasks
+3. **Enable calendar tools** if the assistant needs to book appointments
+4. **Set up webhooks** if you need pre-call or post-call automation
+
+## Call Flow
+
+1. Caller dials your AI assistant's number
+2. AI picks up and delivers its greeting
+3. Conversation proceeds based on the prompt and tools
+4. Call ends → post-call webhook fires with transcript, summary, and metadata
+5. Tags are automatically applied to the contact based on call outcome
+
+## Tips
+
+- Test inbound calls thoroughly before going live
+- Set a [call duration limit](/build/voice-ai/call-settings) to prevent runaway calls
+- Enable [voicemail detection](/build/voice-ai/voicemail-handling) if needed
+- Set up [pre/post-call webhooks](/deploy/webhooks/pre-post-call) for workflow automation

@@ -1,0 +1,37 @@
+---
+title: "Call Tagging"
+description: "Automatic tags applied to contacts after AI calls for disposition tracking and workflow automation."
+icon: "tags"
+---
+
+## Overview
+
+Whenever an AI call finishes, tags are automatically added to the contact to signify the call outcome and disposition. Use these tags to build post-call automations, campaigns, and reporting.
+
+## Available Tags
+
+| Tag | Description |
+|-----|-------------|
+| `answered` | Call was answered by the contact |
+| `not answered` | Contact did not answer |
+| `ai voice appointment booked` | AI successfully booked an appointment |
+| `voicemail reached` | Call went to voicemail |
+| `contact hangup` | Contact ended the call |
+| `ai hangup` | AI ended the call |
+| `dial failed` | Call failed to connect |
+| `dial no answer` | Dialed but no answer received |
+| `call transfer` | Call was transferred to another number |
+| `machine detected` | Answering machine or IVR detected |
+| `max duration reached` | Call hit the duration limit |
+| `dial busy` | Line was busy |
+| `inactivity` | Call ended due to inactivity |
+| `scam detected` | Potential scam call detected |
+
+<Note>More tags are being added regularly. Check your dashboard for the latest list.</Note>
+
+## Using Tags in Workflows
+
+Tags integrate seamlessly with GoHighLevel workflows:
+- **Trigger on Tag Added** to start post-call automations
+- Use tags **instead of or alongside** post-call webhooks
+- Build campaigns based on disposition (e.g., retry unanswered calls, follow up on booked appointments)

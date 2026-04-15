@@ -1,0 +1,36 @@
+---
+title: "Global Kill Switch (ai_off)"
+description: "Instantly disable AI responses for any contact using the ai_off tag."
+icon: "power-off"
+---
+
+## Overview
+
+The `ai_off` tag is a global kill switch that immediately stops AI from responding to a contact — even if an Active Tag is present. This gives you full control over when AI should and shouldn't engage.
+
+## For Chat AI
+
+<Steps>
+  <Step title="Disable AI">
+    Add the tag `ai_off` to the contact in GoHighLevel. The AI will stop responding immediately.
+  </Step>
+  <Step title="Verify">
+    Send a test message like "Can you help me?" — confirm the AI does not respond.
+  </Step>
+  <Step title="Re-enable AI">
+    Remove the `ai_off` tag. The AI resumes normal chat behavior.
+  </Step>
+</Steps>
+
+## For Voice AI
+
+You can use the same tag in voice workflows:
+1. Create a conditional workflow (IVR AI Switch)
+2. Add a condition: **If contact tag does NOT include `ai_off`** → Proceed with AI
+3. **If contact tag includes `ai_off`** → Route to human agent or manual transfer
+
+## Automation Tips
+
+- Use a GHL workflow to automatically apply `ai_off` when a human agent takes over a conversation
+- Remove `ai_off` when the human is done and you want AI to resume
+- Create a custom button or toggle in your CRM to quickly add/remove the tag

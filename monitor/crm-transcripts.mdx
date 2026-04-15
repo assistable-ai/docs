@@ -1,0 +1,29 @@
+---
+title: "CRM Transcripts"
+description: "Automatically log AI call transcripts and summaries to your CRM contact records."
+icon: "file-lines"
+---
+
+## Overview
+
+After every AI voice call, you can automatically capture and store the call transcript, summary, sentiment, and metadata in your GoHighLevel CRM. This keeps contact records up-to-date for follow-up and reporting.
+
+## Setup
+
+See [Pre-Call & Post-Call Webhooks](/deploy/webhooks/pre-post-call) for the complete setup guide. The key steps are:
+
+1. **Create post-call webhook workflow** in GHL
+2. **Create custom fields** for Conversation Summary and AI Conversation Transcript
+3. **Map webhook data** to those fields
+4. **Optionally add notes** with call metadata
+
+## Available Data
+
+The post-call webhook provides:
+- `call_summary` — AI-generated summary of the conversation
+- `full_transcript` — Complete conversation transcript
+- `user_sentiment` — Detected caller sentiment
+- `call_time_seconds` — Call duration
+- `recording_url` — Link to call recording
+- `disconnection_reason` — Why the call ended
+- `call_completion` — Whether the call completed successfully

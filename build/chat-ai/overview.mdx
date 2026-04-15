@@ -1,0 +1,40 @@
+---
+title: "Chat AI Overview"
+description: "Deploy AI chat assistants that respond to SMS and live chat without workflows, API calls, or webhooks."
+icon: "comments"
+---
+
+## How Chat AI Works
+
+Assistable's Chat AI responds to contacts automatically using **Active Tags**. No workflows, API calls, or webhooks are needed. When a message comes in and an Active Tag is detected on the contact, the system knows which assistant should respond.
+
+### Active Tag Behavior
+
+- **No Active Tag** → AI won't reply, but it still logs the conversation and adds it to the assistant's memory
+- **Active Tag Present** → System checks which assistant is linked to that tag and generates a response
+
+### Setting Up Active Tags
+
+1. Go to **Active Tags** in the sidebar menu
+2. Create a tag with a unique name
+3. Link it to an AI Assistant
+
+<Tip>Make your active tags unique so they don't conflict with existing CRM or contact list tags. You can dynamically reassign which assistant is tied to a tag without redoing your automation setup.</Tip>
+
+## Turning Chat AI On and Off
+
+### Turning AI On
+Assign an Active Tag to a contact. The easiest way is to enroll contacts into a GHL workflow that applies the tag. You can trigger this automatically (e.g., when a form is submitted).
+
+### Turning AI Off
+
+Three methods:
+1. **Remove the Active Tag** — No Active Tag = AI is off
+2. **Apply the `ai_off` tag** — Global kill switch that overrides Active Tags. [Learn more](/build/chat-ai/kill-switch)
+3. **Sleep Mode** — Temporarily pauses AI when a user or workflow sends a message
+
+### Sleep Mode
+
+Sleep Mode pauses AI responses for a set number of minutes after an outbound message is sent. This prevents overlap between human and AI replies.
+
+<Warning>Even automated messages (like appointment confirmations) trigger Sleep Mode. Be careful when enabling this alongside automated workflows.</Warning>

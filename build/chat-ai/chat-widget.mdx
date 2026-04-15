@@ -1,0 +1,39 @@
+---
+title: "AI Chat Widget"
+description: "Deploy an AI-powered voice widget on your website with Call You / Call Me functionality."
+icon: "browser"
+---
+
+## AI Voice Widget (Beta)
+
+The AI Voice Widget enables a **Call You / Call Me** interface on your website. Visitors can either receive a call from your AI assistant or initiate a call to it directly from the browser.
+
+## Installation
+
+To install the widget, you'll need to customize a few lines of the embed code:
+
+| Line | What to Change | Example |
+|------|----------------|---------|
+| 327 | Phone number (pretty format) | `(678) 931-7883` |
+| 330 | Phone number (raw format) | `+16789317883` |
+| 416 | GHL Inbound Webhook URL | Your webhook URL |
+| 523 | Phone number (no country code) | `6789317883` |
+
+### Embedding Steps
+
+<Steps>
+  <Step title="Copy the Widget Code">
+    Copy the provided HTML/CSS/JavaScript code from the widget builder.
+  </Step>
+  <Step title="Customize Phone Numbers">
+    Replace the placeholder phone numbers with your AI assistant's assigned number.
+  </Step>
+  <Step title="Add Webhook URL">
+    Add your GoHighLevel inbound webhook URL to capture lead data.
+  </Step>
+  <Step title="Embed on Your Site">
+    Paste the code into a custom HTML/code element on your website.
+  </Step>
+</Steps>
+
+<Note>This widget works on any website that supports custom HTML embedding — not just GoHighLevel sites.</Note>

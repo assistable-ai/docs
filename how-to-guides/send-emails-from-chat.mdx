@@ -1,0 +1,23 @@
+---
+title: "Send Emails from Chat"
+description: "Enable your AI to send emails during SMS and live chat conversations."
+icon: "envelope"
+---
+
+## Overview
+
+Configure your AI assistant to send emails on request during SMS and live chat conversations. This uses a custom tool connected to a GHL workflow webhook.
+
+## Setup
+
+<Steps>
+  <Step title="Create the Webhook Workflow">
+    In GHL, create an automation with an Inbound Webhook trigger. Add a "Send Email" action with dynamic fields mapped from the webhook data.
+  </Step>
+  <Step title="Create the Custom Tool">
+    Create a custom tool with parameters for recipient email, subject, and body. Set the endpoint to your webhook URL.
+  </Step>
+  <Step title="Update the Prompt">
+    Instruct the AI to use this tool when a user asks for information to be emailed.
+  </Step>
+</Steps>

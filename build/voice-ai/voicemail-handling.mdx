@@ -1,0 +1,31 @@
+---
+title: "Voicemail Handling"
+description: "Configure your AI assistant to detect and handle voicemail systems during calls."
+icon: "voicemail"
+---
+
+## Overview
+
+Your AI assistant can automatically detect voicemail systems and respond appropriately — either hanging up or leaving a customized message.
+
+The system runs voicemail detection in the background during calls. You have full control over the behavior:
+- **No voicemail message configured** → AI hangs up when voicemail is detected
+- **Voicemail message configured** → AI waits for its turn and delivers the message
+
+If the voicemail detection timeout is reached without detecting voicemail, the call continues as normal.
+
+## Enabling Voicemail Detection
+
+Inside your assistant's **Call Settings**, toggle **Enable Voicemail & Message**:
+
+- **Hang up on voicemail** — If no message is provided, the AI simply disconnects when it detects voicemail
+- **Leave a voicemail** — Customize the message using variables and dynamic inputs to personalize it based on the call context
+
+<Tip>Use variables like `{{contact.first_name}}` in your voicemail message to make it personal and contextual.</Tip>
+
+## Best Practices
+
+- Keep voicemail messages concise (under 30 seconds)
+- Include a callback number or next step
+- Use the `voicemail reached` tag in your workflows to track how many calls go to voicemail
+- Consider different strategies for inbound vs. outbound call voicemail handling

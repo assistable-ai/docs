@@ -1,0 +1,31 @@
+---
+title: "Common Issues & Solutions"
+description: "Quick fixes for the most frequently encountered problems."
+icon: "circle-question"
+---
+
+## Common Issues
+
+### AI Not Making Calls
+1. **Check wallet balance** — Agency wallet and sub-account wallet must have positive balances
+2. **Check phone number** — Assistant must have a number assigned
+3. **Check DNC** — The number may be on a Do Not Call list
+4. **Check assistant ID** — Verify the correct assistant ID in your workflow
+
+### AI Not Responding to Chat
+1. **Check Active Tags** — Contact must have an active tag assigned
+2. **Check `ai_off` tag** — Remove it if present
+3. **Check Sleep Mode** — AI may be paused after an outbound message
+
+### Calls Going to Voicemail
+- Enable voicemail detection in call settings
+- Consider adjusting call timing for better pickup rates
+
+### Calendar Not Booking
+- See [Calendar Debugging Guide](/troubleshooting/calendar-debugging)
+- Verify calendar sync and permissions
+
+### Webhook Not Firing
+- Verify the webhook URL is correct and confirmed (green checkmark)
+- Check that the workflow is published
+- Try fetching a sample request to verify connectivity
